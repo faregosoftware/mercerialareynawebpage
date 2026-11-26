@@ -98,16 +98,6 @@ nav a:hover{background:var(--blush)}
 .hours td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.25)}
 .hours td:last-child{text-align:right;white-space:nowrap}
 @media(max-width:700px){.cgrid{grid-template-columns:1fr}}
-/* collage */
-.collage{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(130px,16vw,210px);grid-auto-flow:dense;gap:12px;margin-top:24px}
-.tile{position:relative;margin:0;border-radius:18px;overflow:hidden;background:var(--blush)}
-.tile.w2{grid-column:span 2}.tile.h2{grid-row:span 2}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.tile:hover img{transform:scale(1.04)}
-.tile figcaption{position:absolute;left:10px;bottom:10px;background:rgba(42,16,23,.78);color:#fff;font-weight:700;font-size:14px;padding:5px 12px;border-radius:999px}
-.tile .ph{position:absolute;inset:0;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--blush) 0 14px,color-mix(in srgb,var(--blush) 80%,var(--line)) 14px 28px)}
-.tile .ph svg{width:min(42%,120px);height:auto}
-@media(max-width:600px){.collage{grid-template-columns:repeat(2,minmax(0,1fr))}.tile.w2.h2{grid-row:span 2}}
 footer{background:var(--red2);color:#ffe3ea;text-align:center;font-size:15px}
 /* carrito */
 .veil{position:fixed;inset:0;background:rgba(20,5,10,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
@@ -138,7 +128,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
       Mercería La Reina
     </a>
     <nav aria-label="Principal">
-      <a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
+      <a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
     </nav>
     <button class="btn cartbtn" id="openCart" aria-label="Abrir carrito">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
@@ -193,13 +183,6 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
         <g transform="translate(520 390)"><circle r="14" fill="#fff"/><circle cx="-4" r="2.5" fill="#0f7c80"/><circle cx="4" r="2.5" fill="#0f7c80"/></g>
       </g>
     </svg>
-  </div>
-</section>
-
-<section class="band" id="galeria">
-  <div class="wrap">
-    <h2>Así es La Reina por dentro</h2>
-    <div class="collage" id="collage"></div>
   </div>
 </section>
 
@@ -313,18 +296,6 @@ const ICON={
  machine:k=>`<path d="M10 78 V 30 Q10 20 20 20 H 80 Q90 20 90 30 V 50 H 70 V 78 Z" fill="${k}"/><rect x="4" y="78" width="92" height="12" rx="4" fill="#2a1017"/><rect x="70" y="50" width="8" height="20" fill="#9aa3a8"/><circle cx="30" cy="36" r="7" fill="#fff"/>`,
  fabric:k=>`<rect x="10" y="58" width="80" height="22" rx="4" fill="${k}" opacity=".6"/><rect x="14" y="40" width="74" height="22" rx="4" fill="${k}" opacity=".8"/><rect x="18" y="22" width="68" height="22" rx="4" fill="${k}"/><path d="M18 33h68" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 4"/>`
 };
-// Collage: coloca las fotos en la carpeta "fotos/" con estos nombres. Si falta una, se muestra un dibujo.
-const GAL=[
- {f:'tienda.jpg',t:'Nuestra tienda',s:'w2 h2',i:'spool',k:'#a3123a'},
- {f:'equipo.jpg',t:'Nuestro equipo',s:'h2',i:'scissors',k:'#0f7c80'},
- {f:'hilos.jpg',t:'Pared de hilos',s:'',i:'yarn',k:'#e0a526'},
- {f:'botones.jpg',t:'Botones',s:'',i:'button',k:'#ffffff'},
- {f:'mostrador.jpg',t:'Atención en mostrador',s:'w2',i:'tape',k:'#e0a526'},
- {f:'cintas.jpg',t:'Cintas y encajes',s:'',i:'ribbon',k:'#a3123a'},
- {f:'telas.jpg',t:'Telas',s:'',i:'fabric',k:'#0f7c80'}
-];
-$('#collage').innerHTML=GAL.map(g=>`<figure class="tile ${g.s}"><div class="ph"><svg viewBox="0 0 100 100" aria-hidden="true">${ICON[g.i](g.k)}</svg></div><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}" loading="lazy"><figcaption>${esc(g.t)}</figcaption></figure>`).join('');
-for(const im of document.querySelectorAll('#collage img')){im.addEventListener('error',()=>im.remove());if(im.complete&&!im.naturalWidth)im.remove()}
 let cat='Todos',query='',only=false,cart={};
 try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
 const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
