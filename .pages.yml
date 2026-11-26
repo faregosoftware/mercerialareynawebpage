@@ -1,0 +1,289 @@
+# Panel de contenido de Mercería La Reina (Pages CMS: https://app.pagescms.org)
+media:
+  input: fotos
+  output: fotos
+  extensions: [jpg, jpeg, png, webp, svg]
+
+content:
+  # ---------------------------------------------------------------- PRODUCTOS
+  - name: productos
+    label: Productos
+    type: file
+    path: content/productos.json
+    fields:
+      - name: nota
+        label: Nota debajo del catálogo
+        type: string
+      - name: productos
+        label: Lista de productos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nombre} · {categoria}"
+        fields:
+          - name: nombre
+            label: Nombre del producto
+            type: string
+            required: true
+          - name: categoria
+            label: Categoría
+            type: select
+            options:
+              values: [Hilos y estambres, Botones, Cintas y encajes, Cuentas y bisutería, Cierres, Herramientas, Telas, Manualidades, Otros]
+          - name: precio
+            label: Precio (RD$)
+            description: Precio con ITBIS incluido. Si es 0, el producto se muestra como "Solo por consulta".
+            type: number
+          - name: venta_en_linea
+            label: Se vende en línea
+            description: Activado = botón "Agregar al carrito". Desactivado = botón "Consultar" por WhatsApp.
+            type: boolean
+          - name: descripcion
+            label: Descripción corta
+            type: text
+          - name: foto
+            label: Foto del producto (opcional)
+            description: Si no subes foto, se muestra el dibujo elegido abajo.
+            type: image
+          - name: dibujo
+            label: Dibujo (si no hay foto)
+            type: select
+            options:
+              values:
+                - name: spool
+                  label: Carrete de hilo
+                - name: yarn
+                  label: Ovillo de estambre
+                - name: button
+                  label: Botón
+                - name: ribbon
+                  label: Cinta
+                - name: lace
+                  label: Encaje
+                - name: beads
+                  label: Cuentas
+                - name: zip
+                  label: Cierre
+                - name: scissors
+                  label: Tijera
+                - name: needle
+                  label: Aguja
+                - name: tape
+                  label: Cinta métrica
+                - name: machine
+                  label: Máquina de coser
+                - name: fabric
+                  label: Tela
+          - name: color
+            label: Color del dibujo
+            description: Código de color, por ejemplo #d1117f (fucsia), #3f8f27 (verde), #e0a526 (dorado).
+            type: string
+          - name: visible
+            label: Mostrar en la web
+            description: Desactívalo para ocultar el producto sin borrarlo.
+            type: boolean
+
+  # ---------------------------------------------------------- TEXTOS Y FOTOS
+  - name: sitio
+    label: Textos, fotos y sucursales
+    type: file
+    path: content/sitio.json
+    fields:
+      - name: whatsapp
+        label: WhatsApp para pedidos (solo números, con el 1 delante)
+        description: Ejemplo 18097248283. Aquí llegan los pedidos y consultas.
+        type: string
+      - name: whatsapp_visible
+        label: WhatsApp como se muestra en la web
+        description: Ejemplo 809-724-8283
+        type: string
+
+      - name: portada
+        label: Portada (fotos que cambian solas)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo}"
+        fields:
+          - name: foto
+            label: Foto de fondo (mejor horizontal, 1600 px de ancho o más)
+            type: image
+          - name: titulo
+            label: Título
+            type: string
+          - name: texto
+            label: Texto
+            type: text
+          - name: boton
+            label: Texto del botón
+            type: string
+          - name: destino
+            label: El botón lleva a
+            type: select
+            options:
+              values: [Contacto, Productos, Servicios, Galería, WhatsApp]
+          - name: categoria
+            label: Categoría a mostrar (si el botón lleva a Productos)
+            type: select
+            options:
+              values: [Todos, Hilos y estambres, Botones, Cintas y encajes, Cuentas y bisutería, Cierres, Herramientas, Telas, Manualidades, Otros]
+
+      - name: historia
+        label: Historia del negocio
+        type: object
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: subtitulo
+            label: Subtítulo
+            type: string
+          - name: foto
+            label: Foto
+            type: image
+          - name: parrafos
+            label: Párrafos
+            type: text
+            list: true
+          - name: nota
+            label: Nota pequeña (déjala vacía para quitarla)
+            type: string
+
+      - name: mision
+        label: Misión
+        type: text
+      - name: vision
+        label: Visión
+        type: text
+      - name: valores
+        label: Valores
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nombre}"
+        fields:
+          - name: nombre
+            label: Valor
+            type: string
+          - name: texto
+            label: Explicación
+            type: string
+
+      - name: servicios
+        label: Servicios
+        type: object
+        fields:
+          - name: intro
+            label: Texto de introducción
+            type: text
+          - name: recuadros
+            label: Recuadros con foto
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titulo}"
+            fields:
+              - name: foto
+                label: Foto
+                type: image
+              - name: titulo
+                label: Título
+                type: string
+              - name: texto
+                label: Texto corto
+                type: string
+              - name: destino
+                label: Al tocarlo lleva a
+                type: select
+                options:
+                  values: [Productos, WhatsApp, Contacto, Galería]
+              - name: categoria
+                label: Categoría a mostrar (si lleva a Productos)
+                type: select
+                options:
+                  values: [Todos, Hilos y estambres, Botones, Cintas y encajes, Cuentas y bisutería, Cierres, Herramientas, Telas, Manualidades, Otros]
+          - name: otros
+            label: Otros servicios
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{titulo}"
+            fields:
+              - name: titulo
+                label: Servicio
+                type: string
+              - name: texto
+                label: Descripción
+                type: string
+
+      - name: galeria
+        label: Galería de fotos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo}"
+        fields:
+          - name: foto
+            label: Foto
+            type: image
+          - name: titulo
+            label: Pie de foto
+            type: string
+
+      - name: sobre
+        label: Sobre Mercería La Reina
+        type: object
+        fields:
+          - name: titulo
+            label: Título
+            type: string
+          - name: texto
+            label: Texto
+            type: text
+
+      - name: sucursales
+        label: Sucursales
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nombre}"
+        fields:
+          - name: nombre
+            label: Nombre
+            type: string
+          - name: direccion
+            label: Dirección
+            type: string
+          - name: busqueda_mapa
+            label: Búsqueda para Google Maps
+            description: Lo que se busca al tocar "Cómo llegar". Incluye la ciudad para más precisión.
+            type: string
+          - name: telefono
+            label: Teléfono
+            type: string
+          - name: horario
+            label: Horario
+            type: object
+            list: true
+            fields:
+              - name: dias
+                label: Días
+                type: select
+                options:
+                  values: [Lunes a viernes, Lunes a sábado, Sábado, Domingo, Lunes a domingo]
+              - name: abre
+                label: Abre (formato 24 h, ej. 08:30)
+                type: string
+              - name: cierra
+                label: Cierra (formato 24 h, ej. 18:00)
+                type: string
+      - name: aviso_sucursales
+        label: Aviso debajo de las sucursales
+        type: string

@@ -16,13 +16,22 @@ Sitio web de Mercería La Reina (República Dominicana): presencia en la web, pr
 9. **Nuestras sucursales**: 3 tiendas con horario, "Abierto/Cerrado ahora", Llamar y Cómo llegar.
 10. **Pie de página**: Información, Sucursales y Enlaces.
 
-## Personalizar (en `index.html`, al inicio del `<script>`)
-- `CFG.wa`: número de WhatsApp para pedidos (formato 1809XXXXXXX).
-- `SUC`: sucursales, teléfonos y horarios.
-- `P`: productos (nombre, categoría, precio, venta en línea sí/no, descripción).
-- `SL`: diapositivas de la portada. `TILES`: recuadros de Servicios. `GAL`: fotos de la galería.
+## Cómo editar el contenido (panel Pages CMS)
+Todo el contenido vive en dos archivos, que se editan desde un panel con formularios:
+- `content/sitio.json`: portada, historia, misión, visión, valores, servicios, galería, "sobre", sucursales y WhatsApp.
+- `content/productos.json`: productos (nombre, categoría, precio, venta en línea sí/no, foto o dibujo, visible sí/no).
 
-Las fotos van en la carpeta `fotos/`. El logo es `logo-la-reina.png`.
+**Entrar al panel**
+1. Abre https://app.pagescms.org e inicia sesión con la cuenta de GitHub **faregosoftware**.
+2. Autoriza el acceso y elige el repositorio **mercerialareynawebpage**.
+3. Verás dos secciones: **Productos** y **Textos, fotos y sucursales**.
+4. Edita, sube fotos y pulsa **Save**. Cada cambio queda guardado en GitHub y la web se actualiza en 1–2 minutos.
+
+**Agregar un producto:** Productos → Lista de productos → Add → llena nombre, categoría, precio, activa "Se vende en línea" (o déjalo apagado para "Solo por consulta"), sube foto si tienes → Save.
+
+**Invitar a otra persona** (por ejemplo, una empleada): en el panel, Settings → Collaborators → invita por correo. No necesita cuenta de GitHub.
+
+La configuración del panel está en `.pages.yml`. Las fotos se guardan en la carpeta `fotos/`.
 
 ## Publicar con GitHub Pages
 Settings → Pages → Branch: `main` / root. El sitio queda en `https://faregosoftware.github.io/mercerialareynawebpage/`.

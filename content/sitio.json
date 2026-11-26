@@ -1,0 +1,194 @@
+{
+  "whatsapp": "18097248283",
+  "whatsapp_visible": "809-724-8283",
+  "portada": [
+    {
+      "foto": "fotos/tienda.jpg",
+      "titulo": "Explora todo lo que Mercería La Reina puede ofrecerte para tu emprendimiento personal",
+      "texto": "Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.",
+      "boton": "Contáctanos",
+      "destino": "Contacto",
+      "categoria": "Todos"
+    },
+    {
+      "foto": "fotos/cintas.jpg",
+      "titulo": "Cintas de todos los colores",
+      "texto": "Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.",
+      "boton": "Ver cintas",
+      "destino": "Productos",
+      "categoria": "Cintas y encajes"
+    },
+    {
+      "foto": "fotos/cuentas.jpg",
+      "titulo": "Cuentas para bisutería",
+      "texto": "Hileras de cuentas en cristal y colores para collares, pulseras y aretes.",
+      "boton": "Ver cuentas",
+      "destino": "Productos",
+      "categoria": "Cuentas y bisutería"
+    },
+    {
+      "foto": "fotos/equipo-ancho.svg",
+      "titulo": "Te atiende nuestro equipo",
+      "texto": "Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.",
+      "boton": "Escríbenos por WhatsApp",
+      "destino": "WhatsApp",
+      "categoria": "Todos"
+    }
+  ],
+  "historia": {
+    "titulo": "Historia del negocio",
+    "subtitulo": "Una mercería de confianza para ayudarte",
+    "foto": "fotos/tienda.jpg",
+    "parrafos": [
+      "Mercería La Reina nació con una idea sencilla: que costureras, modistas, artesanos, estudiantes y familias encuentren en un solo lugar todo lo que necesitan para coser, bordar, tejer y crear.",
+      "Con el tiempo fuimos ampliando el surtido con cintas, encajes, cuentas para bisutería y materiales para manualidades, y hoy te atendemos en tres sucursales.",
+      "Nuestro compromiso sigue siendo el mismo: variedad, buenos precios y una atención cercana, para que cada proyecto quede como lo imaginaste."
+    ],
+    "nota": "Texto de ejemplo: con el año de fundación y la historia real de la tienda lo dejamos exacto."
+  },
+  "mision": "Ofrecer a nuestros clientes los artículos de mercería, cintas, cuentas y manualidades que necesitan, con variedad, calidad y buen precio, ayudándoles a convertir cada idea en un trabajo bien hecho.",
+  "vision": "Ser la mercería preferida de nuestra comunidad, reconocida por su surtido, su servicio cercano y por estar siempre al día con lo que buscan quienes cosen y crean.",
+  "valores": [
+    {
+      "nombre": "Calidad",
+      "texto": "productos que rinden y duran."
+    },
+    {
+      "nombre": "Variedad",
+      "texto": "colores, modelos y tamaños para cada proyecto."
+    },
+    {
+      "nombre": "Cercanía",
+      "texto": "atención amable y personalizada."
+    },
+    {
+      "nombre": "Compromiso",
+      "texto": "cumplir con lo que prometemos."
+    },
+    {
+      "nombre": "Creatividad",
+      "texto": "ideas nuevas para tus trabajos."
+    }
+  ],
+  "servicios": {
+    "intro": "Todo para tus proyectos de costura, decoración y bisutería, con asesoría en tienda.",
+    "recuadros": [
+      {
+        "foto": "fotos/tienda.jpg",
+        "titulo": "Mercería",
+        "texto": "Hilos, botones, cierres y agujas",
+        "destino": "Productos",
+        "categoria": "Todos"
+      },
+      {
+        "foto": "fotos/cintas.jpg",
+        "titulo": "Cintas y encajes",
+        "texto": "Para lazos, ropa y decoración",
+        "destino": "Productos",
+        "categoria": "Cintas y encajes"
+      },
+      {
+        "foto": "fotos/cuentas.jpg",
+        "titulo": "Cuentas y bisutería",
+        "texto": "Cristal, acrílico y más",
+        "destino": "Productos",
+        "categoria": "Cuentas y bisutería"
+      },
+      {
+        "foto": "fotos/equipo.svg",
+        "titulo": "Atención personalizada",
+        "texto": "Te asesoramos en tienda",
+        "destino": "WhatsApp",
+        "categoria": "Todos"
+      }
+    ],
+    "otros": [
+      {
+        "titulo": "Ventas al por mayor",
+        "texto": "Precios especiales para talleres, escuelas y revendedores."
+      },
+      {
+        "titulo": "Forrado de botones",
+        "texto": "Con tu propia tela, en varios tamaños. Se cotiza."
+      },
+      {
+        "titulo": "Pedidos especiales",
+        "texto": "¿No encuentras un color o modelo? Lo buscamos por ti."
+      }
+    ]
+  },
+  "galeria": [
+    {
+      "foto": "fotos/tienda.jpg",
+      "titulo": "Nuestra tienda"
+    },
+    {
+      "foto": "fotos/cintas.jpg",
+      "titulo": "Pared de cintas"
+    },
+    {
+      "foto": "fotos/cuentas.jpg",
+      "titulo": "Cuentas para bisutería"
+    },
+    {
+      "foto": "fotos/equipo.svg",
+      "titulo": "Nuestro equipo"
+    }
+  ],
+  "sobre": {
+    "titulo": "Mercería La Reina, tienda de mercería y materiales creativos",
+    "texto": "Somos una mercería dominicana con tres sucursales, especializada en hilos, botones, cintas, encajes, cierres, cuentas para bisutería y artículos para manualidades. Atendemos tanto al cliente que necesita un solo botón como a talleres y negocios que compran al por mayor."
+  },
+  "sucursales": [
+    {
+      "nombre": "Calle Restauración",
+      "direccion": "Calle Restauración #39",
+      "busqueda_mapa": "Calle Restauración 39, República Dominicana",
+      "telefono": "809-724-8283",
+      "horario": [
+        {
+          "dias": "Lunes a viernes",
+          "abre": "08:30",
+          "cierra": "18:00"
+        },
+        {
+          "dias": "Sábado",
+          "abre": "08:30",
+          "cierra": "17:00"
+        }
+      ]
+    },
+    {
+      "nombre": "Av. Rafael Vidal",
+      "direccion": "Av. Rafael Vidal esq. Calle #7",
+      "busqueda_mapa": "Avenida Rafael Vidal esquina Calle 7, República Dominicana",
+      "telefono": "809-382-3277",
+      "horario": [
+        {
+          "dias": "Lunes a viernes",
+          "abre": "08:30",
+          "cierra": "18:00"
+        },
+        {
+          "dias": "Sábado",
+          "abre": "09:00",
+          "cierra": "18:00"
+        }
+      ]
+    },
+    {
+      "nombre": "Calle Beller",
+      "direccion": "Calle Beller #110",
+      "busqueda_mapa": "C. Beller 73, República Dominicana",
+      "telefono": "809-241-5077",
+      "horario": [
+        {
+          "dias": "Lunes a sábado",
+          "abre": "09:00",
+          "cierra": "18:00"
+        }
+      ]
+    }
+  ],
+  "aviso_sucursales": "Domingos: cerrado."
+}

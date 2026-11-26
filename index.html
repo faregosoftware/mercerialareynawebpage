@@ -221,59 +221,23 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 </section>
 
 <section class="band" id="nosotros">
-  <div class="wrap story">
-    <div class="pic"><img src="fotos/tienda.jpg" alt="Pasillo de Mercería La Reina con exhibidores de mercería y manualidades" loading="lazy"></div>
-    <div>
-      <h2>Historia del negocio</h2>
-      <p class="sub">Una mercería de confianza para ayudarte</p>
-      <p>Mercería La Reina nació con una idea sencilla: que costureras, modistas, artesanos, estudiantes y familias encuentren en un solo lugar todo lo que necesitan para coser, bordar, tejer y crear.</p>
-      <p>Con el tiempo fuimos ampliando el surtido con cintas, encajes, cuentas para bisutería y materiales para manualidades, y hoy te atendemos en tres sucursales.</p>
-      <p>Nuestro compromiso sigue siendo el mismo: variedad, buenos precios y una atención cercana, para que cada proyecto quede como lo imaginaste.</p>
-      <p class="note">Texto de ejemplo: con el año de fundación y la historia real de la tienda lo dejamos exacto.</p>
-    </div>
-  </div>
+  <div class="wrap story" id="story"></div>
 </section>
 
 <section class="band mvv" id="valores">
   <div class="wrap center">
     <h2>Lo que nos mueve</h2>
-    <div class="cards3" style="text-align:left">
-      <article class="mv">
-        <div class="ic" style="background:var(--red)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Misión</h3>
-        <p>Ofrecer a nuestros clientes los artículos de mercería, cintas, cuentas y manualidades que necesitan, con variedad, calidad y buen precio, ayudándoles a convertir cada idea en un trabajo bien hecho.</p>
-      </article>
-      <article class="mv">
-        <div class="ic" style="background:var(--green)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Visión</h3>
-        <p>Ser la mercería preferida de nuestra comunidad, reconocida por su surtido, su servicio cercano y por estar siempre al día con lo que buscan quienes cosen y crean.</p>
-      </article>
-      <article class="mv">
-        <div class="ic" style="background:var(--gold)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M3 19l2-11 5 5 2-8 2 8 5-5 2 11z"/></svg></div>
-        <h3>Valores</h3>
-        <ul>
-          <li><b>Calidad:</b> productos que rinden y duran.</li>
-          <li><b>Variedad:</b> colores, modelos y tamaños para cada proyecto.</li>
-          <li><b>Cercanía:</b> atención amable y personalizada.</li>
-          <li><b>Compromiso:</b> cumplir con lo que prometemos.</li>
-          <li><b>Creatividad:</b> ideas nuevas para tus trabajos.</li>
-        </ul>
-      </article>
-    </div>
+    <div class="cards3" id="mvv" style="text-align:left"></div>
   </div>
 </section>
 
 <section class="band" id="servicios">
   <div class="wrap center">
     <h2>Servicios</h2>
-    <p class="sub" style="max-width:38em">Todo para tus proyectos de costura, decoración y bisutería, con asesoría en tienda.</p>
+    <p class="sub" style="max-width:38em;margin-inline:auto" id="svcIntro"></p>
     <div class="cta" style="justify-content:center"><a class="btn" href="#galeria">Explora nuestra galería</a><a class="btn ghost" href="#productos">Ver productos</a></div>
     <div class="tiles" id="tiles"></div>
-    <div class="svcx">
-      <div><b>Ventas al por mayor</b><p>Precios especiales para talleres, escuelas y revendedores.</p></div>
-      <div><b>Forrado de botones</b><p>Con tu propia tela, en varios tamaños. Se cotiza.</p></div>
-      <div><b>Pedidos especiales</b><p>¿No encuentras un color o modelo? Lo buscamos por ti.</p></div>
-    </div>
+    <div class="svcx" id="svcx"></div>
   </div>
 </section>
 
@@ -287,7 +251,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
       <label class="toggle"><input type="checkbox" id="onlySale"> Solo venta en línea</label>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="note">Productos y precios de ejemplo: se reemplazan con el inventario real de la tienda.</p>
+    <p class="note" id="pnote"></p>
   </div>
 </section>
 
@@ -302,8 +266,8 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 <section class="about" id="sobre">
   <div class="lab"><b>Sobre<br>Mercería<br>La Reina</b></div>
   <div class="txt">
-    <h3>Mercería La Reina, tienda de mercería y materiales creativos</h3>
-    <p>Somos una mercería dominicana con tres sucursales, especializada en hilos, botones, cintas, encajes, cierres, cuentas para bisutería y artículos para manualidades. Atendemos tanto al cliente que necesita un solo botón como a talleres y negocios que compran al por mayor.</p>
+    <h3 id="sobreT"></h3>
+    <p id="sobreX"></p>
     <img src="logo-la-reina.png" alt="La Reina Mercería" loading="lazy">
   </div>
 </section>
@@ -313,7 +277,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
     <h2>Nuestras sucursales</h2>
     <p class="lead">Visítanos en cualquiera de nuestras tres tiendas o llámanos.</p>
     <div class="branches" id="branches"></div>
-    <p class="lead small">Domingos: cerrado.</p>
+    <p class="lead small" id="sucNota"></p>
   </div>
 </section>
 
@@ -321,7 +285,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
   <div class="wrap">
     <div class="fcols">
       <div><img class="flogo" src="logo-la-reina.png" alt="La Reina Mercería" loading="lazy"><p>Todo para coser, bordar, tejer y crear.</p></div>
-      <div><h4>Información</h4><ul><li><a id="fWa" href="#" target="_blank" rel="noopener">WhatsApp: 809-724-8283</a></li><li>Lunes a sábado</li><li>Domingos: cerrado</li></ul></div>
+      <div><h4>Información</h4><ul><li><a id="fWa" href="#" target="_blank" rel="noopener"></a></li><li>Lunes a sábado</li><li>Domingos: cerrado</li></ul></div>
       <div><h4>Sucursales</h4><ul id="fSuc"></ul></div>
       <div><h4>Enlaces</h4><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#productos">Productos</a></li><li><a href="#galeria">Galería</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
     </div>
@@ -339,46 +303,12 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 
 <script>
 {
-// WhatsApp para pedidos (por ahora, el de la sucursal Restauración). Formato: 1 + número sin guiones.
-const CFG={wa:'18097248283'};
-// Sucursales. Horario: [día 0=domingo..6=sábado] -> [abre, cierra] en horas (8.5 = 8:30).
-const SUC=[
- {n:'Calle Restauración',a:'Calle Restauración #39',m:'Calle Restauración 39, República Dominicana',t:'809-724-8283',
-  h:[['Lunes a viernes','8:30 a. m. – 6:00 p. m.'],['Sábado','8:30 a. m. – 5:00 p. m.']],o:{1:[8.5,18],2:[8.5,18],3:[8.5,18],4:[8.5,18],5:[8.5,18],6:[8.5,17]}},
- {n:'Av. Rafael Vidal',a:'Av. Rafael Vidal esq. Calle #7',m:'Avenida Rafael Vidal esquina Calle 7, República Dominicana',t:'809-382-3277',
-  h:[['Lunes a viernes','8:30 a. m. – 6:00 p. m.'],['Sábado','9:00 a. m. – 6:00 p. m.']],o:{1:[8.5,18],2:[8.5,18],3:[8.5,18],4:[8.5,18],5:[8.5,18],6:[9,18]}},
- {n:'Calle Beller',a:'Calle Beller #110',m:'C. Beller 73, República Dominicana',t:'809-241-5077',
-  h:[['Lunes a sábado','9:00 a. m. – 6:00 p. m.']],o:{1:[9,18],2:[9,18],3:[9,18],4:[9,18],5:[9,18],6:[9,18]}}
-];
-const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cuentas y bisutería','Cierres','Herramientas','Telas'];
-const P=[
- {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#d1117f',d:'Resistente, para máquina y a mano. Varios colores.'},
- {id:'h2',n:'Hilo de bordar (madeja)',c:'Hilos y estambres',p:35,v:1,i:'spool',k:'#3f8f27',d:'Algodón mercerizado de 6 hebras.'},
- {id:'h3',n:'Estambre acrílico 100 g',c:'Hilos y estambres',p:180,v:1,i:'yarn',k:'#e0a526',d:'Ideal para tejer a crochet y dos agujas.'},
- {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#9c0c5f',d:'Para talleres y fábricas. Precio según cantidad.'},
- {id:'b1',n:'Botones nácar, paquete de 12',c:'Botones',p:120,v:1,i:'button',k:'#ffffff',d:'Para camisas y blusas, 11 mm.'},
- {id:'b2',n:'Botones de madera, paquete de 10',c:'Botones',p:95,v:1,i:'button',k:'#c99c58',d:'Acabado natural, 20 mm.'},
- {id:'b3',n:'Botones forrados a medida',c:'Botones',p:null,v:0,i:'button',k:'#f2a6cf',d:'Con tu propia tela. Se cotiza.'},
- {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#d1117f',d:'Para lazos, decoración y manualidades.'},
- {id:'c4',n:'Cinta grosgrain estampada (yarda)',c:'Cintas y encajes',p:25,v:1,i:'ribbon',k:'#3f8f27',d:'Lunares, rayas y zigzag en muchos colores.'},
- {id:'c2',n:'Encaje de algodón (por yarda)',c:'Cintas y encajes',p:60,v:1,i:'lace',k:'#fde6f2',d:'Blanco o crudo, 2" de ancho.'},
- {id:'c3',n:'Encaje para novia',c:'Cintas y encajes',p:null,v:0,i:'lace',k:'#ffffff',d:'Modelos exclusivos. Ven a verlos o pide fotos.'},
- {id:'q1',n:'Cuentas de cristal (hilera)',c:'Cuentas y bisutería',p:null,v:0,i:'beads',k:'#d1117f',d:'Facetadas, en muchos colores y tamaños. Consulta disponibilidad.'},
- {id:'q2',n:'Cuentas acrílicas surtidas',c:'Cuentas y bisutería',p:null,v:0,i:'beads',k:'#3f8f27',d:'Para collares, pulseras y manualidades escolares.'},
- {id:'z1',n:'Cierre invisible 9"',c:'Cierres',p:40,v:1,i:'zip',k:'#3f8f27',d:'Para faldas y vestidos.'},
- {id:'z2',n:'Cierre metálico para jean 7"',c:'Cierres',p:45,v:1,i:'zip',k:'#b07a10',d:'Dientes de bronce, cursor con traba.'},
- {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#d1117f',d:'Largos especiales para chaquetas y bolsos.'},
- {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#d1117f',d:'Acero inoxidable, corte preciso de tela.'},
- {id:'t2',n:'Agujas de mano surtidas',c:'Herramientas',p:55,v:1,i:'needle',k:'#3f8f27',d:'Sobre de 25 agujas de varios tamaños.'},
- {id:'t3',n:'Cinta métrica 150 cm',c:'Herramientas',p:75,v:1,i:'tape',k:'#e0a526',d:'Flexible, en centímetros y pulgadas.'},
- {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#d1117f',d:'Disponibilidad y precio en tienda.'},
- {id:'f1',n:'Tela de algodón (por yarda)',c:'Telas',p:null,v:0,i:'fabric',k:'#3f8f27',d:'Estampados y lisos. Consulta colores disponibles.'},
- {id:'f2',n:'Fieltro en láminas',c:'Telas',p:null,v:0,i:'fabric',k:'#e0a526',d:'Para manualidades escolares. Consulta colores.'}
-];
+// El contenido se edita en content/sitio.json y content/productos.json (desde el panel Pages CMS).
 const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const rd=n=>'RD$ '+n.toLocaleString('es-DO',{minimumFractionDigits:2,maximumFractionDigits:2});
-const waLink=t=>'https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(t);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rd=n=>'RD$ '+Number(n).toLocaleString('es-DO',{minimumFractionDigits:2,maximumFractionDigits:2});
+const slug=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const src=f=>esc(String(f||'').replace(/^\//,''));
 const ICON={
  spool:k=>`<rect x="18" y="8" width="64" height="10" rx="4" fill="#e9c98f"/><rect x="18" y="82" width="64" height="10" rx="4" fill="#e9c98f"/><rect x="26" y="18" width="48" height="64" fill="${k}"/><path d="M26 30l48-6M26 44l48-6M26 58l48-6M26 72l48-6" stroke="rgba(0,0,0,.2)" stroke-width="2"/>`,
  yarn:k=>`<circle cx="50" cy="50" r="38" fill="${k}"/><path d="M20 36c20 10 40 10 60-4M16 54c24 12 48 12 68-6M26 74c16 6 34 6 50-8M40 14c-8 24-8 48 6 72" stroke="rgba(0,0,0,.2)" stroke-width="3" fill="none"/><path d="M84 66c8 10 4 22-8 24" stroke="${k}" stroke-width="4" fill="none"/>`,
@@ -393,136 +323,142 @@ const ICON={
  machine:k=>`<path d="M10 78 V 30 Q10 20 20 20 H 80 Q90 20 90 30 V 50 H 70 V 78 Z" fill="${k}"/><rect x="4" y="78" width="92" height="12" rx="4" fill="#2a1017"/><rect x="70" y="50" width="8" height="20" fill="#9aa3a8"/><circle cx="30" cy="36" r="7" fill="#fff"/>`,
  fabric:k=>`<rect x="10" y="58" width="80" height="22" rx="4" fill="${k}" opacity=".6"/><rect x="14" y="40" width="74" height="22" rx="4" fill="${k}" opacity=".8"/><rect x="18" y="22" width="68" height="22" rx="4" fill="${k}"/><path d="M18 33h68" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 4"/>`
 };
-// Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
-const SL=[
- {f:'tienda.jpg',t:'Explora todo lo que Mercería La Reina puede ofrecerte para tu emprendimiento personal',d:'Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.',b:'Contáctanos',h:'#contacto'},
- {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes'},
- {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Ver cuentas',h:'#productos',c:'Cuentas y bisutería'},
- {f:'equipo-ancho.svg',pos:'right center',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1}
-];
-// Servicios: recuadros con foto (como en el ejemplo)
-const TILES=[
- {f:'tienda.jpg',t:'Mercería',s:'Hilos, botones, cierres y agujas',go:'Todos'},
- {f:'cintas.jpg',t:'Cintas y encajes',s:'Para lazos, ropa y decoración',go:'Cintas y encajes'},
- {f:'cuentas.jpg',t:'Cuentas y bisutería',s:'Cristal, acrílico y más',go:'Cuentas y bisutería'},
- {f:'equipo.svg',t:'Atención personalizada',s:'Te asesoramos en tienda',wa:1}
-];
-// Galería: agrega más fotos a la carpeta "fotos/" y a esta lista
-const GAL=[
- {f:'tienda.jpg',t:'Nuestra tienda',tall:1},
- {f:'cintas.jpg',t:'Pared de cintas',tall:1},
- {f:'cuentas.jpg',t:'Cuentas para bisutería',tall:1},
- {f:'equipo.svg',t:'Nuestro equipo',tall:1}
-];
+const color=c=>/^#[0-9a-f]{3,8}$/i.test(c||'')?c:'#d1117f';
+const CAT_ORDER=['Hilos y estambres','Botones','Cintas y encajes','Cuentas y bisutería','Cierres','Herramientas','Telas','Manualidades','Otros'];
+const DIAS={'Lunes a viernes':[1,2,3,4,5],'Lunes a sábado':[1,2,3,4,5,6],'Sábado':[6],'Domingo':[0],'Lunes a domingo':[0,1,2,3,4,5,6]};
+const hora=t=>{const m=/^(\d{1,2}):(\d{2})/.exec(t||'');if(!m)return null;return +m[1]+ +m[2]/60};
+const hora12=t=>{const m=/^(\d{1,2}):(\d{2})/.exec(t||'');if(!m)return esc(t);let H=+m[1];const ap=H<12?'a. m.':'p. m.';H=H%12||12;return `${H}:${m[2]} ${ap}`};
+const tel=t=>'tel:+1'+String(t).replace(/\D/g,'');
 
-$('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
- <div class="bg"><img src="fotos/${esc(s.f)}" alt="" style="object-position:${s.pos||'center'}"></div>
- <div class="shade"></div>
- <div class="copy"><h${j?2:1}>${esc(s.t)}</h${j?2:1}><p>${esc(s.d)}</p><a class="btn" ${s.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="${s.h}"`} ${s.c?`data-go="${esc(s.c)}"`:''}>${esc(s.b)}</a></div></div>`).join('');
-$('#tiles').innerHTML=TILES.map(t=>`<a class="tile" ${t.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="#productos" data-go="${esc(t.go)}"`}><img src="fotos/${esc(t.f)}" alt="" loading="lazy"><span><b>${esc(t.t)}</b><small>${esc(t.s)}</small></span></a>`).join('');
-$('#gal').innerHTML=GAL.map(g=>`<figure class="${g.tall?'tall':''}"><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}" loading="lazy"><figcaption>${esc(g.t)}</figcaption></figure>`).join('');
+function start(S,PR){
+  const waLink=t=>'https://wa.me/'+String(S.whatsapp||'').replace(/\D/g,'')+'?text='+encodeURIComponent(t);
+  const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
+  const P=(PR.productos||[]).filter(p=>p.visible!==false&&p.nombre).map(p=>({...p,id:slug(p.nombre),v:!!p.venta_en_linea&&Number(p.precio)>0,p:Number(p.precio)||0}));
+  const CATS=['Todos',...CAT_ORDER.filter(c=>P.some(p=>p.categoria===c)),...[...new Set(P.map(p=>p.categoria))].filter(c=>c&&!CAT_ORDER.includes(c))];
+  const action=(o,cls)=>o.destino==='WhatsApp'?`class="${cls}" href="${esc(hello)}" target="_blank" rel="noopener"`:o.destino==='Productos'?`class="${cls}" href="#productos" data-go="${esc(o.categoria||'Todos')}"`:`class="${cls}" href="#${o.destino==='Servicios'?'servicios':o.destino==='Galería'?'galeria':'contacto'}"`;
 
-// carrusel
-$('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
-const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('#dots button')];
-let cur=0,timer=null;const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const show=n=>{cur=(n+SL.length)%SL.length;slides.forEach((s,j)=>s.classList.toggle('on',j===cur));dots.forEach((d,j)=>d.setAttribute('aria-current',j===cur))};
-const play=()=>{clearInterval(timer);if(!still)timer=setInterval(()=>{if(!document.hidden)show(cur+1)},6000)};
-show(0);play();
-$('#prev').addEventListener('click',()=>{show(cur-1);play()});
-$('#next').addEventListener('click',()=>{show(cur+1);play()});
-$('#dots').addEventListener('click',e=>{const b=e.target.closest('[data-dot]');if(b){show(+b.dataset.dot);play()}});
-const hero=$('#inicio');hero.addEventListener('mouseenter',()=>clearInterval(timer));hero.addEventListener('mouseleave',play);
-let sx=null;hero.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()}sx=null});
-hero.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);play()}if(e.key==='ArrowRight'){show(cur+1);play()}});
+  // portada
+  const SL=S.portada||[];
+  $('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
+   <div class="bg"><img src="${src(s.foto)}" alt="" style="object-position:${/equipo/.test(s.foto)?'right center':'center'}"></div><div class="shade"></div>
+   <div class="copy"><h${j?2:1}>${esc(s.titulo)}</h${j?2:1}><p>${esc(s.texto)}</p>${s.boton?`<a ${action(s,'btn')}>${esc(s.boton)}</a>`:''}</div></div>`).join('');
+  $('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
+  const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('#dots button')];
+  let cur=0,timer=null;const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show=n=>{if(!SL.length)return;cur=(n+SL.length)%SL.length;slides.forEach((s,j)=>s.classList.toggle('on',j===cur));dots.forEach((d,j)=>d.setAttribute('aria-current',j===cur))};
+  const play=()=>{clearInterval(timer);if(!still&&SL.length>1)timer=setInterval(()=>{if(!document.hidden)show(cur+1)},6000)};
+  show(0);play();
+  $('#prev').addEventListener('click',()=>{show(cur-1);play()});
+  $('#next').addEventListener('click',()=>{show(cur+1);play()});
+  $('#dots').addEventListener('click',e=>{const b=e.target.closest('[data-dot]');if(b){show(+b.dataset.dot);play()}});
+  const hero=$('#inicio');hero.addEventListener('mouseenter',()=>clearInterval(timer));hero.addEventListener('mouseleave',play);
+  let sx=null;hero.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()}sx=null});
+  hero.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);play()}if(e.key==='ArrowRight'){show(cur+1);play()}});
 
-// encabezado: transparente sobre la foto, blanco al bajar
+  // historia, misión, visión, valores
+  const H=S.historia||{};
+  $('#story').innerHTML=`<div class="pic"><img src="${src(H.foto)}" alt="Foto de Mercería La Reina" loading="lazy"></div><div><h2>${esc(H.titulo)}</h2><p class="sub">${esc(H.subtitulo)}</p>${(H.parrafos||[]).map(t=>`<p>${esc(t)}</p>`).join('')}${H.nota?`<p class="note">${esc(H.nota)}</p>`:''}</div>`;
+  $('#mvv').innerHTML=`<article class="mv"><div class="ic" style="background:var(--red)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Misión</h3><p>${esc(S.mision)}</p></article>
+   <article class="mv"><div class="ic" style="background:var(--green)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Visión</h3><p>${esc(S.vision)}</p></article>
+   <article class="mv"><div class="ic" style="background:var(--gold)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M3 19l2-11 5 5 2-8 2 8 5-5 2 11z"/></svg></div><h3>Valores</h3><ul>${(S.valores||[]).map(v=>`<li><b>${esc(v.nombre)}:</b> ${esc(v.texto)}</li>`).join('')}</ul></article>`;
+
+  // servicios
+  const SV=S.servicios||{};
+  $('#svcIntro').textContent=SV.intro||'';
+  $('#tiles').innerHTML=(SV.recuadros||[]).map(t=>`<a ${action(t,'tile')}><img src="${src(t.foto)}" alt="" loading="lazy"><span><b>${esc(t.titulo)}</b><small>${esc(t.texto)}</small></span></a>`).join('');
+  $('#svcx').innerHTML=(SV.otros||[]).map(o=>`<div><b>${esc(o.titulo)}</b><p>${esc(o.texto)}</p></div>`).join('');
+
+  // galería y sobre
+  $('#gal').innerHTML=(S.galeria||[]).map(g=>`<figure class="tall"><img src="${src(g.foto)}" alt="${esc(g.titulo)}" loading="lazy"><figcaption>${esc(g.titulo)}</figcaption></figure>`).join('');
+  $('#sobreT').textContent=(S.sobre||{}).titulo||'';$('#sobreX').textContent=(S.sobre||{}).texto||'';
+
+  // sucursales
+  const SUC=S.sucursales||[];
+  const nowDR=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Santo_Domingo'}));return {w:d.getDay(),h:d.getHours()+d.getMinutes()/60}};
+  const renderSuc=()=>{const {w,h:hr}=nowDR();$('#branches').innerHTML=SUC.map(s=>{
+    const op=(s.horario||[]).some(r=>(DIAS[r.dias]||[]).includes(w)&&hr>=hora(r.abre)&&hr<hora(r.cierra));
+    return `<article class="br"><span class="st ${op?'open':''}">${op?'Abierto ahora':'Cerrado ahora'}</span><h3>${esc(s.nombre)}</h3><div>${esc(s.direccion)}</div>
+    <a class="ph" href="${tel(s.telefono)}">${esc(s.telefono)}</a>
+    <table class="hours">${(s.horario||[]).map(r=>`<tr><td>${esc(r.dias)}</td><td>${hora12(r.abre)} – ${hora12(r.cierra)}</td></tr>`).join('')}</table>
+    <div class="acts"><a class="btn" href="${tel(s.telefono)}">Llamar</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.busqueda_mapa||s.direccion)}">Cómo llegar</a></div></article>`}).join('')};
+  renderSuc();setInterval(renderSuc,60000);
+  $('#sucNota').textContent=S.aviso_sucursales||'';
+  $('#fSuc').innerHTML=SUC.map(s=>`<li>${esc(s.direccion)} · <a href="${tel(s.telefono)}">${esc(s.telefono)}</a></li>`).join('');
+  $('#fWa').href=hello;$('#fWa').textContent='WhatsApp: '+(S.whatsapp_visible||S.whatsapp||'');
+
+  // catálogo y carrito
+  $('#pnote').textContent=PR.nota||'';
+  let cat='Todos',query='',only=false,cart={};
+  try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
+  const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
+  const byId=id=>P.find(p=>p.id===id);
+  let tt;const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),1800)};
+  const renderChips=()=>{$('#chips').innerHTML=CATS.map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('')};
+  const pic=p=>p.foto?`<img src="${src(p.foto)}" alt="${esc(p.nombre)}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`:`<svg viewBox="0 0 100 100" aria-hidden="true">${(ICON[p.dibujo]||ICON.spool)(color(p.color))}</svg>`;
+  const renderGrid=()=>{
+    const q=query.trim().toLowerCase();
+    const list=P.filter(p=>(cat==='Todos'||p.categoria===cat)&&(!only||p.v)&&(!q||(p.nombre+' '+(p.descripcion||'')+' '+p.categoria).toLowerCase().includes(q)));
+    $('#grid').innerHTML=list.length?list.map(p=>`<article class="prod">
+      <div class="thumb">${pic(p)}</div>
+      <div class="pbody"><small>${esc(p.categoria)}</small><h3>${esc(p.nombre)}</h3><p>${esc(p.descripcion)}</p>
+      ${p.v?`<span class="price">${rd(p.p)}</span>`:`<span class="tag">Solo por consulta</span>`}
+      <div class="prow">${p.v?`<button class="btn" data-add="${p.id}">Agregar al carrito</button>`:`<a class="btn ghost" href="${esc(waLink('Hola, Mercería La Reina. Quisiera información sobre: '+p.nombre))}" target="_blank" rel="noopener">Consultar</a>`}</div></div>
+    </article>`).join(''):`<div class="empty">No encontramos productos con esa búsqueda. Prueba otra palabra o escríbenos.</div>`;
+  };
+  const items=()=>Object.entries(cart).map(([id,q])=>({p:byId(id),q})).filter(x=>x.p&&x.p.v&&x.q>0);
+  const total=()=>items().reduce((s,x)=>s+x.p.p*x.q,0);
+  const renderCart=()=>{
+    const it=items();
+    $('#count').textContent=it.reduce((s,x)=>s+x.q,0);
+    if(!it.length){$('#dbody').innerHTML='<p class="empty">Tu carrito está vacío. Agrega productos marcados con precio.</p>';$('#dfoot').innerHTML='';return}
+    $('#dbody').innerHTML=it.map(({p,q})=>`<div class="line"><div><b>${esc(p.nombre)}</b><br><span style="color:var(--soft)">${rd(p.p)} c/u</span></div><b style="white-space:nowrap">${rd(p.p*q)}</b>
+      <div class="qty"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span aria-live="polite">${q}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div><button class="rm" data-rm="${p.id}">Eliminar</button></div>`).join('')+
+     `<form class="co" id="co"><h3>Datos para el pedido</h3>
+      <label>Nombre<input id="fn" required autocomplete="name"></label>
+      <label>Teléfono<input id="fp" required type="tel" autocomplete="tel" placeholder="809-000-0000"></label>
+      <label>Entrega<select id="fd">${SUC.map(s=>`<option>Retiro en ${esc(s.nombre)}</option>`).join('')}<option>Envío a domicilio (costo según zona)</option></select></label>
+      <label>Dirección o sector (si es envío)<input id="fa"></label>
+      <label>Nota<textarea id="fx" rows="2" placeholder="Colores, tallas o detalles"></textarea></label>
+      <button class="btn" type="submit">Preparar pedido</button><div id="out"></div></form>`;
+    $('#dfoot').innerHTML=`<div class="tot"><span>Total</span><span>${rd(total())}</span></div><span style="font-size:13px;color:var(--soft)">ITBIS incluido. El envío se confirma por WhatsApp.</span>`;
+  };
+  const orderText=()=>{const v=id=>$(id).value.trim();
+    return ['Hola, Mercería La Reina. Quiero hacer este pedido:',...items().map(({p,q})=>`• ${q} x ${p.nombre} — ${rd(p.p*q)}`),`Total: ${rd(total())}`,`Nombre: ${v('#fn')}`,`Teléfono: ${v('#fp')}`,`Entrega: ${v('#fd')}`,v('#fa')&&`Dirección: ${v('#fa')}`,v('#fx')&&`Nota: ${v('#fx')}`].filter(Boolean).join('\n')};
+  const setOpen=o=>{document.body.classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);if(o)$('#closeCart').focus()};
+  document.addEventListener('click',e=>{
+    const go=e.target.closest('[data-go]');if(go){cat=CATS.includes(go.dataset.go)?go.dataset.go:'Todos';renderChips();renderGrid()}
+    const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+    if(d.c){cat=d.c;renderChips();renderGrid()}
+    if(d.add){cart[d.add]=(cart[d.add]||0)+1;save();renderCart();toast('Agregado al carrito')}
+    if(d.inc){cart[d.inc]++;save();renderCart()}
+    if(d.dec){cart[d.dec]--;if(cart[d.dec]<=0)delete cart[d.dec];save();renderCart()}
+    if(d.rm){delete cart[d.rm];save();renderCart()}
+    if(t.id==='copyOrder'){navigator.clipboard?.writeText(orderText()).then(()=>toast('Pedido copiado'),()=>toast('No se pudo copiar'))}
+  });
+  document.addEventListener('submit',e=>{if(e.target.id!=='co')return;e.preventDefault();
+    $('#out').innerHTML=`<div class="ok">Tu pedido está listo. Ábrelo en WhatsApp y pulsa enviar; la tienda te confirmará disponibilidad y entrega.<div class="cta" style="margin-top:10px"><a class="btn wa" href="${esc(waLink(orderText()))}" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn ghost" type="button" id="copyOrder">Copiar pedido</button></div></div>`});
+  $('#q').addEventListener('input',e=>{query=e.target.value;renderGrid()});
+  $('#onlySale').addEventListener('change',e=>{only=e.target.checked;renderGrid()});
+  $('#openCart').addEventListener('click',()=>setOpen(true));
+  $('#closeCart').addEventListener('click',()=>setOpen(false));
+  $('#veil').addEventListener('click',()=>setOpen(false));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
+  renderChips();renderGrid();renderCart();
+}
+
+// encabezado y menú
 const hdr=document.querySelector('header');const solid=()=>hdr.classList.toggle('solid',scrollY>40);addEventListener('scroll',solid,{passive:true});solid();
-// menú: marca la sección visible
 const links=[...document.querySelectorAll('#menu a')];
-const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
 const spy=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){const id='#'+e.target.id;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')===id))}},{rootMargin:'-45% 0px -50% 0px'});
-secs.forEach(s=>spy.observe(s));links[0].classList.add('on');
-
-// catálogo y carrito
-let cat='Todos',query='',only=false,cart={};
-try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
-const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
-const byId=id=>P.find(p=>p.id===id);
-let tt;const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),1800)};
-function renderChips(){$('#chips').innerHTML=CATS.map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('')}
-function renderGrid(){
-  const q=query.trim().toLowerCase();
-  const list=P.filter(p=>(cat==='Todos'||p.c===cat)&&(!only||p.v)&&(!q||(p.n+' '+p.d+' '+p.c).toLowerCase().includes(q)));
-  $('#grid').innerHTML=list.length?list.map(p=>`<article class="prod">
-    <div class="thumb"><svg viewBox="0 0 100 100" aria-hidden="true">${ICON[p.i](p.k)}</svg></div>
-    <div class="pbody"><small>${esc(p.c)}</small><h3>${esc(p.n)}</h3><p>${esc(p.d)}</p>
-    ${p.v?`<span class="price">${rd(p.p)}</span>`:`<span class="tag">Solo por consulta</span>`}
-    <div class="prow">${p.v?`<button class="btn" data-add="${p.id}">Agregar al carrito</button>`:`<a class="btn ghost" href="${esc(waLink('Hola, Mercería La Reina. Quisiera información sobre: '+p.n))}" target="_blank" rel="noopener">Consultar</a>`}</div></div>
-  </article>`).join(''):`<div class="empty">No encontramos productos con esa búsqueda. Prueba otra palabra o escríbenos.</div>`;
-}
-const items=()=>Object.entries(cart).map(([id,q])=>({p:byId(id),q})).filter(x=>x.p&&x.p.v&&x.q>0);
-const total=()=>items().reduce((s,x)=>s+x.p.p*x.q,0);
-function renderCart(){
-  const it=items();
-  $('#count').textContent=it.reduce((s,x)=>s+x.q,0);
-  if(!it.length){$('#dbody').innerHTML='<p class="empty">Tu carrito está vacío. Agrega productos marcados con precio.</p>';$('#dfoot').innerHTML='';return}
-  $('#dbody').innerHTML=it.map(({p,q})=>`<div class="line"><div><b>${esc(p.n)}</b><br><span style="color:var(--soft)">${rd(p.p)} c/u</span></div><b style="white-space:nowrap">${rd(p.p*q)}</b>
-    <div class="qty"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span aria-live="polite">${q}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div><button class="rm" data-rm="${p.id}">Eliminar</button></div>`).join('')+
-   `<form class="co" id="co"><h3>Datos para el pedido</h3>
-    <label>Nombre<input id="fn" required autocomplete="name"></label>
-    <label>Teléfono<input id="fp" required type="tel" autocomplete="tel" placeholder="809-000-0000"></label>
-    <label>Entrega<select id="fd">${SUC.map(s=>`<option>Retiro en ${esc(s.n)}</option>`).join('')}<option>Envío a domicilio (costo según zona)</option></select></label>
-    <label>Dirección o sector (si es envío)<input id="fa"></label>
-    <label>Nota<textarea id="fx" rows="2" placeholder="Colores, tallas o detalles"></textarea></label>
-    <button class="btn" type="submit">Preparar pedido</button><div id="out"></div></form>`;
-  $('#dfoot').innerHTML=`<div class="tot"><span>Total</span><span>${rd(total())}</span></div><span style="font-size:13px;color:var(--soft)">ITBIS incluido. El envío se confirma por WhatsApp.</span>`;
-}
-function orderText(){
-  const v=id=>$(id).value.trim();
-  return ['Hola, Mercería La Reina. Quiero hacer este pedido:',...items().map(({p,q})=>`• ${q} x ${p.n} — ${rd(p.p*q)}`),`Total: ${rd(total())}`,`Nombre: ${v('#fn')}`,`Teléfono: ${v('#fp')}`,`Entrega: ${v('#fd')}`,v('#fa')&&`Dirección: ${v('#fa')}`,v('#fx')&&`Nota: ${v('#fx')}`].filter(Boolean).join('\n');
-}
-const setOpen=o=>{document.body.classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);if(o)$('#closeCart').focus()};
-document.addEventListener('click',e=>{
-  const t=e.target.closest('button');if(!t)return;
-  const d=t.dataset;
-  if(d.c){cat=d.c;renderChips();renderGrid()}
-  if(d.add){cart[d.add]=(cart[d.add]||0)+1;save();renderCart();toast('Agregado al carrito')}
-  if(d.inc){cart[d.inc]++;save();renderCart()}
-  if(d.dec){cart[d.dec]--;if(cart[d.dec]<=0)delete cart[d.dec];save();renderCart()}
-  if(d.rm){delete cart[d.rm];save();renderCart()}
-  if(t.id==='copyOrder'){navigator.clipboard?.writeText(orderText()).then(()=>toast('Pedido copiado'),()=>toast('No se pudo copiar'))}
-});
-document.addEventListener('submit',e=>{
-  if(e.target.id!=='co')return;e.preventDefault();
-  $('#out').innerHTML=`<div class="ok">Tu pedido está listo. Ábrelo en WhatsApp y pulsa enviar; la tienda te confirmará disponibilidad y entrega.<div class="cta" style="margin-top:10px"><a class="btn wa" href="${esc(waLink(orderText()))}" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn ghost" type="button" id="copyOrder">Copiar pedido</button></div></div>`;
-});
-$('#q').addEventListener('input',e=>{query=e.target.value;renderGrid()});
-$('#onlySale').addEventListener('change',e=>{only=e.target.checked;renderGrid()});
-$('#openCart').addEventListener('click',()=>setOpen(true));
-$('#closeCart').addEventListener('click',()=>setOpen(false));
-$('#veil').addEventListener('click',()=>setOpen(false));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
-
-// enlaces de WhatsApp y accesos a categorías
-const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
-for(const a of document.querySelectorAll('[data-wa]'))a.href=hello;
-$('#fWa').href=hello;
-for(const a of document.querySelectorAll('[data-go]'))a.addEventListener('click',()=>{cat=a.dataset.go;renderChips();renderGrid()});
-
-// sucursales
-const tel=t=>'tel:+1'+t.replace(/-/g,'');
-const nowDR=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Santo_Domingo'}));return {w:d.getDay(),h:d.getHours()+d.getMinutes()/60}};
-const renderSuc=()=>{const {w,h:hr}=nowDR();$('#branches').innerHTML=SUC.map(s=>{const r=s.o[w],op=r&&hr>=r[0]&&hr<r[1];
- return `<article class="br"><span class="st ${op?'open':''}">${op?'Abierto ahora':'Cerrado ahora'}</span><h3>${esc(s.n)}</h3><div>${esc(s.a)}</div>
- <a class="ph" href="${tel(s.t)}">${esc(s.t)}</a>
- <table class="hours">${s.h.map(x=>`<tr><td>${esc(x[0])}</td><td>${esc(x[1])}</td></tr>`).join('')}</table>
- <div class="acts"><a class="btn" href="${tel(s.t)}">Llamar</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.m)}">Cómo llegar</a></div></article>`}).join('')};
-renderSuc();setInterval(renderSuc,60000);
-$('#fSuc').innerHTML=SUC.map(s=>`<li>${esc(s.a)} · <a href="${tel(s.t)}">${esc(s.t)}</a></li>`).join('');
+links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean).forEach(s=>spy.observe(s));links[0].classList.add('on');
 $('#yr').textContent=new Date().getFullYear();
-renderChips();renderGrid();renderCart();
+
+// cargar contenido
+const v='?v='+Date.now();
+Promise.all([fetch('content/sitio.json'+v).then(r=>r.json()),fetch('content/productos.json'+v).then(r=>r.json())])
+ .then(([S,PR])=>start(S,PR))
+ .catch(err=>{console.error(err);$('#slides').innerHTML='<div class="copy"><h1>Mercería La Reina</h1><p>No se pudo cargar el contenido. Recarga la página.</p></div>'});
 }
 </script>
 </body>

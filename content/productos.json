@@ -1,0 +1,247 @@
+{
+  "nota": "Productos y precios de ejemplo: se reemplazan con el inventario real de la tienda.",
+  "productos": [
+    {
+      "nombre": "Hilo de coser poliéster 500 yd",
+      "categoria": "Hilos y estambres",
+      "precio": 65,
+      "venta_en_linea": true,
+      "descripcion": "Resistente, para máquina y a mano. Varios colores.",
+      "foto": "",
+      "dibujo": "spool",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Hilo de bordar (madeja)",
+      "categoria": "Hilos y estambres",
+      "precio": 35,
+      "venta_en_linea": true,
+      "descripcion": "Algodón mercerizado de 6 hebras.",
+      "foto": "",
+      "dibujo": "spool",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Estambre acrílico 100 g",
+      "categoria": "Hilos y estambres",
+      "precio": 180,
+      "venta_en_linea": true,
+      "descripcion": "Ideal para tejer a crochet y dos agujas.",
+      "foto": "",
+      "dibujo": "yarn",
+      "color": "#e0a526",
+      "visible": true
+    },
+    {
+      "nombre": "Hilo industrial (cono)",
+      "categoria": "Hilos y estambres",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Para talleres y fábricas. Precio según cantidad.",
+      "foto": "",
+      "dibujo": "spool",
+      "color": "#9c0c5f",
+      "visible": true
+    },
+    {
+      "nombre": "Botones nácar, paquete de 12",
+      "categoria": "Botones",
+      "precio": 120,
+      "venta_en_linea": true,
+      "descripcion": "Para camisas y blusas, 11 mm.",
+      "foto": "",
+      "dibujo": "button",
+      "color": "#ffffff",
+      "visible": true
+    },
+    {
+      "nombre": "Botones de madera, paquete de 10",
+      "categoria": "Botones",
+      "precio": 95,
+      "venta_en_linea": true,
+      "descripcion": "Acabado natural, 20 mm.",
+      "foto": "",
+      "dibujo": "button",
+      "color": "#c99c58",
+      "visible": true
+    },
+    {
+      "nombre": "Botones forrados a medida",
+      "categoria": "Botones",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Con tu propia tela. Se cotiza.",
+      "foto": "",
+      "dibujo": "button",
+      "color": "#f2a6cf",
+      "visible": true
+    },
+    {
+      "nombre": "Cinta de satín 1\" (rollo 20 yd)",
+      "categoria": "Cintas y encajes",
+      "precio": 150,
+      "venta_en_linea": true,
+      "descripcion": "Para lazos, decoración y manualidades.",
+      "foto": "",
+      "dibujo": "ribbon",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Cinta grosgrain estampada (yarda)",
+      "categoria": "Cintas y encajes",
+      "precio": 25,
+      "venta_en_linea": true,
+      "descripcion": "Lunares, rayas y zigzag en muchos colores.",
+      "foto": "",
+      "dibujo": "ribbon",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Encaje de algodón (por yarda)",
+      "categoria": "Cintas y encajes",
+      "precio": 60,
+      "venta_en_linea": true,
+      "descripcion": "Blanco o crudo, 2\" de ancho.",
+      "foto": "",
+      "dibujo": "lace",
+      "color": "#fde6f2",
+      "visible": true
+    },
+    {
+      "nombre": "Encaje para novia",
+      "categoria": "Cintas y encajes",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Modelos exclusivos. Ven a verlos o pide fotos.",
+      "foto": "",
+      "dibujo": "lace",
+      "color": "#ffffff",
+      "visible": true
+    },
+    {
+      "nombre": "Cuentas de cristal (hilera)",
+      "categoria": "Cuentas y bisutería",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Facetadas, en muchos colores y tamaños. Consulta disponibilidad.",
+      "foto": "",
+      "dibujo": "beads",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Cuentas acrílicas surtidas",
+      "categoria": "Cuentas y bisutería",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Para collares, pulseras y manualidades escolares.",
+      "foto": "",
+      "dibujo": "beads",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Cierre invisible 9\"",
+      "categoria": "Cierres",
+      "precio": 40,
+      "venta_en_linea": true,
+      "descripcion": "Para faldas y vestidos.",
+      "foto": "",
+      "dibujo": "zip",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Cierre metálico para jean 7\"",
+      "categoria": "Cierres",
+      "precio": 45,
+      "venta_en_linea": true,
+      "descripcion": "Dientes de bronce, cursor con traba.",
+      "foto": "",
+      "dibujo": "zip",
+      "color": "#b07a10",
+      "visible": true
+    },
+    {
+      "nombre": "Cierres a medida",
+      "categoria": "Cierres",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Largos especiales para chaquetas y bolsos.",
+      "foto": "",
+      "dibujo": "zip",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Tijera de costura 9\"",
+      "categoria": "Herramientas",
+      "precio": 650,
+      "venta_en_linea": true,
+      "descripcion": "Acero inoxidable, corte preciso de tela.",
+      "foto": "",
+      "dibujo": "scissors",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Agujas de mano surtidas",
+      "categoria": "Herramientas",
+      "precio": 55,
+      "venta_en_linea": true,
+      "descripcion": "Sobre de 25 agujas de varios tamaños.",
+      "foto": "",
+      "dibujo": "needle",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Cinta métrica 150 cm",
+      "categoria": "Herramientas",
+      "precio": 75,
+      "venta_en_linea": true,
+      "descripcion": "Flexible, en centímetros y pulgadas.",
+      "foto": "",
+      "dibujo": "tape",
+      "color": "#e0a526",
+      "visible": true
+    },
+    {
+      "nombre": "Máquina de coser doméstica",
+      "categoria": "Herramientas",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Disponibilidad y precio en tienda.",
+      "foto": "",
+      "dibujo": "machine",
+      "color": "#d1117f",
+      "visible": true
+    },
+    {
+      "nombre": "Tela de algodón (por yarda)",
+      "categoria": "Telas",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Estampados y lisos. Consulta colores disponibles.",
+      "foto": "",
+      "dibujo": "fabric",
+      "color": "#3f8f27",
+      "visible": true
+    },
+    {
+      "nombre": "Fieltro en láminas",
+      "categoria": "Telas",
+      "precio": 0,
+      "venta_en_linea": false,
+      "descripcion": "Para manualidades escolares. Consulta colores.",
+      "foto": "",
+      "dibujo": "fabric",
+      "color": "#e0a526",
+      "visible": true
+    }
+  ]
+}
