@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mercería La Reina</title>
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -37,7 +38,8 @@ button{cursor:pointer}
 /* barra */
 header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);max-width:1340px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"DM Serif Display",serif;font-size:24px;color:var(--red);white-space:nowrap}
+.logo{display:flex;align-items:center;text-decoration:none;flex:none}
+.logo img{display:block;height:52px;width:auto;border-radius:10px;padding:2px 6px;background:light-dark(transparent,#fff)}
 nav{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
 nav a{text-decoration:none;font-weight:700;padding:10px 12px;border-radius:999px}
 nav a:hover{background:var(--blush)}
@@ -130,10 +132,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 <body>
 <header>
   <div class="bar">
-    <a class="logo" href="#inicio" aria-label="Mercería La Reina, inicio">
-      <svg width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path d="M3 24 L1 6 L10 14 L17 2 L24 14 L33 6 L31 24 Z" fill="#e0a526"/><rect x="3" y="23" width="28" height="4" rx="2" fill="#b07a10"/></svg>
-      Mercería La Reina
-    </a>
+    <a class="logo" href="#inicio"><img src="logo.png" alt="La Reina Mercería" width="132" height="56"></a>
     <nav aria-label="Principal">
       <a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
     </nav>
