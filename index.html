@@ -45,7 +45,7 @@ nav a:hover{background:var(--blush)}
 .count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#2a1017;border-radius:999px;font-size:13px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 5px}
 @media(max-width:760px){nav{display:none}.bar{justify-content:space-between}}
 /* portada */
-.hero{background:var(--red);color:#fff;padding-bottom:0}
+.hero{background:var(--red);color:#fff}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}
 .hero h1{font-size:clamp(46px,7vw,84px);color:#fff}
 .hero p{font-size:17px;max-width:34em;color:#ffe3ea}
@@ -53,8 +53,15 @@ nav a:hover{background:var(--blush)}
 .hero .btn.ghost{background:transparent;color:#fff}
 .hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.scene{width:100%;height:auto;display:block;aspect-ratio:560/420}
-@media(max-width:600px){.hero .wrap{grid-template-columns:1fr}.scene{order:0}}
+.stage{position:relative;width:100%;aspect-ratio:560/460}
+.pc{position:absolute;width:36%;aspect-ratio:4/5;background:#fff;padding:8px 8px 30px;border-radius:6px;box-shadow:0 16px 34px rgba(40,0,12,.35);transition:left .9s cubic-bezier(.5,0,.2,1),top .9s cubic-bezier(.5,0,.2,1),transform .9s cubic-bezier(.5,0,.2,1)}
+.pc .im{position:relative;height:100%;overflow:hidden;border-radius:3px;display:grid;place-items:center}
+.pc .im svg{width:55%;height:auto}
+.pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pc b{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:#2a1017;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
+.pc .fl{height:100%;animation:flt 5s ease-in-out infinite alternate}
+@keyframes flt{to{transform:translateY(-8px)}}
+@media(max-width:600px){.hero .wrap{grid-template-columns:1fr}}
 .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-weight:700;color:#ffe3ea}
 /* nosotros */
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
@@ -148,41 +155,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
       </div>
       <div class="facts"><span>Santo Domingo, R.D.</span><span>Precios en RD$</span><span>Retiro en tienda o envío</span></div>
     </div>
-    <svg class="scene" viewBox="0 0 560 420" role="img" aria-label="Carretes de hilo, botones y una cinta bajo una corona dorada">
-      <defs>
-        <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#f3d9a8"/><stop offset=".5" stop-color="#fff0cf"/><stop offset="1" stop-color="#c99c58"/></linearGradient>
-        <linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#0a5b5e"/><stop offset=".45" stop-color="#25a5a8"/><stop offset="1" stop-color="#084649"/></linearGradient>
-        <linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#b07a10"/><stop offset=".45" stop-color="#ffd166"/><stop offset="1" stop-color="#8f600a"/></linearGradient>
-        <linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#e8a0b4"/><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#d27e95"/></linearGradient>
-        <pattern id="thr" width="10" height="6" patternUnits="userSpaceOnUse"><path d="M0 5 L10 1" stroke="rgba(0,0,0,.18)" stroke-width="1.2"/></pattern>
-        <g id="spool"><ellipse cx="0" cy="118" rx="70" ry="14" fill="rgba(0,0,0,.25)"/><rect x="-62" y="96" width="124" height="18" rx="6" fill="url(#wood)"/><rect x="-62" y="-114" width="124" height="18" rx="6" fill="url(#wood)"/></g>
-      </defs>
-      <ellipse cx="280" cy="400" rx="260" ry="16" fill="rgba(0,0,0,.18)"/>
-      <!-- carrete izquierdo -->
-      <g transform="translate(130 262) scale(.78)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#tg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
-      <!-- carrete derecho -->
-      <g transform="translate(436 272) scale(.72)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#pg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
-      <!-- carrete central -->
-      <g transform="translate(284 248)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#gg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
-      <!-- corona -->
-      <g transform="translate(284 104)">
-        <path d="M-62 26 L-70 -38 L-34 -6 L0 -56 L34 -6 L70 -38 L62 26 Z" fill="url(#gg)" stroke="#8f600a" stroke-width="3" stroke-linejoin="round"/>
-        <rect x="-64" y="22" width="128" height="16" rx="8" fill="#b07a10"/>
-        <circle cx="0" cy="-56" r="8" fill="#fff"/><circle cx="-70" cy="-38" r="7" fill="#fff"/><circle cx="70" cy="-38" r="7" fill="#fff"/>
-        <circle cx="0" cy="8" r="9" fill="#0f7c80"/><circle cx="-34" cy="12" r="6" fill="#fde8ec"/><circle cx="34" cy="12" r="6" fill="#fde8ec"/>
-      </g>
-      <!-- hilo suelto -->
-      <path d="M334 210 C 400 190, 430 120, 500 140 S 540 220, 520 250" fill="none" stroke="#ffd166" stroke-width="3"/>
-      <!-- cinta -->
-      <path d="M40 380 C 90 330, 150 400, 200 360 S 300 370, 330 384" fill="none" stroke="#fde8ec" stroke-width="16" stroke-linecap="round"/>
-      <!-- botones -->
-      <g id="btns">
-        <g transform="translate(70 150)"><circle r="26" fill="#fff"/><circle r="18" fill="none" stroke="#e8a0b4" stroke-width="3"/><circle cx="-6" cy="-6" r="3.5" fill="#a3123a"/><circle cx="6" cy="-6" r="3.5" fill="#a3123a"/><circle cx="-6" cy="6" r="3.5" fill="#a3123a"/><circle cx="6" cy="6" r="3.5" fill="#a3123a"/></g>
-        <g transform="translate(200 96)"><circle r="16" fill="#0f7c80"/><circle cx="-4" r="3" fill="#a3123a"/><circle cx="4" r="3" fill="#a3123a"/></g>
-        <g transform="translate(470 70)"><circle r="22" fill="#ffd166"/><circle r="15" fill="none" stroke="#b07a10" stroke-width="2.5"/><circle cx="-5" cy="-5" r="3" fill="#7c0c2b"/><circle cx="5" cy="-5" r="3" fill="#7c0c2b"/><circle cx="-5" cy="5" r="3" fill="#7c0c2b"/><circle cx="5" cy="5" r="3" fill="#7c0c2b"/></g>
-        <g transform="translate(520 390)"><circle r="14" fill="#fff"/><circle cx="-4" r="2.5" fill="#0f7c80"/><circle cx="4" r="2.5" fill="#0f7c80"/></g>
-      </g>
-    </svg>
+    <div class="stage" id="stage" role="img" aria-label="Fotos de la tienda, el equipo y los productos"></div>
   </div>
 </section>
 
@@ -296,6 +269,22 @@ const ICON={
  machine:k=>`<path d="M10 78 V 30 Q10 20 20 20 H 80 Q90 20 90 30 V 50 H 70 V 78 Z" fill="${k}"/><rect x="4" y="78" width="92" height="12" rx="4" fill="#2a1017"/><rect x="70" y="50" width="8" height="20" fill="#9aa3a8"/><circle cx="30" cy="36" r="7" fill="#fff"/>`,
  fabric:k=>`<rect x="10" y="58" width="80" height="22" rx="4" fill="${k}" opacity=".6"/><rect x="14" y="40" width="74" height="22" rx="4" fill="${k}" opacity=".8"/><rect x="18" y="22" width="68" height="22" rx="4" fill="${k}"/><path d="M18 33h68" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 4"/>`
 };
+// Fotos de la portada: súbelas a la carpeta "fotos/" con estos nombres. Mientras falte una, se ve un dibujo.
+const FOTOS=[
+ {f:'tienda.jpg',t:'Nuestra tienda',i:'spool',k:'#a3123a',bg:'#fde8ec'},
+ {f:'equipo.jpg',t:'Nuestro equipo',i:'scissors',k:'#0f7c80',bg:'#e3f3f3'},
+ {f:'hilos.jpg',t:'Hilos de colores',i:'yarn',k:'#e0a526',bg:'#fff4dc'},
+ {f:'botones.jpg',t:'Botones',i:'button',k:'#ffffff',bg:'#f4c9d4'},
+ {f:'cintas.jpg',t:'Cintas y encajes',i:'ribbon',k:'#a3123a',bg:'#fde8ec'}
+];
+const SLOTS=[[32,22,-3,1.08,5],[2,4,-10,1,4],[60,2,8,1,3],[5,42,6,1,2],[59,40,-7,1,1]];
+const stage=$('#stage');
+stage.innerHTML=FOTOS.map((g,j)=>`<div class="pc"><div class="fl" style="animation-delay:-${j*1.3}s"><div class="im" style="background:${g.bg}"><svg viewBox="0 0 100 100" aria-hidden="true">${ICON[g.i](g.k)}</svg><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}"></div></div><b>${esc(g.t)}</b></div>`).join('');
+for(const im of stage.querySelectorAll('img')){im.addEventListener('error',()=>im.remove());if(im.complete&&!im.naturalWidth)im.remove()}
+const cards=[...stage.children];let turn=0;
+const place=()=>cards.forEach((c,j)=>{const [l,t,r,s,z]=SLOTS[(j+turn)%SLOTS.length];c.style.left=l+'%';c.style.top=t+'%';c.style.transform=`rotate(${r}deg) scale(${s})`;c.style.zIndex=z});
+place();
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const tick=setInterval(()=>{if(!document.hidden){turn=(turn+1)%SLOTS.length;place()}},3200)}
 let cat='Todos',query='',only=false,cart={};
 try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
 const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
