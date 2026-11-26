@@ -14,9 +14,9 @@
    COLOUR and TYPE: carmesí real, rosa claro, oro y verde azulado de hilo; DM Serif Display + Nunito Sans.
    LAYOUT: barra, portada con escena, nosotros, catálogo con filtros, servicios, contacto, pie; carrito lateral. */
 :root{color-scheme:light dark;
---bg:light-dark(#fffafb,#1a0d12);--ink:light-dark(#2a1017,#fbeef1);--soft:light-dark(#6d4a53,#d6b9c0);
---red:light-dark(#a3123a,#e2476f);--red2:light-dark(#7c0c2b,#c22c55);--blush:light-dark(#fde8ec,#2a1520);
---gold:#e0a526;--teal:light-dark(#0f7c80,#3cb3b6);--card:light-dark(#fff,#24131a);--line:light-dark(#f1d3da,#3d2229)}
+--bg:light-dark(#fffafb,#1a0d16);--ink:light-dark(#2a1017,#fbeef1);--soft:light-dark(#6d4a53,#d6b9c0);
+--red:light-dark(#b5127a,#ec5aa6);--red2:light-dark(#8a0d5c,#c9307f);--blush:light-dark(#fde6f2,#2a1424);
+--gold:#e0a526;--teal:light-dark(#3f8f27,#79c95c);--card:light-dark(#fff,#24131a);--line:light-dark(#f3d0e4,#3d2233)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
@@ -46,25 +46,31 @@ nav a:hover{background:var(--blush)}
 .cartbtn{position:relative;min-width:44px}
 .count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#2a1017;border-radius:999px;font-size:13px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 5px}
 @media(max-width:760px){nav{display:none}.bar{justify-content:space-between}}
-/* portada */
-.hero{background:var(--red);color:#fff}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}
-.hero h1{font-size:clamp(46px,7vw,84px);color:#fff}
-.hero p{font-size:17px;max-width:34em;color:#ffe3ea}
-.hero .btn{background:#fff;color:var(--red2);border-color:#fff}
-.hero .btn.ghost{background:transparent;color:#fff}
-.hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
+/* portada: carrusel a todo el ancho */
+.hero{position:relative;height:clamp(440px,68vh,620px);overflow:hidden;background:var(--red2);color:#fff}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s}
+.slide.on{opacity:1;visibility:visible}
+.bg{position:absolute;inset:0;transform:scale(1);transition:transform 7s linear}
+.slide.on .bg{transform:scale(1.12)}
+.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.art{position:absolute;right:7%;top:50%;width:min(34%,400px);height:auto;transform:translateY(-50%)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,0,38,.78) 0%,rgba(60,0,38,.45) 45%,rgba(60,0,38,0) 75%)}
+.copy{position:relative;z-index:2;height:100%;max-width:1240px;margin:0 auto;padding:0 max(5vw,64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.copy h1{font-size:clamp(38px,6vw,72px);color:#fff;max-width:11em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.copy p{font-size:18px;max-width:30em;color:#ffe0f0;margin:14px 0 24px}
+.slide.on .copy>*{animation:up .8s both}.slide.on .copy p{animation-delay:.15s}.slide.on .copy .btn{animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+.copy .btn{background:var(--gold);border-color:var(--gold);color:#2a1017;font-size:17px;padding:12px 28px}
+.copy .btn:hover{background:#f0b83a;border-color:#f0b83a}
+.arr{position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:34px;line-height:1;display:grid;place-items:center}
+.arr:hover{background:rgba(255,255,255,.35)}.prev{left:12px}.next{right:12px}
+.dots{position:absolute;bottom:18px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:4px}
+.dots button{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;padding:0}
+.dots button::after{content:"";width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.5);transition:width .3s}
+.dots button[aria-current=true]::after{width:30px;background:#fff}
+@media(max-width:600px){.hero{height:560px}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:0 22px 60px;justify-content:flex-start;padding-top:48px}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.7),rgba(60,0,38,.2) 70%)}}
+@media(prefers-reduced-motion:reduce){.slide.on .bg{transform:none}}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.stage{position:relative;width:100%;aspect-ratio:560/460}
-.pc{position:absolute;width:36%;aspect-ratio:4/5;background:#fff;padding:8px 8px 30px;border-radius:6px;box-shadow:0 16px 34px rgba(40,0,12,.35);transition:left .9s cubic-bezier(.5,0,.2,1),top .9s cubic-bezier(.5,0,.2,1),transform .9s cubic-bezier(.5,0,.2,1)}
-.pc .im{position:relative;height:100%;overflow:hidden;border-radius:3px;display:grid;place-items:center}
-.pc .im svg{width:55%;height:auto}
-.pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pc b{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:#2a1017;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
-.pc .fl{height:100%;animation:flt 5s ease-in-out infinite alternate}
-@keyframes flt{to{transform:translateY(-8px)}}
-@media(max-width:600px){.hero .wrap{grid-template-columns:1fr}}
-.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-weight:700;color:#ffe3ea}
 /* nosotros */
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
 .about p{color:var(--soft);max-width:36em}
@@ -99,15 +105,15 @@ nav a:hover{background:var(--blush)}
 .svc div{padding:22px;border-radius:18px;border:2px solid var(--line)}
 .svc p{color:var(--soft);margin:8px 0 0}
 /* contacto */
-.contact{background:var(--teal);color:#fff}
+.contact{background:#2f6d1c;color:#fff}
 .cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:20px}
 .cgrid dl{margin:0;display:grid;gap:14px}
-.cgrid dt{font-weight:800}.cgrid dd{margin:0;color:#dff4f4}
+.cgrid dt{font-weight:800}.cgrid dd{margin:0;color:#e4f5dc}
 .hours{width:100%;border-collapse:collapse}
 .hours td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.25)}
 .hours td:last-child{text-align:right;white-space:nowrap}
 @media(max-width:700px){.cgrid{grid-template-columns:1fr}}
-footer{background:var(--red2);color:#ffe3ea;text-align:center;font-size:15px}
+footer{background:var(--red2);color:#ffe0f0;text-align:center;font-size:15px}
 /* carrito */
 .veil{position:fixed;inset:0;background:rgba(20,5,10,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
 .drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);z-index:31;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
@@ -143,19 +149,11 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
   </div>
 </header>
 
-<section class="band hero" id="inicio">
-  <div class="wrap">
-    <div>
-      <h1>Todo para coser, bordar y crear</h1>
-      <p>Hilos, botones, cintas, encajes, cierres y herramientas de costura en un solo lugar. Compra en línea los artículos marcados o consúltanos por WhatsApp lo que necesites.</p>
-      <div class="cta">
-        <a class="btn" href="#productos">Ver productos</a>
-        <a class="btn ghost" id="heroWa" href="#">Escríbenos por WhatsApp</a>
-      </div>
-      <div class="facts"><span>Santo Domingo, R.D.</span><span>Precios en RD$</span><span>Retiro en tienda o envío</span></div>
-    </div>
-    <div class="stage" id="stage" role="img" aria-label="Fotos de la tienda, el equipo y los productos"></div>
-  </div>
+<section class="hero" id="inicio" aria-roledescription="carrusel" aria-label="Destacados">
+  <div class="slides" id="slides"></div>
+  <button class="arr prev" id="prev" aria-label="Anterior">‹</button>
+  <button class="arr next" id="next" aria-label="Siguiente">›</button>
+  <div class="dots" id="dots"></div>
 </section>
 
 <section class="band" id="nosotros">
@@ -231,24 +229,24 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 const CFG={wa:'18095550123',phone:'809-555-0123',mail:'ventas@merceriaLaReina.do',addr:'Calle Duarte #45, Zona Colonial, Santo Domingo'};
 const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cierres','Herramientas','Telas'];
 const P=[
- {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#a3123a',d:'Resistente, para máquina y a mano. Varios colores.'},
- {id:'h2',n:'Hilo de bordar (madeja)',c:'Hilos y estambres',p:35,v:1,i:'spool',k:'#0f7c80',d:'Algodón mercerizado de 6 hebras.'},
+ {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#b5127a',d:'Resistente, para máquina y a mano. Varios colores.'},
+ {id:'h2',n:'Hilo de bordar (madeja)',c:'Hilos y estambres',p:35,v:1,i:'spool',k:'#3f8f27',d:'Algodón mercerizado de 6 hebras.'},
  {id:'h3',n:'Estambre acrílico 100 g',c:'Hilos y estambres',p:180,v:1,i:'yarn',k:'#e0a526',d:'Ideal para tejer a crochet y dos agujas.'},
- {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#7c0c2b',d:'Para talleres y fábricas. Precio según cantidad.'},
+ {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#8a0d5c',d:'Para talleres y fábricas. Precio según cantidad.'},
  {id:'b1',n:'Botones nácar, paquete de 12',c:'Botones',p:120,v:1,i:'button',k:'#ffffff',d:'Para camisas y blusas, 11 mm.'},
  {id:'b2',n:'Botones de madera, paquete de 10',c:'Botones',p:95,v:1,i:'button',k:'#c99c58',d:'Acabado natural, 20 mm.'},
- {id:'b3',n:'Botones forrados a medida',c:'Botones',p:null,v:0,i:'button',k:'#e8a0b4',d:'Con tu propia tela. Se cotiza.'},
- {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#a3123a',d:'Para lazos, decoración y manualidades.'},
- {id:'c2',n:'Encaje de algodón (por yarda)',c:'Cintas y encajes',p:60,v:1,i:'lace',k:'#fde8ec',d:'Blanco o crudo, 2" de ancho.'},
+ {id:'b3',n:'Botones forrados a medida',c:'Botones',p:null,v:0,i:'button',k:'#f2a6cf',d:'Con tu propia tela. Se cotiza.'},
+ {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#b5127a',d:'Para lazos, decoración y manualidades.'},
+ {id:'c2',n:'Encaje de algodón (por yarda)',c:'Cintas y encajes',p:60,v:1,i:'lace',k:'#fde6f2',d:'Blanco o crudo, 2" de ancho.'},
  {id:'c3',n:'Encaje para novia',c:'Cintas y encajes',p:null,v:0,i:'lace',k:'#ffffff',d:'Modelos exclusivos. Ven a verlos o pide fotos.'},
- {id:'z1',n:'Cierre invisible 9"',c:'Cierres',p:40,v:1,i:'zip',k:'#0f7c80',d:'Para faldas y vestidos.'},
+ {id:'z1',n:'Cierre invisible 9"',c:'Cierres',p:40,v:1,i:'zip',k:'#3f8f27',d:'Para faldas y vestidos.'},
  {id:'z2',n:'Cierre metálico para jean 7"',c:'Cierres',p:45,v:1,i:'zip',k:'#b07a10',d:'Dientes de bronce, cursor con traba.'},
- {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#a3123a',d:'Largos especiales para chaquetas y bolsos.'},
- {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#a3123a',d:'Acero inoxidable, corte preciso de tela.'},
- {id:'t2',n:'Agujas de mano surtidas',c:'Herramientas',p:55,v:1,i:'needle',k:'#0f7c80',d:'Sobre de 25 agujas de varios tamaños.'},
+ {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#b5127a',d:'Largos especiales para chaquetas y bolsos.'},
+ {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#b5127a',d:'Acero inoxidable, corte preciso de tela.'},
+ {id:'t2',n:'Agujas de mano surtidas',c:'Herramientas',p:55,v:1,i:'needle',k:'#3f8f27',d:'Sobre de 25 agujas de varios tamaños.'},
  {id:'t3',n:'Cinta métrica 150 cm',c:'Herramientas',p:75,v:1,i:'tape',k:'#e0a526',d:'Flexible, en centímetros y pulgadas.'},
- {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#a3123a',d:'Disponibilidad y precio en tienda.'},
- {id:'f1',n:'Tela de algodón (por yarda)',c:'Telas',p:null,v:0,i:'fabric',k:'#0f7c80',d:'Estampados y lisos. Consulta colores disponibles.'},
+ {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#b5127a',d:'Disponibilidad y precio en tienda.'},
+ {id:'f1',n:'Tela de algodón (por yarda)',c:'Telas',p:null,v:0,i:'fabric',k:'#3f8f27',d:'Estampados y lisos. Consulta colores disponibles.'},
  {id:'f2',n:'Fieltro en láminas',c:'Telas',p:null,v:0,i:'fabric',k:'#e0a526',d:'Para manualidades escolares. Consulta colores.'}
 ];
 const $=s=>document.querySelector(s);
@@ -268,22 +266,32 @@ const ICON={
  machine:k=>`<path d="M10 78 V 30 Q10 20 20 20 H 80 Q90 20 90 30 V 50 H 70 V 78 Z" fill="${k}"/><rect x="4" y="78" width="92" height="12" rx="4" fill="#2a1017"/><rect x="70" y="50" width="8" height="20" fill="#9aa3a8"/><circle cx="30" cy="36" r="7" fill="#fff"/>`,
  fabric:k=>`<rect x="10" y="58" width="80" height="22" rx="4" fill="${k}" opacity=".6"/><rect x="14" y="40" width="74" height="22" rx="4" fill="${k}" opacity=".8"/><rect x="18" y="22" width="68" height="22" rx="4" fill="${k}"/><path d="M18 33h68" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 4"/>`
 };
-// Fotos de la portada: súbelas a la carpeta "fotos/" con estos nombres. Mientras falte una, se ve un dibujo.
-const FOTOS=[
- {f:'tienda.jpg',t:'Nuestra tienda',i:'spool',k:'#a3123a',bg:'#fde8ec'},
- {f:'equipo.jpg',t:'Nuestro equipo',i:'scissors',k:'#0f7c80',bg:'#e3f3f3'},
- {f:'hilos.jpg',t:'Hilos de colores',i:'yarn',k:'#e0a526',bg:'#fff4dc'},
- {f:'botones.jpg',t:'Botones',i:'button',k:'#ffffff',bg:'#f4c9d4'},
- {f:'cintas.jpg',t:'Cintas y encajes',i:'ribbon',k:'#a3123a',bg:'#fde8ec'}
+// Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
+const SL=[
+ {f:'tienda.jpg',t:'Todo para coser, bordar y crear',d:'Hilos, botones, cintas, encajes, cierres y herramientas en un solo lugar.',b:'Ver productos',h:'#productos',i:'spool',k:'#fff',g:['#b5127a','#6e0a49']},
+ {f:'hilos.jpg',t:'Hilos de todos los colores',d:'Para máquina, bordado y tejido. Pide el tuyo en línea o en la tienda.',b:'Comprar hilos',h:'#productos',c:'Hilos y estambres',i:'yarn',k:'#e0a526',g:['#8a0d5c','#b5127a']},
+ {f:'botones.jpg',t:'Botones, cintas y encajes',d:'El detalle que le da vida a tu proyecto, en cientos de modelos.',b:'Ver catálogo',h:'#productos',c:'Botones',i:'button',k:'#fff',g:['#3f8f27','#2f6d1c']},
+ {f:'equipo.jpg',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1,i:'scissors',k:'#fff',g:['#b5127a','#3f8f27']},
+ {f:'mostrador.jpg',t:'Precios especiales al por mayor',d:'Para talleres, fábricas, escuelas y revendedores.',b:'Ver servicios',h:'#servicios',i:'tape',k:'#e0a526',g:['#6e0a49','#8a0d5c']}
 ];
-const SLOTS=[[32,22,-3,1.08,5],[2,4,-10,1,4],[60,2,8,1,3],[5,42,6,1,2],[59,40,-7,1,1]];
-const stage=$('#stage');
-stage.innerHTML=FOTOS.map((g,j)=>`<div class="pc"><div class="fl" style="animation-delay:-${j*1.3}s"><div class="im" style="background:${g.bg}"><svg viewBox="0 0 100 100" aria-hidden="true">${ICON[g.i](g.k)}</svg><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}"></div></div><b>${esc(g.t)}</b></div>`).join('');
-for(const im of stage.querySelectorAll('img')){im.addEventListener('error',()=>im.remove());if(im.complete&&!im.naturalWidth)im.remove()}
-const cards=[...stage.children];let turn=0;
-const place=()=>cards.forEach((c,j)=>{const [l,t,r,s,z]=SLOTS[(j+turn)%SLOTS.length];c.style.left=l+'%';c.style.top=t+'%';c.style.transform=`rotate(${r}deg) scale(${s})`;c.style.zIndex=z});
-place();
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const tick=setInterval(()=>{if(!document.hidden){turn=(turn+1)%SLOTS.length;place()}},3200)}
+$('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
+ <div class="bg" style="background:linear-gradient(120deg,${s.g[0]},${s.g[1]})"><svg class="art" viewBox="0 0 100 100" aria-hidden="true">${ICON[s.i](s.k)}</svg><img src="fotos/${esc(s.f)}" alt=""></div>
+ <div class="shade"></div>
+ <div class="copy"><h${j?2:1}>${esc(s.t)}</h${j?2:1}><p>${esc(s.d)}</p><a class="btn" ${s.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="${s.h}"`} ${s.c?`data-go="${esc(s.c)}"`:''}>${esc(s.b)}</a></div></div>`).join('');
+for(const im of document.querySelectorAll('#slides img')){im.addEventListener('error',()=>im.remove());if(im.complete&&!im.naturalWidth)im.remove()}
+$('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
+const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('#dots button')];
+let cur=0,timer=null;const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const show=n=>{cur=(n+SL.length)%SL.length;slides.forEach((s,j)=>s.classList.toggle('on',j===cur));dots.forEach((d,j)=>d.setAttribute('aria-current',j===cur))};
+const play=()=>{clearInterval(timer);if(!still)timer=setInterval(()=>{if(!document.hidden)show(cur+1)},6000)};
+show(0);play();
+$('#prev').addEventListener('click',()=>{show(cur-1);play()});
+$('#next').addEventListener('click',()=>{show(cur+1);play()});
+$('#dots').addEventListener('click',e=>{const b=e.target.closest('[data-dot]');if(b){show(+b.dataset.dot);play()}});
+const hero=$('#inicio');hero.addEventListener('mouseenter',()=>clearInterval(timer));hero.addEventListener('mouseleave',play);
+let sx=null;hero.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()}sx=null});
+hero.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);play()}if(e.key==='ArrowRight'){show(cur+1);play()}});
 let cat='Todos',query='',only=false,cart={};
 try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
 const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
@@ -346,8 +354,9 @@ $('#veil').addEventListener('click',()=>setOpen(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
 
 const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
-$('#heroWa').href=hello;$('#contactWa').href=hello;
-for(const a of [$('#heroWa'),$('#contactWa')]){a.target='_blank';a.rel='noopener'}
+$('#contactWa').href=hello;$('#contactWa').target='_blank';$('#contactWa').rel='noopener';
+for(const a of document.querySelectorAll('[data-wa]'))a.href=hello;
+for(const a of document.querySelectorAll('[data-go]'))a.addEventListener('click',()=>{cat=a.dataset.go;renderChips();renderGrid()});
 $('#cAddr').textContent=CFG.addr;$('#cPhone').textContent=CFG.phone;$('#cMail').textContent=CFG.mail;
 $('#yr').textContent=new Date().getFullYear();
 renderChips();renderGrid();renderCart();
