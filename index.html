@@ -60,12 +60,14 @@ nav a.on{background:var(--red);color:#fff}
 .hero{position:relative;height:clamp(540px,82vh,760px);overflow:hidden;background:#2a1020;color:#fff}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
 .slide.on{opacity:1;visibility:visible}
-.bg{position:absolute;inset:0;transform:scale(1.02);transition:transform 8s linear}
-.slide.on .bg{transform:scale(1.12)}
+.bg{position:absolute;inset:0;transform-origin:center}
+.slide.on .bg{animation:zoom 7s ease-out both}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.18)}}
 .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px) saturate(1.15)}
 .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,6,16,.78) 0%,rgba(20,6,16,.55) 50%,rgba(20,6,16,.35) 100%)}
 .copy{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:110px max(5vw,64px) 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.copy h1,.copy h2{font-size:clamp(34px,5vw,62px);color:#fff;text-transform:uppercase;max-width:14em;letter-spacing:.005em}
+.copy h1,.copy h2{font-size:clamp(30px,4.6vw,58px);color:#fff;text-transform:uppercase;max-width:15em;letter-spacing:.005em}
+.copy h1{font-size:clamp(28px,3.8vw,50px);max-width:19em}
 .copy p{font-size:18px;max-width:34em;color:#fff;margin:16px 0 26px}
 .slide.on .copy>*{animation:up .8s both}.slide.on .copy p{animation-delay:.15s}.slide.on .copy .btn{animation-delay:.3s}
 @keyframes up{from{opacity:0;transform:translateY(24px)}}
@@ -79,7 +81,7 @@ nav a.on{background:var(--red);color:#fff}
 .dots button[aria-current=true]::after{width:28px;background:#fff}
 @media(max-width:900px){.copy{padding-top:150px}}
 @media(max-width:600px){.hero{height:620px}.copy{padding:160px 22px 70px;justify-content:center}.arr{display:none}.copy p{font-size:17px}}
-@media(prefers-reduced-motion:reduce){.slide.on .bg{transform:none}}
+
 /* historia */
 .story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .story .pic{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:560px;box-shadow:0 20px 40px rgba(80,0,50,.18)}
@@ -393,7 +395,7 @@ const ICON={
 };
 // Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
 const SL=[
- {f:'tienda.jpg',t:'Entra al mundo de Mercería La Reina',d:'Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.',b:'Contáctanos',h:'#contacto'},
+ {f:'tienda.jpg',t:'Explora todo lo que Mercería La Reina puede ofrecerte para tu emprendimiento personal',d:'Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.',b:'Contáctanos',h:'#contacto'},
  {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes'},
  {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Ver cuentas',h:'#productos',c:'Cuentas y bisutería'},
  {f:'equipo-ancho.svg',pos:'right center',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1}
