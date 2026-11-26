@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercería La Reina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: cálida, de tienda de barrio con orgullo; clara para comprar.
+   IDEA: el mostrador de una mercería: carretes, botones y cintas a la vista.
+   PICTURE: escena de carretes gigantes con una corona de hilo dorado, botones y una cinta.
+   COLOUR and TYPE: carmesí real, rosa claro, oro y verde azulado de hilo; DM Serif Display + Nunito Sans.
+   LAYOUT: barra, portada con escena, nosotros, catálogo con filtros, servicios, contacto, pie; carrito lateral. */
+:root{color-scheme:light dark;
+--bg:light-dark(#fffafb,#1a0d12);--ink:light-dark(#2a1017,#fbeef1);--soft:light-dark(#6d4a53,#d6b9c0);
+--red:light-dark(#a3123a,#e2476f);--red2:light-dark(#7c0c2b,#c22c55);--blush:light-dark(#fde8ec,#2a1520);
+--gold:#e0a526;--teal:light-dark(#0f7c80,#3cb3b6);--card:light-dark(#fff,#24131a);--line:light-dark(#f1d3da,#3d2229)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.5vw,46px)}h3{font-size:22px}
+a{color:inherit}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+button,input,select,textarea{font:inherit;font-size:16px}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:999px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:800;text-decoration:none}
+.btn:hover{background:var(--red2);border-color:var(--red2)}
+.btn.ghost{background:transparent;color:var(--red)}
+.btn.ghost:hover{background:var(--blush)}
+.btn.wa{background:#1f8a4c;border-color:#1f8a4c}
+/* barra */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);max-width:1340px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"DM Serif Display",serif;font-size:24px;color:var(--red);white-space:nowrap}
+nav{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:700;padding:10px 12px;border-radius:999px}
+nav a:hover{background:var(--blush)}
+.cartbtn{position:relative;min-width:44px}
+.count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#2a1017;border-radius:999px;font-size:13px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 5px}
+@media(max-width:760px){nav{display:none}.bar{justify-content:space-between}}
+/* portada */
+.hero{background:var(--red);color:#fff;padding-bottom:0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,84px);color:#fff}
+.hero p{font-size:17px;max-width:34em;color:#ffe3ea}
+.hero .btn{background:#fff;color:var(--red2);border-color:#fff}
+.hero .btn.ghost{background:transparent;color:#fff}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.scene{width:100%;height:auto;display:block;aspect-ratio:560/420}
+@media(max-width:600px){.hero .wrap{grid-template-columns:1fr}.scene{order:0}}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-weight:700;color:#ffe3ea}
+/* nosotros */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.about p{color:var(--soft);max-width:36em}
+.pillars{display:grid;gap:14px}
+.pillar{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:var(--blush)}
+.pillar svg{flex:none}
+.pillar b{display:block}
+@media(max-width:700px){.about{grid-template-columns:1fr}}
+/* catálogo */
+.cat{background:var(--blush)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0}
+.chip{min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:700}
+.chip[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.search{flex:1 1 220px;min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.toggle{display:flex;align-items:center;gap:8px;font-weight:700;min-height:44px}
+.toggle input{width:20px;height:20px;accent-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.prod{display:flex;flex-direction:column;background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.thumb{display:grid;place-items:center;aspect-ratio:4/3;background:var(--bg)}
+.thumb svg{width:62%;height:auto}
+.pbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pbody small{color:var(--soft);font-weight:700}
+.pbody p{margin:0;color:var(--soft);font-size:15px}
+.price{font-weight:800;font-size:20px;white-space:nowrap;color:var(--red)}
+.tag{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--blush);color:var(--teal)}
+.prow{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:10px}
+.prow .btn{flex:1;padding:10px 12px}
+.empty{padding:40px;text-align:center;color:var(--soft)}
+.note{font-size:13px;color:var(--soft);margin-top:18px}
+/* servicios */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
+.svc div{padding:22px;border-radius:18px;border:2px solid var(--line)}
+.svc p{color:var(--soft);margin:8px 0 0}
+/* contacto */
+.contact{background:var(--teal);color:#fff}
+.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:20px}
+.cgrid dl{margin:0;display:grid;gap:14px}
+.cgrid dt{font-weight:800}.cgrid dd{margin:0;color:#dff4f4}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.hours td:last-child{text-align:right;white-space:nowrap}
+@media(max-width:700px){.cgrid{grid-template-columns:1fr}}
+footer{background:var(--red2);color:#ffe3ea;text-align:center;font-size:15px}
+/* carrito */
+.veil{position:fixed;inset:0;background:rgba(20,5,10,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);z-index:31;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
+.open .veil{opacity:1;pointer-events:auto}.open .drawer{transform:none}
+.dhead{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:var(--blush);color:var(--ink);font-size:22px}
+.dbody{flex:1;overflow:auto;padding:16px 20px}
+.line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:800}
+.rm{border:0;background:none;color:var(--red);font-weight:700;padding:8px 0;min-height:36px}
+.dfoot{padding:16px 20px;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:20px}
+form.co{display:grid;gap:10px;margin-top:14px}
+form.co label{display:grid;gap:4px;font-weight:700;font-size:15px}
+form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.ok{padding:12px;border-radius:12px;background:var(--blush);font-size:15px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;z-index:40;transition:transform .25s}
+.toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="#inicio" aria-label="Mercería La Reina, inicio">
+      <svg width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path d="M3 24 L1 6 L10 14 L17 2 L24 14 L33 6 L31 24 Z" fill="#e0a526"/><rect x="3" y="23" width="28" height="4" rx="2" fill="#b07a10"/></svg>
+      Mercería La Reina
+    </a>
+    <nav aria-label="Principal">
+      <a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn cartbtn" id="openCart" aria-label="Abrir carrito">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="count" id="count">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="band hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <h1>Todo para coser, bordar y crear</h1>
+      <p>Hilos, botones, cintas, encajes, cierres y herramientas de costura en un solo lugar. Compra en línea los artículos marcados o consúltanos por WhatsApp lo que necesites.</p>
+      <div class="cta">
+        <a class="btn" href="#productos">Ver productos</a>
+        <a class="btn ghost" id="heroWa" href="#">Escríbenos por WhatsApp</a>
+      </div>
+      <div class="facts"><span>Santo Domingo, R.D.</span><span>Precios en RD$</span><span>Retiro en tienda o envío</span></div>
+    </div>
+    <svg class="scene" viewBox="0 0 560 420" role="img" aria-label="Carretes de hilo, botones y una cinta bajo una corona dorada">
+      <defs>
+        <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#f3d9a8"/><stop offset=".5" stop-color="#fff0cf"/><stop offset="1" stop-color="#c99c58"/></linearGradient>
+        <linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#0a5b5e"/><stop offset=".45" stop-color="#25a5a8"/><stop offset="1" stop-color="#084649"/></linearGradient>
+        <linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#b07a10"/><stop offset=".45" stop-color="#ffd166"/><stop offset="1" stop-color="#8f600a"/></linearGradient>
+        <linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#e8a0b4"/><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#d27e95"/></linearGradient>
+        <pattern id="thr" width="10" height="6" patternUnits="userSpaceOnUse"><path d="M0 5 L10 1" stroke="rgba(0,0,0,.18)" stroke-width="1.2"/></pattern>
+        <g id="spool"><ellipse cx="0" cy="118" rx="70" ry="14" fill="rgba(0,0,0,.25)"/><rect x="-62" y="96" width="124" height="18" rx="6" fill="url(#wood)"/><rect x="-62" y="-114" width="124" height="18" rx="6" fill="url(#wood)"/></g>
+      </defs>
+      <ellipse cx="280" cy="400" rx="260" ry="16" fill="rgba(0,0,0,.18)"/>
+      <!-- carrete izquierdo -->
+      <g transform="translate(130 262) scale(.78)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#tg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
+      <!-- carrete derecho -->
+      <g transform="translate(436 272) scale(.72)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#pg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
+      <!-- carrete central -->
+      <g transform="translate(284 248)"><use href="#spool"/><rect x="-50" y="-96" width="100" height="192" fill="url(#gg)"/><rect x="-50" y="-96" width="100" height="192" fill="url(#thr)"/></g>
+      <!-- corona -->
+      <g transform="translate(284 104)">
+        <path d="M-62 26 L-70 -38 L-34 -6 L0 -56 L34 -6 L70 -38 L62 26 Z" fill="url(#gg)" stroke="#8f600a" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="-64" y="22" width="128" height="16" rx="8" fill="#b07a10"/>
+        <circle cx="0" cy="-56" r="8" fill="#fff"/><circle cx="-70" cy="-38" r="7" fill="#fff"/><circle cx="70" cy="-38" r="7" fill="#fff"/>
+        <circle cx="0" cy="8" r="9" fill="#0f7c80"/><circle cx="-34" cy="12" r="6" fill="#fde8ec"/><circle cx="34" cy="12" r="6" fill="#fde8ec"/>
+      </g>
+      <!-- hilo suelto -->
+      <path d="M334 210 C 400 190, 430 120, 500 140 S 540 220, 520 250" fill="none" stroke="#ffd166" stroke-width="3"/>
+      <!-- cinta -->
+      <path d="M40 380 C 90 330, 150 400, 200 360 S 300 370, 330 384" fill="none" stroke="#fde8ec" stroke-width="16" stroke-linecap="round"/>
+      <!-- botones -->
+      <g id="btns">
+        <g transform="translate(70 150)"><circle r="26" fill="#fff"/><circle r="18" fill="none" stroke="#e8a0b4" stroke-width="3"/><circle cx="-6" cy="-6" r="3.5" fill="#a3123a"/><circle cx="6" cy="-6" r="3.5" fill="#a3123a"/><circle cx="-6" cy="6" r="3.5" fill="#a3123a"/><circle cx="6" cy="6" r="3.5" fill="#a3123a"/></g>
+        <g transform="translate(200 96)"><circle r="16" fill="#0f7c80"/><circle cx="-4" r="3" fill="#a3123a"/><circle cx="4" r="3" fill="#a3123a"/></g>
+        <g transform="translate(470 70)"><circle r="22" fill="#ffd166"/><circle r="15" fill="none" stroke="#b07a10" stroke-width="2.5"/><circle cx="-5" cy="-5" r="3" fill="#7c0c2b"/><circle cx="5" cy="-5" r="3" fill="#7c0c2b"/><circle cx="-5" cy="5" r="3" fill="#7c0c2b"/><circle cx="5" cy="5" r="3" fill="#7c0c2b"/></g>
+        <g transform="translate(520 390)"><circle r="14" fill="#fff"/><circle cx="-4" r="2.5" fill="#0f7c80"/><circle cx="4" r="2.5" fill="#0f7c80"/></g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="band" id="nosotros">
+  <div class="wrap about">
+    <div>
+      <h2>Una mercería de confianza para tu barrio</h2>
+      <p>En Mercería La Reina atendemos a costureras, modistas, diseñadores, escuelas y amantes de las manualidades. Tenemos el surtido del día a día y te ayudamos a encontrar el botón, el color de hilo o el encaje exacto que buscas.</p>
+      <p>Algunos artículos se venden directamente en la web; otros, como telas por yarda, máquinas o trabajos a medida, se cotizan y se confirman contigo por WhatsApp o en la tienda.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--red)"/><path d="M12 21l5 5 11-12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><div><b>Surtido amplio</b>Hilos, botones, cintas, cierres, agujas y más, en muchos colores.</div></div>
+      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--teal)"/><path d="M20 10v11l7 4" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><div><b>Pedido rápido</b>Arma tu carrito y envíanos el pedido por WhatsApp en un clic.</div></div>
+      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--gold)"/><path d="M10 27l4-14 6 8 6-8 4 14z" fill="#fff"/></svg><div><b>Atención de reina</b>Te asesoramos para tu proyecto, desde un ruedo hasta un vestido de novia.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band cat" id="productos">
+  <div class="wrap">
+    <h2>Nuestros productos</h2>
+    <div class="tools">
+      <div id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      <input class="search" id="q" type="search" placeholder="Buscar: hilo, botón, encaje…" aria-label="Buscar productos">
+      <label class="toggle"><input type="checkbox" id="onlySale"> Solo venta en línea</label>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Productos, precios y datos de contacto son de ejemplo: se reemplazan con el inventario real de la tienda.</p>
+  </div>
+</section>
+
+<section class="band" id="servicios">
+  <div class="wrap">
+    <h2>Servicios</h2>
+    <div class="svc">
+      <div><h3>Forrado de botones</h3><p>Traes tu tela y forramos botones a juego en varios tamaños. Se cotiza según cantidad.</p></div>
+      <div><h3>Ventas al por mayor</h3><p>Precios especiales para talleres, fábricas, escuelas y revendedores. Pide tu lista de precios.</p></div>
+      <div><h3>Pedidos especiales</h3><p>¿No encuentras un color o modelo? Lo buscamos con nuestros suplidores y te avisamos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contacto">
+  <div class="wrap">
+    <h2>Visítanos o escríbenos</h2>
+    <div class="cgrid">
+      <dl>
+        <div><dt>Dirección</dt><dd id="cAddr"></dd></div>
+        <div><dt>Teléfono y WhatsApp</dt><dd id="cPhone"></dd></div>
+        <div><dt>Correo</dt><dd id="cMail"></dd></div>
+        <div><a class="btn wa" id="contactWa" href="#">Abrir WhatsApp</a></div>
+      </dl>
+      <table class="hours" aria-label="Horario">
+        <tr><td>Lunes a viernes</td><td>8:30 a. m. – 6:00 p. m.</td></tr>
+        <tr><td>Sábado</td><td>8:30 a. m. – 4:00 p. m.</td></tr>
+        <tr><td>Domingo y feriados</td><td>Cerrado</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="band">© <span id="yr"></span> Mercería La Reina · República Dominicana · Precios en pesos dominicanos (RD$), ITBIS incluido.</footer>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-hidden="true">
+  <div class="dhead"><h3>Tu carrito</h3><button class="x" id="closeCart" aria-label="Cerrar carrito">×</button></div>
+  <div class="dbody" id="dbody"></div>
+  <div class="dfoot" id="dfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+{
+const CFG={wa:'18095550123',phone:'809-555-0123',mail:'ventas@merceriaLaReina.do',addr:'Calle Duarte #45, Zona Colonial, Santo Domingo'};
+const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cierres','Herramientas','Telas'];
+const P=[
+ {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#a3123a',d:'Resistente, para máquina y a mano. Varios colores.'},
+ {id:'h2',n:'Hilo de bordar (madeja)',c:'Hilos y estambres',p:35,v:1,i:'spool',k:'#0f7c80',d:'Algodón mercerizado de 6 hebras.'},
+ {id:'h3',n:'Estambre acrílico 100 g',c:'Hilos y estambres',p:180,v:1,i:'yarn',k:'#e0a526',d:'Ideal para tejer a crochet y dos agujas.'},
+ {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#7c0c2b',d:'Para talleres y fábricas. Precio según cantidad.'},
+ {id:'b1',n:'Botones nácar, paquete de 12',c:'Botones',p:120,v:1,i:'button',k:'#ffffff',d:'Para camisas y blusas, 11 mm.'},
+ {id:'b2',n:'Botones de madera, paquete de 10',c:'Botones',p:95,v:1,i:'button',k:'#c99c58',d:'Acabado natural, 20 mm.'},
+ {id:'b3',n:'Botones forrados a medida',c:'Botones',p:null,v:0,i:'button',k:'#e8a0b4',d:'Con tu propia tela. Se cotiza.'},
+ {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#a3123a',d:'Para lazos, decoración y manualidades.'},
+ {id:'c2',n:'Encaje de algodón (por yarda)',c:'Cintas y encajes',p:60,v:1,i:'lace',k:'#fde8ec',d:'Blanco o crudo, 2" de ancho.'},
+ {id:'c3',n:'Encaje para novia',c:'Cintas y encajes',p:null,v:0,i:'lace',k:'#ffffff',d:'Modelos exclusivos. Ven a verlos o pide fotos.'},
+ {id:'z1',n:'Cierre invisible 9"',c:'Cierres',p:40,v:1,i:'zip',k:'#0f7c80',d:'Para faldas y vestidos.'},
+ {id:'z2',n:'Cierre metálico para jean 7"',c:'Cierres',p:45,v:1,i:'zip',k:'#b07a10',d:'Dientes de bronce, cursor con traba.'},
+ {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#a3123a',d:'Largos especiales para chaquetas y bolsos.'},
+ {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#a3123a',d:'Acero inoxidable, corte preciso de tela.'},
+ {id:'t2',n:'Agujas de mano surtidas',c:'Herramientas',p:55,v:1,i:'needle',k:'#0f7c80',d:'Sobre de 25 agujas de varios tamaños.'},
+ {id:'t3',n:'Cinta métrica 150 cm',c:'Herramientas',p:75,v:1,i:'tape',k:'#e0a526',d:'Flexible, en centímetros y pulgadas.'},
+ {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#a3123a',d:'Disponibilidad y precio en tienda.'},
+ {id:'f1',n:'Tela de algodón (por yarda)',c:'Telas',p:null,v:0,i:'fabric',k:'#0f7c80',d:'Estampados y lisos. Consulta colores disponibles.'},
+ {id:'f2',n:'Fieltro en láminas',c:'Telas',p:null,v:0,i:'fabric',k:'#e0a526',d:'Para manualidades escolares. Consulta colores.'}
+];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rd=n=>'RD$ '+n.toLocaleString('es-DO',{minimumFractionDigits:2,maximumFractionDigits:2});
+const waLink=t=>'https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(t);
+const ICON={
+ spool:k=>`<rect x="18" y="8" width="64" height="10" rx="4" fill="#e9c98f"/><rect x="18" y="82" width="64" height="10" rx="4" fill="#e9c98f"/><rect x="26" y="18" width="48" height="64" fill="${k}"/><path d="M26 30l48-6M26 44l48-6M26 58l48-6M26 72l48-6" stroke="rgba(0,0,0,.2)" stroke-width="2"/>`,
+ yarn:k=>`<circle cx="50" cy="50" r="38" fill="${k}"/><path d="M20 36c20 10 40 10 60-4M16 54c24 12 48 12 68-6M26 74c16 6 34 6 50-8M40 14c-8 24-8 48 6 72" stroke="rgba(0,0,0,.2)" stroke-width="3" fill="none"/><path d="M84 66c8 10 4 22-8 24" stroke="${k}" stroke-width="4" fill="none"/>`,
+ button:k=>`<circle cx="50" cy="50" r="40" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="3"/><circle cx="50" cy="50" r="28" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="3"/><circle cx="41" cy="41" r="5" fill="#2a1017"/><circle cx="59" cy="41" r="5" fill="#2a1017"/><circle cx="41" cy="59" r="5" fill="#2a1017"/><circle cx="59" cy="59" r="5" fill="#2a1017"/>`,
+ ribbon:k=>`<path d="M50 50 C 70 70, 80 86, 96 92" stroke="${k}" stroke-width="16" fill="none"/><circle cx="44" cy="44" r="34" fill="${k}"/><circle cx="44" cy="44" r="24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3"/><circle cx="44" cy="44" r="10" fill="#e9c98f"/>`,
+ lace:k=>`<rect x="6" y="20" width="88" height="40" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="2"/>${[0,1,2,3,4,5].map(j=>`<circle cx="${14+j*14.4}" cy="64" r="8" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="2"/><circle cx="${14+j*14.4}" cy="40" r="4" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>`).join('')}`,
+ zip:k=>`<rect x="36" y="4" width="28" height="92" rx="4" fill="${k}"/>${Array.from({length:10},(_,j)=>`<rect x="${j%2?50:42}" y="${10+j*8}" width="8" height="5" fill="#d9d9d9"/>`).join('')}<rect x="40" y="70" width="20" height="14" rx="3" fill="#bbb"/><rect x="46" y="84" width="8" height="12" rx="3" fill="#999"/>`,
+ scissors:k=>`<circle cx="30" cy="74" r="14" fill="none" stroke="${k}" stroke-width="7"/><circle cx="70" cy="74" r="14" fill="none" stroke="${k}" stroke-width="7"/><path d="M38 62 L66 8 M62 62 L34 8" stroke="#9aa3a8" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="40" r="4" fill="#555"/>`,
+ needle:k=>`<path d="M20 86 L82 14" stroke="#9aa3a8" stroke-width="5" stroke-linecap="round"/><ellipse cx="78" cy="19" rx="2" ry="5" transform="rotate(41 78 19)" fill="var(--card)"/><path d="M80 18 C 96 40, 40 60, 60 90" stroke="${k}" stroke-width="3" fill="none"/>`,
+ tape:k=>`<circle cx="44" cy="50" r="34" fill="${k}"/><circle cx="44" cy="50" r="10" fill="#fff"/><path d="M70 72 h26 v14 h-30z" fill="${k}"/>${[0,1,2,3].map(j=>`<path d="M${74+j*6} 72v6" stroke="#2a1017" stroke-width="2"/>`).join('')}`,
+ machine:k=>`<path d="M10 78 V 30 Q10 20 20 20 H 80 Q90 20 90 30 V 50 H 70 V 78 Z" fill="${k}"/><rect x="4" y="78" width="92" height="12" rx="4" fill="#2a1017"/><rect x="70" y="50" width="8" height="20" fill="#9aa3a8"/><circle cx="30" cy="36" r="7" fill="#fff"/>`,
+ fabric:k=>`<rect x="10" y="58" width="80" height="22" rx="4" fill="${k}" opacity=".6"/><rect x="14" y="40" width="74" height="22" rx="4" fill="${k}" opacity=".8"/><rect x="18" y="22" width="68" height="22" rx="4" fill="${k}"/><path d="M18 33h68" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 4"/>`
+};
+let cat='Todos',query='',only=false,cart={};
+try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
+const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
+const byId=id=>P.find(p=>p.id===id);
+let tt;const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),1800)};
+
+function renderChips(){$('#chips').innerHTML=CATS.map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('')}
+function renderGrid(){
+  const q=query.trim().toLowerCase();
+  const list=P.filter(p=>(cat==='Todos'||p.c===cat)&&(!only||p.v)&&(!q||(p.n+' '+p.d+' '+p.c).toLowerCase().includes(q)));
+  $('#grid').innerHTML=list.length?list.map(p=>`<article class="prod">
+    <div class="thumb"><svg viewBox="0 0 100 100" aria-hidden="true">${ICON[p.i](p.k)}</svg></div>
+    <div class="pbody"><small>${esc(p.c)}</small><h3>${esc(p.n)}</h3><p>${esc(p.d)}</p>
+    ${p.v?`<span class="price">${rd(p.p)}</span>`:`<span class="tag">Solo por consulta</span>`}
+    <div class="prow">${p.v?`<button class="btn" data-add="${p.id}">Agregar al carrito</button>`:`<a class="btn ghost" href="${esc(waLink('Hola, Mercería La Reina. Quisiera información sobre: '+p.n))}" target="_blank" rel="noopener">Consultar</a>`}</div></div>
+  </article>`).join(''):`<div class="empty">No encontramos productos con esa búsqueda. Prueba otra palabra o escríbenos.</div>`;
+}
+const items=()=>Object.entries(cart).map(([id,q])=>({p:byId(id),q})).filter(x=>x.p&&x.p.v&&x.q>0);
+const total=()=>items().reduce((s,x)=>s+x.p.p*x.q,0);
+function renderCart(){
+  const it=items();
+  $('#count').textContent=it.reduce((s,x)=>s+x.q,0);
+  if(!it.length){$('#dbody').innerHTML='<p class="empty">Tu carrito está vacío. Agrega productos marcados con precio.</p>';$('#dfoot').innerHTML='';return}
+  $('#dbody').innerHTML=it.map(({p,q})=>`<div class="line"><div><b>${esc(p.n)}</b><br><span style="color:var(--soft)">${rd(p.p)} c/u</span></div><b style="white-space:nowrap">${rd(p.p*q)}</b>
+    <div class="qty"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span aria-live="polite">${q}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div><button class="rm" data-rm="${p.id}">Eliminar</button></div>`).join('')+
+   `<form class="co" id="co"><h3>Datos para el pedido</h3>
+    <label>Nombre<input id="fn" required autocomplete="name"></label>
+    <label>Teléfono<input id="fp" required type="tel" autocomplete="tel" placeholder="809-000-0000"></label>
+    <label>Entrega<select id="fd"><option>Retiro en tienda</option><option>Envío a domicilio (costo según zona)</option></select></label>
+    <label>Dirección o sector (si es envío)<input id="fa"></label>
+    <label>Nota<textarea id="fx" rows="2" placeholder="Colores, tallas o detalles"></textarea></label>
+    <button class="btn" type="submit">Preparar pedido</button><div id="out"></div></form>`;
+  $('#dfoot').innerHTML=`<div class="tot"><span>Total</span><span>${rd(total())}</span></div><span style="font-size:13px;color:var(--soft)">ITBIS incluido. El envío se confirma por WhatsApp.</span>`;
+}
+function orderText(){
+  const v=id=>$(id).value.trim();
+  return ['Hola, Mercería La Reina. Quiero hacer este pedido:',...items().map(({p,q})=>`• ${q} x ${p.n} — ${rd(p.p*q)}`),`Total: ${rd(total())}`,`Nombre: ${v('#fn')}`,`Teléfono: ${v('#fp')}`,`Entrega: ${v('#fd')}`,v('#fa')&&`Dirección: ${v('#fa')}`,v('#fx')&&`Nota: ${v('#fx')}`].filter(Boolean).join('\n');
+}
+const setOpen=o=>{document.body.classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);if(o)$('#closeCart').focus()};
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  const d=t.dataset;
+  if(d.c){cat=d.c;renderChips();renderGrid()}
+  if(d.add){cart[d.add]=(cart[d.add]||0)+1;save();renderCart();toast('Agregado al carrito')}
+  if(d.inc){cart[d.inc]++;save();renderCart()}
+  if(d.dec){cart[d.dec]--;if(cart[d.dec]<=0)delete cart[d.dec];save();renderCart()}
+  if(d.rm){delete cart[d.rm];save();renderCart()}
+  if(t.id==='copyOrder'){navigator.clipboard?.writeText(orderText()).then(()=>toast('Pedido copiado'),()=>toast('No se pudo copiar'))}
+});
+document.addEventListener('submit',e=>{
+  if(e.target.id!=='co')return;e.preventDefault();
+  $('#out').innerHTML=`<div class="ok">Tu pedido está listo. Ábrelo en WhatsApp y pulsa enviar; la tienda te confirmará disponibilidad y entrega.<div class="cta" style="margin-top:10px"><a class="btn wa" href="${esc(waLink(orderText()))}" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn ghost" type="button" id="copyOrder">Copiar pedido</button></div></div>`;
+});
+$('#q').addEventListener('input',e=>{query=e.target.value;renderGrid()});
+$('#onlySale').addEventListener('change',e=>{only=e.target.checked;renderGrid()});
+$('#openCart').addEventListener('click',()=>setOpen(true));
+$('#closeCart').addEventListener('click',()=>setOpen(false));
+$('#veil').addEventListener('click',()=>setOpen(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
+
+const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
+$('#heroWa').href=hello;$('#contactWa').href=hello;
+for(const a of [$('#heroWa'),$('#contactWa')]){a.target='_blank';a.rel='noopener'}
+$('#cAddr').textContent=CFG.addr;$('#cPhone').textContent=CFG.phone;$('#cMail').textContent=CFG.mail;
+$('#yr').textContent=new Date().getFullYear();
+renderChips();renderGrid();renderCart();
+}
+</script>
+</body>
+</html>
