@@ -38,7 +38,11 @@
   "historia": {
     "titulo": "Nuestra Historia",
     "subtitulo": "Una mercería de confianza para ayudarte",
-    "foto": "fotos/tienda.jpg",
+    "fotos": [
+      "fotos/tienda.jpg",
+      "fotos/cintas.jpg",
+      "fotos/cuentas.jpg"
+    ],
     "parrafos": [
       "Mercería La Reina nació con una idea sencilla: que costureras, modistas, artesanos, estudiantes y familias encuentren en un solo lugar todo lo que necesitan para coser, bordar, tejer y crear.",
       "Con el tiempo fuimos ampliando el surtido con cintas, encajes, cuentas para bisutería y materiales para manualidades, y hoy te atendemos en tres sucursales.",

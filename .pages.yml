@@ -140,9 +140,12 @@ content:
           - name: subtitulo
             label: Subtítulo
             type: string
-          - name: foto
-            label: Foto
+          - name: fotos
+            label: Fotos (cambian solas mientras se ve esta sección)
             type: image
+            options:
+              multiple:
+                max: 8
           - name: parrafos
             label: Párrafos
             type: text
