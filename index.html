@@ -21,7 +21,7 @@
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
-html{scroll-padding-top:84px;scroll-behavior:smooth}
+html{scroll-padding-top:96px;scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 h1,h2,h3{font-weight:900;line-height:1.08;text-wrap:balance;margin:0}
 h2{font-size:clamp(30px,4.2vw,44px);text-transform:uppercase;color:var(--red);letter-spacing:.01em}
@@ -41,55 +41,45 @@ button{cursor:pointer}
 .btn.wa{background:#1f8a4c;border-color:#1f8a4c}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .note{font-size:13px;color:var(--soft);margin-top:18px}
-/* encabezado con menú en píldoras */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
-.bar{display:flex;align-items:center;gap:14px;padding:10px max(5vw,16px);max-width:1300px;margin:0 auto}
-.logo{display:flex;flex:none;text-decoration:none}
-.logo img{display:block;height:54px;width:auto;border-radius:12px;padding:3px 8px;background:light-dark(transparent,#fff)}
+/* encabezado sobre la foto, como en el ejemplo; se vuelve blanco al bajar */
+header{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s,box-shadow .3s}
+header.solid{background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;gap:14px;padding:14px max(5vw,16px);max-width:1300px;margin:0 auto}
+.logo{display:flex;flex:none;text-decoration:none;background:#fff;border-radius:18px;padding:6px 14px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.logo img{display:block;height:58px;width:auto;transition:height .3s}
+header.solid .logo{box-shadow:none;padding:2px 8px}header.solid .logo img{height:48px}
 nav{display:flex;gap:6px;margin-inline-start:auto}
-nav a{text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;padding:10px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);white-space:nowrap}
-nav a:hover{border-color:var(--red)}
-nav a.on{background:var(--red);border-color:var(--red);color:#fff}
+nav a{text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;padding:10px 16px;border-radius:999px;background:#fff;color:#2a1020;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+header.solid nav a{box-shadow:none;border:2px solid var(--line);padding:8px 14px}
+nav a:hover{background:var(--blush)}
+nav a.on{background:var(--red);color:#fff}
 .cartbtn{position:relative;min-width:48px;padding:10px 14px}
 .count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#2a1017;border-radius:999px;font-size:13px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 5px}
-@media(max-width:900px){.bar{flex-wrap:wrap}.cartbtn{margin-inline-start:auto}nav{order:3;width:100%;margin:0;overflow-x:auto;padding-bottom:2px}nav a{flex:none;padding:8px 14px}}
-/* portada: carrusel */
-.hero{position:relative;height:clamp(460px,70vh,640px);overflow:hidden;background:var(--red2);color:#fff}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s}
+@media(max-width:900px){.bar{flex-wrap:wrap;padding:10px 16px}.cartbtn{margin-inline-start:auto}nav{order:3;width:100%;margin:0;overflow-x:auto;padding:2px 0 4px}nav a{flex:none;padding:8px 14px}.logo img{height:46px}header.solid .logo img{height:40px}}
+/* portada: foto a todo el ancho con capa oscura y texto a la izquierda (formato del ejemplo), con cambio de foto */
+.hero{position:relative;height:clamp(540px,82vh,760px);overflow:hidden;background:#2a1020;color:#fff}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1s,visibility 1s}
 .slide.on{opacity:1;visibility:visible}
-.bg{position:absolute;inset:0;transform:scale(1);transition:transform 7s linear}
+.bg{position:absolute;inset:0;transform:scale(1.02);transition:transform 8s linear}
 .slide.on .bg{transform:scale(1.12)}
-.bg .blur{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(28px) brightness(.55) saturate(1.2)}
-.frame{position:absolute;z-index:2;right:max(6vw,84px);top:50%;height:82%;aspect-ratio:9/15;transform:translateY(-50%) rotate(2.5deg);border:8px solid #fff;border-radius:10px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.45);background:#fff}
-.frame img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform 7s linear}
-.slide.on .frame img{transform:scale(1.14)}
-.frame.lg{aspect-ratio:auto;height:auto;width:min(46%,610px);right:max(4vw,72px);padding:clamp(28px,5vw,70px);border:0;border-radius:0;background:none;box-shadow:none;overflow:visible;transform:translateY(-50%)}
-.frame.lg::before{content:"";position:absolute;inset:-6% -7%;background:radial-gradient(closest-side,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 62%,rgba(255,255,255,0) 100%);filter:blur(18px)}
-.frame.lg img{position:relative;height:auto;object-fit:contain}
-.slide.on .frame.lg img{transform:scale(1.06)}
-.slide.on .frame{animation:pop .9s both}
-@keyframes pop{from{opacity:0;transform:translateY(-44%) rotate(6deg)}}
-.slide.on .frame.lg{animation:glow 1.1s both}
-@keyframes glow{from{opacity:0;transform:translateY(-50%) scale(.85)}}
-.art{position:absolute;right:7%;top:50%;width:min(34%,400px);height:auto;transform:translateY(-50%)}
-.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,0,38,.8) 0%,rgba(60,0,38,.45) 45%,rgba(60,0,38,0) 75%)}
-.copy{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:0 max(5vw,64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.copy h1,.copy h2{font-size:clamp(32px,4.6vw,58px);color:#fff;text-transform:uppercase;max-width:11em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
-.copy p{font-size:18px;max-width:30em;color:#ffe0f0;margin:14px 0 24px}
-@media(min-width:1101px){.welcome .copy>*{max-width:min(520px,44vw)}}
+.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px) saturate(1.15)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,6,16,.78) 0%,rgba(20,6,16,.55) 50%,rgba(20,6,16,.35) 100%)}
+.copy{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:110px max(5vw,64px) 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.copy h1,.copy h2{font-size:clamp(34px,5vw,62px);color:#fff;text-transform:uppercase;max-width:14em;letter-spacing:.005em}
+.copy p{font-size:18px;max-width:34em;color:#fff;margin:16px 0 26px}
 .slide.on .copy>*{animation:up .8s both}.slide.on .copy p{animation-delay:.15s}.slide.on .copy .btn{animation-delay:.3s}
 @keyframes up{from{opacity:0;transform:translateY(24px)}}
-.copy .btn{background:var(--gold);border-color:var(--gold);color:#2a1017;font-size:17px;padding:12px 28px}
-.copy .btn:hover{background:#f0b83a;border-color:#f0b83a}
-.arr{position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:34px;line-height:1;display:grid;place-items:center}
-.arr:hover{background:rgba(255,255,255,.35)}.prev{left:12px}.next{right:12px}
-.dots{position:absolute;bottom:18px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:4px}
+.copy .btn{background:var(--red);border-color:var(--red);color:#fff;font-size:16px;padding:12px 30px;text-transform:uppercase}
+.copy .btn:hover{background:var(--red2);border-color:var(--red2)}
+.arr{position:absolute;top:55%;z-index:3;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:32px;line-height:1;display:grid;place-items:center}
+.arr:hover{background:rgba(255,255,255,.32)}.prev{left:12px}.next{right:12px}
+.dots{position:absolute;bottom:16px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:4px}
 .dots button{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;padding:0}
-.dots button::after{content:"";width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.5);transition:width .3s}
-.dots button[aria-current=true]::after{width:30px;background:#fff}
-@media(max-width:1100px) and (min-width:601px){.welcome .copy{justify-content:flex-start;padding-top:56px}.welcome .frame.lg{left:auto;right:6vw;width:min(440px,50%);top:auto;bottom:52px;transform:none;padding:24px 34px}.slide.welcome.on .frame.lg{animation:none}}
-@media(max-width:600px){.hero{height:580px}.frame{right:18px;top:auto;bottom:56px;height:46%;transform:rotate(2.5deg);border-width:6px}.frame.lg{left:0;right:0;width:auto;height:auto;bottom:50px;top:auto;padding:30px 24px;transform:none}.slide.on .frame.lg{animation:none}@keyframes pop{from{opacity:0;transform:translateY(6%) rotate(6deg)}}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:48px 22px 60px;justify-content:flex-start}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.75),rgba(60,0,38,.2) 70%)}}
-@media(prefers-reduced-motion:reduce){.slide.on .bg,.slide.on .frame img{transform:none}}
+.dots button::after{content:"";width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.5);transition:width .3s}
+.dots button[aria-current=true]::after{width:28px;background:#fff}
+@media(max-width:900px){.copy{padding-top:150px}}
+@media(max-width:600px){.hero{height:620px}.copy{padding:160px 22px 70px;justify-content:center}.arr{display:none}.copy p{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.slide.on .bg{transform:none}}
 /* historia */
 .story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .story .pic{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:560px;box-shadow:0 20px 40px rgba(80,0,50,.18)}
@@ -403,12 +393,10 @@ const ICON={
 };
 // Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
 const SL=[
- {logo:'logo-la-reina.png',t:'Bienvenidos a Mercería La Reina',d:'Tres sucursales con todo para coser, bordar, tejer y crear. Te esperamos.',b:'Contáctanos',h:'#contacto',g:['#d1117f','#6e0a49']},
- {f:'tienda.jpg',t:'Todo para coser, bordar y crear',d:'Hilos, botones, cintas, encajes, cierres y herramientas en un solo lugar.',b:'Ver productos',h:'#productos',i:'spool',k:'#fff',g:['#d1117f','#6e0a49']},
- {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes',i:'ribbon',k:'#fff',g:['#9c0c5f','#d1117f']},
- {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Ver cuentas',h:'#productos',c:'Cuentas y bisutería',i:'beads',k:'#fff',g:['#3f8f27','#2f6d1c']},
- {f:'equipo.svg',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1,i:'scissors',k:'#fff',g:['#d1117f','#3f8f27']},
- {t:'Precios especiales al por mayor',d:'Para talleres, fábricas, escuelas y revendedores.',b:'Ver servicios',h:'#servicios',i:'tape',k:'#e0a526',g:['#6e0a49','#9c0c5f']}
+ {f:'tienda.jpg',t:'Entra al mundo de Mercería La Reina',d:'Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.',b:'Contáctanos',h:'#contacto'},
+ {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes'},
+ {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Ver cuentas',h:'#productos',c:'Cuentas y bisutería'},
+ {f:'equipo-ancho.svg',pos:'right center',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1}
 ];
 // Servicios: recuadros con foto (como en el ejemplo)
 const TILES=[
@@ -425,14 +413,12 @@ const GAL=[
  {f:'equipo.svg',t:'Nuestro equipo',tall:1}
 ];
 
-$('#slides').innerHTML=SL.map((s,j)=>`<div class="slide ${s.logo?'welcome':''}" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
- <div class="bg" style="background:linear-gradient(120deg,${s.g[0]},${s.g[1]})">${s.f?`<img class="blur" src="fotos/${esc(s.f)}" alt="">`:s.i?`<svg class="art" viewBox="0 0 100 100" aria-hidden="true">${ICON[s.i](s.k)}</svg>`:''}</div>
- ${s.logo?`<div class="frame lg"><img src="${esc(s.logo)}" alt="La Reina Mercería"></div>`:s.f?`<div class="frame"><img src="fotos/${esc(s.f)}" alt="${esc(s.t)}"></div>`:''}
+$('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
+ <div class="bg"><img src="fotos/${esc(s.f)}" alt="" style="object-position:${s.pos||'center'}"></div>
  <div class="shade"></div>
  <div class="copy"><h${j?2:1}>${esc(s.t)}</h${j?2:1}><p>${esc(s.d)}</p><a class="btn" ${s.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="${s.h}"`} ${s.c?`data-go="${esc(s.c)}"`:''}>${esc(s.b)}</a></div></div>`).join('');
 $('#tiles').innerHTML=TILES.map(t=>`<a class="tile" ${t.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="#productos" data-go="${esc(t.go)}"`}><img src="fotos/${esc(t.f)}" alt="" loading="lazy"><span><b>${esc(t.t)}</b><small>${esc(t.s)}</small></span></a>`).join('');
 $('#gal').innerHTML=GAL.map(g=>`<figure class="${g.tall?'tall':''}"><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}" loading="lazy"><figcaption>${esc(g.t)}</figcaption></figure>`).join('');
-for(const im of document.querySelectorAll('#slides img')){const gone=()=>{(im.closest('.frame')||im).remove()};im.addEventListener('error',gone);if(im.complete&&!im.naturalWidth)gone()}
 
 // carrusel
 $('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
@@ -449,6 +435,8 @@ let sx=null;hero.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{pas
 hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()}sx=null});
 hero.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);play()}if(e.key==='ArrowRight'){show(cur+1);play()}});
 
+// encabezado: transparente sobre la foto, blanco al bajar
+const hdr=document.querySelector('header');const solid=()=>hdr.classList.toggle('solid',scrollY>40);addEventListener('scroll',solid,{passive:true});solid();
 // menú: marca la sección visible
 const links=[...document.querySelectorAll('#menu a')];
 const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
