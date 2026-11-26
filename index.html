@@ -4,50 +4,57 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mercería La Reina</title>
+<meta name="description" content="Mercería La Reina: hilos, botones, cintas, encajes, cuentas y todo para coser, bordar, tejer y crear. Tres sucursales en República Dominicana.">
 <link rel="icon" href="logo-la-reina.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* VOICE: cálida, de tienda de barrio con orgullo; clara para comprar.
-   IDEA: el mostrador de una mercería: carretes, botones y cintas a la vista.
-   PICTURE: escena de carretes gigantes con una corona de hilo dorado, botones y una cinta.
-   COLOUR and TYPE: carmesí real, rosa claro, oro y verde azulado de hilo; DM Serif Display + Nunito Sans.
-   LAYOUT: barra, portada con escena, nosotros, catálogo con filtros, servicios, contacto, pie; carrito lateral. */
+/* VOICE: cálida y orgullosa de tienda de barrio; clara para comprar.
+   IDEA: la estructura de una mercería dominicana de toda la vida: historia, valores, servicios, galería y sucursales.
+   PICTURE: carrusel con fotos reales de la tienda enmarcadas, y recuadros de servicios con foto.
+   COLOUR and TYPE: fucsia y verde del logo, dorado para botones de acción; Nunito Sans 900 en mayúsculas para títulos.
+   LAYOUT: menú en píldoras, portada, historia, misión/visión/valores, servicios, productos, galería, sobre, sucursales, pie en columnas. */
 :root{color-scheme:light dark;
---bg:light-dark(#fffafb,#1a0d16);--ink:light-dark(#2a1017,#fbeef1);--soft:light-dark(#6d4a53,#d6b9c0);
---red:light-dark(#b5127a,#ec5aa6);--red2:light-dark(#8a0d5c,#c9307f);--blush:light-dark(#fde6f2,#2a1424);
---gold:#e0a526;--teal:light-dark(#3f8f27,#79c95c);--card:light-dark(#fff,#24131a);--line:light-dark(#f3d0e4,#3d2233)}
+--bg:light-dark(#fffafc,#1a0d16);--ink:light-dark(#2a1020,#fbeef5);--soft:light-dark(#6b4a5c,#d6b9c8);
+--red:light-dark(#d1117f,#f05aac);--red2:light-dark(#9c0c5f,#c9307f);--blush:light-dark(#fde6f2,#2a1424);
+--gold:#e0a526;--green:light-dark(#3f8f27,#79c95c);--card:light-dark(#fff,#24131e);--line:light-dark(#f3d0e4,#3d2233)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
-html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
-h2{font-size:clamp(32px,4.5vw,46px)}h3{font-size:22px}
+h1,h2,h3{font-weight:900;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4.2vw,44px);text-transform:uppercase;color:var(--red);letter-spacing:.01em}
+h3{font-size:20px}
+.sub{font-size:19px;font-weight:700;margin:10px 0 0}
 a{color:inherit}
-.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
-.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
+.wrap{max-width:1200px;margin:0 auto}
+.center{text-align:center}.center p{margin-inline:auto}
 button,input,select,textarea{font:inherit;font-size:16px}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:999px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:800;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 22px;border-radius:999px;border:2px solid var(--red);background:var(--red);color:#fff;font-weight:800;text-decoration:none}
 .btn:hover{background:var(--red2);border-color:var(--red2)}
 .btn.ghost{background:transparent;color:var(--red)}
 .btn.ghost:hover{background:var(--blush)}
 .btn.wa{background:#1f8a4c;border-color:#1f8a4c}
-/* barra */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);max-width:1340px;margin:0 auto}
-.logo{display:flex;align-items:center;text-decoration:none;flex:none}
-.logo img{display:block;height:52px;width:auto;border-radius:10px;padding:2px 6px;background:light-dark(transparent,#fff)}
-nav{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
-nav a{text-decoration:none;font-weight:700;padding:10px 12px;border-radius:999px}
-nav a:hover{background:var(--blush)}
-.cartbtn{position:relative;min-width:44px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.note{font-size:13px;color:var(--soft);margin-top:18px}
+/* encabezado con menú en píldoras */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;gap:14px;padding:10px max(5vw,16px);max-width:1300px;margin:0 auto}
+.logo{display:flex;flex:none;text-decoration:none}
+.logo img{display:block;height:54px;width:auto;border-radius:12px;padding:3px 8px;background:light-dark(transparent,#fff)}
+nav{display:flex;gap:6px;margin-inline-start:auto}
+nav a{text-decoration:none;font-weight:800;font-size:14px;text-transform:uppercase;padding:10px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);white-space:nowrap}
+nav a:hover{border-color:var(--red)}
+nav a.on{background:var(--red);border-color:var(--red);color:#fff}
+.cartbtn{position:relative;min-width:48px;padding:10px 14px}
 .count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#2a1017;border-radius:999px;font-size:13px;min-width:22px;height:22px;display:grid;place-items:center;padding:0 5px}
-@media(max-width:760px){nav{display:none}.bar{justify-content:space-between}}
-/* portada: carrusel a todo el ancho */
-.hero{position:relative;height:clamp(440px,68vh,620px);overflow:hidden;background:var(--red2);color:#fff}
+@media(max-width:900px){.bar{flex-wrap:wrap}.cartbtn{margin-inline-start:auto}nav{order:3;width:100%;margin:0;overflow-x:auto;padding-bottom:2px}nav a{flex:none;padding:8px 14px}}
+/* portada: carrusel */
+.hero{position:relative;height:clamp(460px,70vh,640px);overflow:hidden;background:var(--red2);color:#fff}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s}
 .slide.on{opacity:1;visibility:visible}
 .bg{position:absolute;inset:0;transform:scale(1);transition:transform 7s linear}
@@ -65,10 +72,11 @@ nav a:hover{background:var(--blush)}
 .slide.on .frame.lg{animation:glow 1.1s both}
 @keyframes glow{from{opacity:0;transform:translateY(-50%) scale(.85)}}
 .art{position:absolute;right:7%;top:50%;width:min(34%,400px);height:auto;transform:translateY(-50%)}
-.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,0,38,.78) 0%,rgba(60,0,38,.45) 45%,rgba(60,0,38,0) 75%)}
-.copy{position:relative;z-index:2;height:100%;max-width:1240px;margin:0 auto;padding:0 max(5vw,64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.copy h1{font-size:clamp(38px,6vw,72px);color:#fff;max-width:11em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,0,38,.8) 0%,rgba(60,0,38,.45) 45%,rgba(60,0,38,0) 75%)}
+.copy{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:0 max(5vw,64px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.copy h1,.copy h2{font-size:clamp(32px,4.6vw,58px);color:#fff;text-transform:uppercase;max-width:11em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
 .copy p{font-size:18px;max-width:30em;color:#ffe0f0;margin:14px 0 24px}
+@media(min-width:1101px){.welcome .copy>*{max-width:min(520px,44vw)}}
 .slide.on .copy>*{animation:up .8s both}.slide.on .copy p{animation-delay:.15s}.slide.on .copy .btn{animation-delay:.3s}
 @keyframes up{from{opacity:0;transform:translateY(24px)}}
 .copy .btn{background:var(--gold);border-color:var(--gold);color:#2a1017;font-size:17px;padding:12px 28px}
@@ -80,20 +88,43 @@ nav a:hover{background:var(--blush)}
 .dots button::after{content:"";width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.5);transition:width .3s}
 .dots button[aria-current=true]::after{width:30px;background:#fff}
 @media(max-width:1100px) and (min-width:601px){.welcome .copy{justify-content:flex-start;padding-top:56px}.welcome .frame.lg{left:auto;right:6vw;width:min(440px,50%);top:auto;bottom:52px;transform:none;padding:24px 34px}.slide.welcome.on .frame.lg{animation:none}}
-@media(max-width:600px){.hero{height:580px}.frame{right:18px;top:auto;bottom:56px;height:46%;transform:rotate(2.5deg);border-width:6px}.frame.lg{left:0;right:0;width:auto;height:auto;bottom:50px;top:auto;padding:30px 24px;transform:none}.slide.on .frame.lg{animation:none}@keyframes pop{from{opacity:0;transform:translateY(6%) rotate(6deg)}}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:0 22px 60px;justify-content:flex-start;padding-top:48px}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.7),rgba(60,0,38,.2) 70%)}}
+@media(max-width:600px){.hero{height:580px}.frame{right:18px;top:auto;bottom:56px;height:46%;transform:rotate(2.5deg);border-width:6px}.frame.lg{left:0;right:0;width:auto;height:auto;bottom:50px;top:auto;padding:30px 24px;transform:none}.slide.on .frame.lg{animation:none}@keyframes pop{from{opacity:0;transform:translateY(6%) rotate(6deg)}}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:48px 22px 60px;justify-content:flex-start}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.75),rgba(60,0,38,.2) 70%)}}
 @media(prefers-reduced-motion:reduce){.slide.on .bg,.slide.on .frame img{transform:none}}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-/* nosotros */
-.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
-.about p{color:var(--soft);max-width:36em}
-.pillars{display:grid;gap:14px}
-.pillar{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;background:var(--blush)}
-.pillar svg{flex:none}
-.pillar b{display:block}
-@media(max-width:700px){.about{grid-template-columns:1fr}}
+/* historia */
+.story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.story .pic{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:560px;box-shadow:0 20px 40px rgba(80,0,50,.18)}
+.story .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.story p{color:var(--soft);max-width:36em}
+@media(max-width:760px){.story{grid-template-columns:1fr}.story .pic{aspect-ratio:4/3}}
+/* misión, visión, valores */
+.mvv{background:var(--blush)}
+.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+.mv{background:var(--card);border-radius:22px;padding:28px;border:1px solid var(--line)}
+.mv .ic{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px}
+.mv h3{text-transform:uppercase;font-size:22px;color:var(--red);margin-bottom:10px}
+.mv p{margin:0;color:var(--soft)}
+.mv ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.mv li{color:var(--soft)}.mv li b{color:var(--ink)}
+@media(max-width:860px){.cards3{grid-template-columns:1fr}}
+/* servicios */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:32px}
+.tile{position:relative;display:block;border-radius:20px;overflow:hidden;aspect-ratio:3/4;text-decoration:none;color:#fff;background:var(--red2)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tile:hover img{transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,0,25,0) 35%,rgba(40,0,25,.9))}
+.tile span{position:absolute;z-index:1;left:16px;right:16px;bottom:16px;text-align:left}
+.tile b{display:block;font-size:21px;font-weight:900;text-transform:uppercase;line-height:1.1}
+.tile small{display:block;font-size:14px;color:#ffe0f0;margin-top:4px}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.tile b{font-size:15px;overflow-wrap:anywhere}.tile small{font-size:13px}.tile span{left:12px;right:12px;bottom:12px}}
+.svcx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.svcx div{padding:16px 18px;border-radius:16px;border:2px solid var(--line);text-align:left}
+.svcx b{display:block}.svcx p{margin:4px 0 0;color:var(--soft);font-size:15px}
+@media(max-width:760px){.svcx{grid-template-columns:1fr}}
 /* catálogo */
 .cat{background:var(--blush)}
 .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:700}
 .chip[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
 .search{flex:1 1 220px;min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
@@ -105,23 +136,37 @@ nav a:hover{background:var(--blush)}
 .thumb svg{width:62%;height:auto}
 .pbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pbody small{color:var(--soft);font-weight:700}
+.pbody h3{font-size:18px}
 .pbody p{margin:0;color:var(--soft);font-size:15px}
-.price{font-weight:800;font-size:20px;white-space:nowrap;color:var(--red)}
-.tag{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--blush);color:var(--teal)}
+.price{font-weight:900;font-size:20px;white-space:nowrap;color:var(--red)}
+.tag{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--blush);color:var(--green)}
 .prow{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:10px}
 .prow .btn{flex:1;padding:10px 12px}
 .empty{padding:40px;text-align:center;color:var(--soft)}
-.note{font-size:13px;color:var(--soft);margin-top:18px}
-/* servicios */
-.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
-.svc div{padding:22px;border-radius:18px;border:2px solid var(--line)}
-.svc p{color:var(--soft);margin:8px 0 0}
-/* contacto */
+/* galería */
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(160px,20vw,260px);gap:14px;margin-top:30px}
+.gal figure{position:relative;margin:0;border-radius:18px;overflow:hidden;background:var(--blush)}
+.gal figure.tall{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(42,16,32,.8);color:#fff;font-weight:700;font-size:14px;padding:5px 12px;border-radius:999px}
+@media(max-width:760px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* sobre */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);padding:0;background:var(--card)}
+.about .lab{background:var(--red);color:#fff;display:grid;place-items:center;padding:48px 24px;text-align:center}
+.about .lab b{font-size:clamp(26px,3.4vw,40px);font-weight:900;text-transform:uppercase;line-height:1.1}
+.about .txt{padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.about .txt h3{font-size:clamp(22px,2.6vw,30px)}
+.about .txt p{margin:0;color:var(--soft);max-width:40em}
+.about .txt img{height:110px;width:auto;border-radius:14px;padding:6px 10px;background:light-dark(transparent,#fff)}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+/* sucursales */
 .contact{background:#2f6d1c;color:#fff}
+.contact h2{color:#fff}
 .lead{color:#e4f5dc;margin:10px 0 0}.lead.small{font-size:15px;margin-top:18px}
-.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin-top:24px}
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin-top:26px}
 .br{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px}
-.br h3{color:#fff}
+.br h3{color:#fff;text-transform:uppercase}
 .br .ph{font-weight:800;font-size:19px;white-space:nowrap;color:#fff;text-decoration:none}
 .st{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.16)}
 .st.open{background:#e0a526;color:#2a1017}
@@ -131,7 +176,16 @@ nav a:hover{background:var(--blush)}
 .br .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
 .br .btn{background:#fff;color:#2f6d1c;border-color:#fff;flex:1}
 .br .btn.ghost{background:transparent;color:#fff}
-footer{background:var(--red2);color:#ffe0f0;text-align:center;font-size:15px}
+/* pie */
+footer{background:#2a1020;color:#f3dce8}
+.fcols{display:grid;grid-template-columns:1.2fr 1fr 1.3fr 1fr;gap:32px}
+footer h4{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.02em;color:#fff}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{color:#f3dce8;text-decoration:none}footer a:hover{color:#fff;text-decoration:underline}
+footer .flogo{height:64px;width:auto;background:#fff;border-radius:12px;padding:5px 10px}
+footer p{margin:12px 0 0;font-size:15px}
+.legal{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:18px;font-size:14px;color:#c9a9ba}
+@media(max-width:900px){.fcols{grid-template-columns:1fr 1fr}}@media(max-width:520px){.fcols{grid-template-columns:1fr}}
 /* carrito */
 .veil{position:fixed;inset:0;background:rgba(20,5,10,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
 .drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);z-index:31;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
@@ -149,16 +203,16 @@ form.co{display:grid;gap:10px;margin-top:14px}
 form.co label{display:grid;gap:4px;font-weight:700;font-size:15px}
 form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
 .ok{padding:12px;border-radius:12px;background:var(--blush);font-size:15px}
-.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;z-index:40;transition:transform .25s}
-.toast.show{transform:translate(-50%,0)}
+.toast{position:fixed;left:50%;bottom:20px;visibility:hidden;transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;z-index:40;transition:transform .25s}
+.toast.show{transform:translate(-50%,0);visibility:visible}
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <a class="logo" href="#inicio"><img src="logo-la-reina.png" alt="La Reina Mercería" width="128" height="52"></a>
-    <nav aria-label="Principal">
-      <a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
+    <a class="logo" href="#inicio"><img src="logo-la-reina.png" alt="La Reina Mercería" width="133" height="54"></a>
+    <nav aria-label="Principal" id="menu">
+      <a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#productos">Productos</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a>
     </nav>
     <button class="btn cartbtn" id="openCart" aria-label="Abrir carrito">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
@@ -175,16 +229,58 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 </section>
 
 <section class="band" id="nosotros">
-  <div class="wrap about">
+  <div class="wrap story">
+    <div class="pic"><img src="fotos/tienda.jpg" alt="Pasillo de Mercería La Reina con exhibidores de mercería y manualidades" loading="lazy"></div>
     <div>
-      <h2>Una mercería de confianza para ayudarte</h2>
-      <p>En Mercería La Reina atendemos a costureras, modistas, diseñadores, escuelas y amantes de las manualidades. Tenemos el surtido del día a día y te ayudamos a encontrar el botón, el color de hilo o el encaje exacto que buscas.</p>
-      <p>Algunos artículos se venden directamente en la web; otros, como telas por yarda, máquinas o trabajos a medida, se cotizan y se confirman contigo por WhatsApp o en la tienda.</p>
+      <h2>Historia del negocio</h2>
+      <p class="sub">Una mercería de confianza para ayudarte</p>
+      <p>Mercería La Reina nació con una idea sencilla: que costureras, modistas, artesanos, estudiantes y familias encuentren en un solo lugar todo lo que necesitan para coser, bordar, tejer y crear.</p>
+      <p>Con el tiempo fuimos ampliando el surtido con cintas, encajes, cuentas para bisutería y materiales para manualidades, y hoy te atendemos en tres sucursales.</p>
+      <p>Nuestro compromiso sigue siendo el mismo: variedad, buenos precios y una atención cercana, para que cada proyecto quede como lo imaginaste.</p>
+      <p class="note">Texto de ejemplo: con el año de fundación y la historia real de la tienda lo dejamos exacto.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--red)"/><path d="M12 21l5 5 11-12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><div><b>Surtido amplio</b>Hilos, botones, cintas, cierres, agujas y más, en muchos colores.</div></div>
-      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--teal)"/><path d="M20 10v11l7 4" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><div><b>Pedido rápido</b>Arma tu carrito y envíanos el pedido por WhatsApp en un clic.</div></div>
-      <div class="pillar"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--gold)"/><path d="M10 27l4-14 6 8 6-8 4 14z" fill="#fff"/></svg><div><b>Atención de reina</b>Te asesoramos para tu proyecto, desde un ruedo hasta un vestido de novia.</div></div>
+  </div>
+</section>
+
+<section class="band mvv" id="valores">
+  <div class="wrap center">
+    <h2>Lo que nos mueve</h2>
+    <div class="cards3" style="text-align:left">
+      <article class="mv">
+        <div class="ic" style="background:var(--red)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Misión</h3>
+        <p>Ofrecer a nuestros clientes los artículos de mercería, cintas, cuentas y manualidades que necesitan, con variedad, calidad y buen precio, ayudándoles a convertir cada idea en un trabajo bien hecho.</p>
+      </article>
+      <article class="mv">
+        <div class="ic" style="background:var(--green)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Visión</h3>
+        <p>Ser la mercería preferida de nuestra comunidad, reconocida por su surtido, su servicio cercano y por estar siempre al día con lo que buscan quienes cosen y crean.</p>
+      </article>
+      <article class="mv">
+        <div class="ic" style="background:var(--gold)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M3 19l2-11 5 5 2-8 2 8 5-5 2 11z"/></svg></div>
+        <h3>Valores</h3>
+        <ul>
+          <li><b>Calidad:</b> productos que rinden y duran.</li>
+          <li><b>Variedad:</b> colores, modelos y tamaños para cada proyecto.</li>
+          <li><b>Cercanía:</b> atención amable y personalizada.</li>
+          <li><b>Compromiso:</b> cumplir con lo que prometemos.</li>
+          <li><b>Creatividad:</b> ideas nuevas para tus trabajos.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="servicios">
+  <div class="wrap center">
+    <h2>Servicios</h2>
+    <p class="sub" style="max-width:38em">Todo para tus proyectos de costura, decoración y bisutería, con asesoría en tienda.</p>
+    <div class="cta" style="justify-content:center"><a class="btn" href="#galeria">Explora nuestra galería</a><a class="btn ghost" href="#productos">Ver productos</a></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="svcx">
+      <div><b>Ventas al por mayor</b><p>Precios especiales para talleres, escuelas y revendedores.</p></div>
+      <div><b>Forrado de botones</b><p>Con tu propia tela, en varios tamaños. Se cotiza.</p></div>
+      <div><b>Pedidos especiales</b><p>¿No encuentras un color o modelo? Lo buscamos por ti.</p></div>
     </div>
   </div>
 </section>
@@ -192,8 +288,9 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 <section class="band cat" id="productos">
   <div class="wrap">
     <h2>Nuestros productos</h2>
+    <p class="sub">Compra en línea los artículos con precio; los demás, consúltalos por WhatsApp.</p>
     <div class="tools">
-      <div id="chips" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      <div class="chips" id="chips"></div>
       <input class="search" id="q" type="search" placeholder="Buscar: hilo, botón, encaje…" aria-label="Buscar productos">
       <label class="toggle"><input type="checkbox" id="onlySale"> Solo venta en línea</label>
     </div>
@@ -202,14 +299,20 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
   </div>
 </section>
 
-<section class="band" id="servicios">
-  <div class="wrap">
-    <h2>Servicios</h2>
-    <div class="svc">
-      <div><h3>Forrado de botones</h3><p>Traes tu tela y forramos botones a juego en varios tamaños. Se cotiza según cantidad.</p></div>
-      <div><h3>Ventas al por mayor</h3><p>Precios especiales para talleres, fábricas, escuelas y revendedores. Pide tu lista de precios.</p></div>
-      <div><h3>Pedidos especiales</h3><p>¿No encuentras un color o modelo? Lo buscamos con nuestros suplidores y te avisamos.</p></div>
-    </div>
+<section class="band" id="galeria">
+  <div class="wrap center">
+    <h2>Galería</h2>
+    <p class="sub">Un vistazo a nuestras tiendas.</p>
+    <div class="gal" id="gal" style="text-align:left"></div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="lab"><b>Sobre<br>Mercería<br>La Reina</b></div>
+  <div class="txt">
+    <h3>Mercería La Reina, tienda de mercería y materiales creativos</h3>
+    <p>Somos una mercería dominicana con tres sucursales, especializada en hilos, botones, cintas, encajes, cierres, cuentas para bisutería y artículos para manualidades. Atendemos tanto al cliente que necesita un solo botón como a talleres y negocios que compran al por mayor.</p>
+    <img src="logo-la-reina.png" alt="La Reina Mercería" loading="lazy">
   </div>
 </section>
 
@@ -222,7 +325,17 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
   </div>
 </section>
 
-<footer class="band">© <span id="yr"></span> Mercería La Reina · República Dominicana · Precios en pesos dominicanos (RD$), ITBIS incluido.</footer>
+<footer class="band">
+  <div class="wrap">
+    <div class="fcols">
+      <div><img class="flogo" src="logo-la-reina.png" alt="La Reina Mercería" loading="lazy"><p>Todo para coser, bordar, tejer y crear.</p></div>
+      <div><h4>Información</h4><ul><li><a id="fWa" href="#" target="_blank" rel="noopener">WhatsApp: 809-724-8283</a></li><li>Lunes a sábado</li><li>Domingos: cerrado</li></ul></div>
+      <div><h4>Sucursales</h4><ul id="fSuc"></ul></div>
+      <div><h4>Enlaces</h4><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#productos">Productos</a></li><li><a href="#galeria">Galería</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    </div>
+    <div class="legal">© <span id="yr"></span> Mercería La Reina · República Dominicana · Precios en pesos dominicanos (RD$), ITBIS incluido.</div>
+  </div>
+</footer>
 
 <div class="veil" id="veil"></div>
 <aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-hidden="true">
@@ -245,25 +358,28 @@ const SUC=[
  {n:'Calle Beller',a:'Calle Beller #110',m:'C. Beller 73, República Dominicana',t:'809-241-5077',
   h:[['Lunes a sábado','9:00 a. m. – 6:00 p. m.']],o:{1:[9,18],2:[9,18],3:[9,18],4:[9,18],5:[9,18],6:[9,18]}}
 ];
-const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cierres','Herramientas','Telas'];
+const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cuentas y bisutería','Cierres','Herramientas','Telas'];
 const P=[
- {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#b5127a',d:'Resistente, para máquina y a mano. Varios colores.'},
+ {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#d1117f',d:'Resistente, para máquina y a mano. Varios colores.'},
  {id:'h2',n:'Hilo de bordar (madeja)',c:'Hilos y estambres',p:35,v:1,i:'spool',k:'#3f8f27',d:'Algodón mercerizado de 6 hebras.'},
  {id:'h3',n:'Estambre acrílico 100 g',c:'Hilos y estambres',p:180,v:1,i:'yarn',k:'#e0a526',d:'Ideal para tejer a crochet y dos agujas.'},
- {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#8a0d5c',d:'Para talleres y fábricas. Precio según cantidad.'},
+ {id:'h4',n:'Hilo industrial (cono)',c:'Hilos y estambres',p:null,v:0,i:'spool',k:'#9c0c5f',d:'Para talleres y fábricas. Precio según cantidad.'},
  {id:'b1',n:'Botones nácar, paquete de 12',c:'Botones',p:120,v:1,i:'button',k:'#ffffff',d:'Para camisas y blusas, 11 mm.'},
  {id:'b2',n:'Botones de madera, paquete de 10',c:'Botones',p:95,v:1,i:'button',k:'#c99c58',d:'Acabado natural, 20 mm.'},
  {id:'b3',n:'Botones forrados a medida',c:'Botones',p:null,v:0,i:'button',k:'#f2a6cf',d:'Con tu propia tela. Se cotiza.'},
- {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#b5127a',d:'Para lazos, decoración y manualidades.'},
+ {id:'c1',n:'Cinta de satín 1" (rollo 20 yd)',c:'Cintas y encajes',p:150,v:1,i:'ribbon',k:'#d1117f',d:'Para lazos, decoración y manualidades.'},
+ {id:'c4',n:'Cinta grosgrain estampada (yarda)',c:'Cintas y encajes',p:25,v:1,i:'ribbon',k:'#3f8f27',d:'Lunares, rayas y zigzag en muchos colores.'},
  {id:'c2',n:'Encaje de algodón (por yarda)',c:'Cintas y encajes',p:60,v:1,i:'lace',k:'#fde6f2',d:'Blanco o crudo, 2" de ancho.'},
  {id:'c3',n:'Encaje para novia',c:'Cintas y encajes',p:null,v:0,i:'lace',k:'#ffffff',d:'Modelos exclusivos. Ven a verlos o pide fotos.'},
+ {id:'q1',n:'Cuentas de cristal (hilera)',c:'Cuentas y bisutería',p:null,v:0,i:'beads',k:'#d1117f',d:'Facetadas, en muchos colores y tamaños. Consulta disponibilidad.'},
+ {id:'q2',n:'Cuentas acrílicas surtidas',c:'Cuentas y bisutería',p:null,v:0,i:'beads',k:'#3f8f27',d:'Para collares, pulseras y manualidades escolares.'},
  {id:'z1',n:'Cierre invisible 9"',c:'Cierres',p:40,v:1,i:'zip',k:'#3f8f27',d:'Para faldas y vestidos.'},
  {id:'z2',n:'Cierre metálico para jean 7"',c:'Cierres',p:45,v:1,i:'zip',k:'#b07a10',d:'Dientes de bronce, cursor con traba.'},
- {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#b5127a',d:'Largos especiales para chaquetas y bolsos.'},
- {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#b5127a',d:'Acero inoxidable, corte preciso de tela.'},
+ {id:'z3',n:'Cierres a medida',c:'Cierres',p:null,v:0,i:'zip',k:'#d1117f',d:'Largos especiales para chaquetas y bolsos.'},
+ {id:'t1',n:'Tijera de costura 9"',c:'Herramientas',p:650,v:1,i:'scissors',k:'#d1117f',d:'Acero inoxidable, corte preciso de tela.'},
  {id:'t2',n:'Agujas de mano surtidas',c:'Herramientas',p:55,v:1,i:'needle',k:'#3f8f27',d:'Sobre de 25 agujas de varios tamaños.'},
  {id:'t3',n:'Cinta métrica 150 cm',c:'Herramientas',p:75,v:1,i:'tape',k:'#e0a526',d:'Flexible, en centímetros y pulgadas.'},
- {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#b5127a',d:'Disponibilidad y precio en tienda.'},
+ {id:'t4',n:'Máquina de coser doméstica',c:'Herramientas',p:null,v:0,i:'machine',k:'#d1117f',d:'Disponibilidad y precio en tienda.'},
  {id:'f1',n:'Tela de algodón (por yarda)',c:'Telas',p:null,v:0,i:'fabric',k:'#3f8f27',d:'Estampados y lisos. Consulta colores disponibles.'},
  {id:'f2',n:'Fieltro en láminas',c:'Telas',p:null,v:0,i:'fabric',k:'#e0a526',d:'Para manualidades escolares. Consulta colores.'}
 ];
@@ -277,6 +393,7 @@ const ICON={
  button:k=>`<circle cx="50" cy="50" r="40" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="3"/><circle cx="50" cy="50" r="28" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="3"/><circle cx="41" cy="41" r="5" fill="#2a1017"/><circle cx="59" cy="41" r="5" fill="#2a1017"/><circle cx="41" cy="59" r="5" fill="#2a1017"/><circle cx="59" cy="59" r="5" fill="#2a1017"/>`,
  ribbon:k=>`<path d="M50 50 C 70 70, 80 86, 96 92" stroke="${k}" stroke-width="16" fill="none"/><circle cx="44" cy="44" r="34" fill="${k}"/><circle cx="44" cy="44" r="24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3"/><circle cx="44" cy="44" r="10" fill="#e9c98f"/>`,
  lace:k=>`<rect x="6" y="20" width="88" height="40" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="2"/>${[0,1,2,3,4,5].map(j=>`<circle cx="${14+j*14.4}" cy="64" r="8" fill="${k}" stroke="rgba(0,0,0,.15)" stroke-width="2"/><circle cx="${14+j*14.4}" cy="40" r="4" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>`).join('')}`,
+ beads:k=>`<path d="M10 20 Q50 110 90 20" stroke="#9aa3a8" stroke-width="2" fill="none"/>${[[14,30],[22,47],[32,60],[44,68],[56,68],[68,60],[78,47],[86,30]].map(([x,y],j)=>`<circle cx="${x}" cy="${y}" r="7" fill="${j%2?k:'#e0a526'}" stroke="rgba(0,0,0,.15)"/><circle cx="${x-2}" cy="${y-2}" r="2" fill="rgba(255,255,255,.7)"/>`).join('')}`,
  zip:k=>`<rect x="36" y="4" width="28" height="92" rx="4" fill="${k}"/>${Array.from({length:10},(_,j)=>`<rect x="${j%2?50:42}" y="${10+j*8}" width="8" height="5" fill="#d9d9d9"/>`).join('')}<rect x="40" y="70" width="20" height="14" rx="3" fill="#bbb"/><rect x="46" y="84" width="8" height="12" rx="3" fill="#999"/>`,
  scissors:k=>`<circle cx="30" cy="74" r="14" fill="none" stroke="${k}" stroke-width="7"/><circle cx="70" cy="74" r="14" fill="none" stroke="${k}" stroke-width="7"/><path d="M38 62 L66 8 M62 62 L34 8" stroke="#9aa3a8" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="40" r="4" fill="#555"/>`,
  needle:k=>`<path d="M20 86 L82 14" stroke="#9aa3a8" stroke-width="5" stroke-linecap="round"/><ellipse cx="78" cy="19" rx="2" ry="5" transform="rotate(41 78 19)" fill="var(--card)"/><path d="M80 18 C 96 40, 40 60, 60 90" stroke="${k}" stroke-width="3" fill="none"/>`,
@@ -286,19 +403,38 @@ const ICON={
 };
 // Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
 const SL=[
- {logo:'logo-la-reina.png',t:'Bienvenidos a Mercería La Reina',d:'Tres sucursales con todo para coser, bordar, tejer y crear. Te esperamos.',b:'Ver sucursales',h:'#contacto',g:['#b5127a','#6e0a49']},
- {f:'tienda.jpg',t:'Todo para coser, bordar y crear',d:'Hilos, botones, cintas, encajes, cierres y herramientas en un solo lugar.',b:'Ver productos',h:'#productos',i:'spool',k:'#fff',g:['#b5127a','#6e0a49']},
- {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes',i:'ribbon',k:'#fff',g:['#8a0d5c','#b5127a']},
- {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Consultar por WhatsApp',wa:1,i:'button',k:'#fff',g:['#3f8f27','#2f6d1c']},
- {f:'equipo.svg',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1,i:'scissors',k:'#fff',g:['#b5127a','#3f8f27']},
- {t:'Precios especiales al por mayor',d:'Para talleres, fábricas, escuelas y revendedores.',b:'Ver servicios',h:'#servicios',i:'tape',k:'#e0a526',g:['#6e0a49','#8a0d5c']}
+ {logo:'logo-la-reina.png',t:'Bienvenidos a Mercería La Reina',d:'Tres sucursales con todo para coser, bordar, tejer y crear. Te esperamos.',b:'Contáctanos',h:'#contacto',g:['#d1117f','#6e0a49']},
+ {f:'tienda.jpg',t:'Todo para coser, bordar y crear',d:'Hilos, botones, cintas, encajes, cierres y herramientas en un solo lugar.',b:'Ver productos',h:'#productos',i:'spool',k:'#fff',g:['#d1117f','#6e0a49']},
+ {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes',i:'ribbon',k:'#fff',g:['#9c0c5f','#d1117f']},
+ {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Ver cuentas',h:'#productos',c:'Cuentas y bisutería',i:'beads',k:'#fff',g:['#3f8f27','#2f6d1c']},
+ {f:'equipo.svg',t:'Te atiende nuestro equipo',d:'Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.',b:'Escríbenos por WhatsApp',wa:1,i:'scissors',k:'#fff',g:['#d1117f','#3f8f27']},
+ {t:'Precios especiales al por mayor',d:'Para talleres, fábricas, escuelas y revendedores.',b:'Ver servicios',h:'#servicios',i:'tape',k:'#e0a526',g:['#6e0a49','#9c0c5f']}
 ];
+// Servicios: recuadros con foto (como en el ejemplo)
+const TILES=[
+ {f:'tienda.jpg',t:'Mercería',s:'Hilos, botones, cierres y agujas',go:'Todos'},
+ {f:'cintas.jpg',t:'Cintas y encajes',s:'Para lazos, ropa y decoración',go:'Cintas y encajes'},
+ {f:'cuentas.jpg',t:'Cuentas y bisutería',s:'Cristal, acrílico y más',go:'Cuentas y bisutería'},
+ {f:'equipo.svg',t:'Atención personalizada',s:'Te asesoramos en tienda',wa:1}
+];
+// Galería: agrega más fotos a la carpeta "fotos/" y a esta lista
+const GAL=[
+ {f:'tienda.jpg',t:'Nuestra tienda',tall:1},
+ {f:'cintas.jpg',t:'Pared de cintas',tall:1},
+ {f:'cuentas.jpg',t:'Cuentas para bisutería',tall:1},
+ {f:'equipo.svg',t:'Nuestro equipo',tall:1}
+];
+
 $('#slides').innerHTML=SL.map((s,j)=>`<div class="slide ${s.logo?'welcome':''}" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
  <div class="bg" style="background:linear-gradient(120deg,${s.g[0]},${s.g[1]})">${s.f?`<img class="blur" src="fotos/${esc(s.f)}" alt="">`:s.i?`<svg class="art" viewBox="0 0 100 100" aria-hidden="true">${ICON[s.i](s.k)}</svg>`:''}</div>
  ${s.logo?`<div class="frame lg"><img src="${esc(s.logo)}" alt="La Reina Mercería"></div>`:s.f?`<div class="frame"><img src="fotos/${esc(s.f)}" alt="${esc(s.t)}"></div>`:''}
  <div class="shade"></div>
  <div class="copy"><h${j?2:1}>${esc(s.t)}</h${j?2:1}><p>${esc(s.d)}</p><a class="btn" ${s.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="${s.h}"`} ${s.c?`data-go="${esc(s.c)}"`:''}>${esc(s.b)}</a></div></div>`).join('');
+$('#tiles').innerHTML=TILES.map(t=>`<a class="tile" ${t.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="#productos" data-go="${esc(t.go)}"`}><img src="fotos/${esc(t.f)}" alt="" loading="lazy"><span><b>${esc(t.t)}</b><small>${esc(t.s)}</small></span></a>`).join('');
+$('#gal').innerHTML=GAL.map(g=>`<figure class="${g.tall?'tall':''}"><img src="fotos/${esc(g.f)}" alt="${esc(g.t)}" loading="lazy"><figcaption>${esc(g.t)}</figcaption></figure>`).join('');
 for(const im of document.querySelectorAll('#slides img')){const gone=()=>{(im.closest('.frame')||im).remove()};im.addEventListener('error',gone);if(im.complete&&!im.naturalWidth)gone()}
+
+// carrusel
 $('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
 const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('#dots button')];
 let cur=0,timer=null;const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -312,12 +448,19 @@ const hero=$('#inicio');hero.addEventListener('mouseenter',()=>clearInterval(tim
 let sx=null;hero.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
 hero.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));play()}sx=null});
 hero.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);play()}if(e.key==='ArrowRight'){show(cur+1);play()}});
+
+// menú: marca la sección visible
+const links=[...document.querySelectorAll('#menu a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const spy=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){const id='#'+e.target.id;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')===id))}},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>spy.observe(s));links[0].classList.add('on');
+
+// catálogo y carrito
 let cat='Todos',query='',only=false,cart={};
 try{cart=JSON.parse(localStorage.getItem('lareina-cart')||'{}')||{}}catch(e){cart={}}
 const save=()=>{try{localStorage.setItem('lareina-cart',JSON.stringify(cart))}catch(e){}};
 const byId=id=>P.find(p=>p.id===id);
 let tt;const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),1800)};
-
 function renderChips(){$('#chips').innerHTML=CATS.map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('')}
 function renderGrid(){
   const q=query.trim().toLowerCase();
@@ -351,7 +494,6 @@ function orderText(){
   return ['Hola, Mercería La Reina. Quiero hacer este pedido:',...items().map(({p,q})=>`• ${q} x ${p.n} — ${rd(p.p*q)}`),`Total: ${rd(total())}`,`Nombre: ${v('#fn')}`,`Teléfono: ${v('#fp')}`,`Entrega: ${v('#fd')}`,v('#fa')&&`Dirección: ${v('#fa')}`,v('#fx')&&`Nota: ${v('#fx')}`].filter(Boolean).join('\n');
 }
 const setOpen=o=>{document.body.classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);if(o)$('#closeCart').focus()};
-
 document.addEventListener('click',e=>{
   const t=e.target.closest('button');if(!t)return;
   const d=t.dataset;
@@ -373,16 +515,22 @@ $('#closeCart').addEventListener('click',()=>setOpen(false));
 $('#veil').addEventListener('click',()=>setOpen(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
 
+// enlaces de WhatsApp y accesos a categorías
 const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
 for(const a of document.querySelectorAll('[data-wa]'))a.href=hello;
+$('#fWa').href=hello;
 for(const a of document.querySelectorAll('[data-go]'))a.addEventListener('click',()=>{cat=a.dataset.go;renderChips();renderGrid()});
+
+// sucursales
+const tel=t=>'tel:+1'+t.replace(/-/g,'');
 const nowDR=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Santo_Domingo'}));return {w:d.getDay(),h:d.getHours()+d.getMinutes()/60}};
 const renderSuc=()=>{const {w,h:hr}=nowDR();$('#branches').innerHTML=SUC.map(s=>{const r=s.o[w],op=r&&hr>=r[0]&&hr<r[1];
  return `<article class="br"><span class="st ${op?'open':''}">${op?'Abierto ahora':'Cerrado ahora'}</span><h3>${esc(s.n)}</h3><div>${esc(s.a)}</div>
- <a class="ph" href="tel:+1${s.t.replace(/-/g,'')}">${esc(s.t)}</a>
+ <a class="ph" href="${tel(s.t)}">${esc(s.t)}</a>
  <table class="hours">${s.h.map(x=>`<tr><td>${esc(x[0])}</td><td>${esc(x[1])}</td></tr>`).join('')}</table>
- <div class="acts"><a class="btn" href="tel:+1${s.t.replace(/-/g,'')}">Llamar</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.m)}">Cómo llegar</a></div></article>`}).join('')};
+ <div class="acts"><a class="btn" href="${tel(s.t)}">Llamar</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.m)}">Cómo llegar</a></div></article>`}).join('')};
 renderSuc();setInterval(renderSuc,60000);
+$('#fSuc').innerHTML=SUC.map(s=>`<li>${esc(s.a)} · <a href="${tel(s.t)}">${esc(s.t)}</a></li>`).join('');
 $('#yr').textContent=new Date().getFullYear();
 renderChips();renderGrid();renderCart();
 }
