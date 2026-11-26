@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mercería La Reina</title>
-<link rel="icon" href="logo.png">
+<link rel="icon" href="logo-grande.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -56,6 +56,9 @@ nav a:hover{background:var(--blush)}
 .frame{position:absolute;z-index:2;right:max(6vw,84px);top:50%;height:82%;aspect-ratio:9/15;transform:translateY(-50%) rotate(2.5deg);border:8px solid #fff;border-radius:10px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.45);background:#fff}
 .frame img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform 7s linear}
 .slide.on .frame img{transform:scale(1.14)}
+.frame.lg{aspect-ratio:auto;height:auto;width:min(40%,520px);padding:clamp(16px,3vw,40px);border-width:0;border-radius:24px}
+.frame.lg img{height:auto;object-fit:contain}
+.slide.on .frame.lg img{transform:scale(1.06)}
 .slide.on .frame{animation:pop .9s both}
 @keyframes pop{from{opacity:0;transform:translateY(-44%) rotate(6deg)}}
 .art{position:absolute;right:7%;top:50%;width:min(34%,400px);height:auto;transform:translateY(-50%)}
@@ -73,7 +76,7 @@ nav a:hover{background:var(--blush)}
 .dots button{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;padding:0}
 .dots button::after{content:"";width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.5);transition:width .3s}
 .dots button[aria-current=true]::after{width:30px;background:#fff}
-@media(max-width:600px){.hero{height:580px}.frame{right:18px;top:auto;bottom:56px;height:46%;transform:rotate(2.5deg);border-width:6px}@keyframes pop{from{opacity:0;transform:translateY(6%) rotate(6deg)}}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:0 22px 60px;justify-content:flex-start;padding-top:48px}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.7),rgba(60,0,38,.2) 70%)}}
+@media(max-width:600px){.hero{height:580px}.frame{right:18px;top:auto;bottom:56px;height:46%;transform:rotate(2.5deg);border-width:6px}.frame.lg{left:22px;right:22px;width:auto;height:auto;bottom:70px}@keyframes pop{from{opacity:0;transform:translateY(6%) rotate(6deg)}}.art{width:78%;right:-8%;top:auto;bottom:40px;transform:none;opacity:.55}.copy{padding:0 22px 60px;justify-content:flex-start;padding-top:48px}.arr{display:none}.shade{background:linear-gradient(180deg,rgba(60,0,38,.7),rgba(60,0,38,.2) 70%)}}
 @media(prefers-reduced-motion:reduce){.slide.on .bg,.slide.on .frame img{transform:none}}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 /* nosotros */
@@ -149,7 +152,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 <body>
 <header>
   <div class="bar">
-    <a class="logo" href="#inicio"><img src="logo.png" alt="La Reina Mercería" width="132" height="56"></a>
+    <a class="logo" href="#inicio"><img src="logo-grande.png" alt="La Reina Mercería" width="132" height="56"></a>
     <nav aria-label="Principal">
       <a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
     </nav>
@@ -279,6 +282,7 @@ const ICON={
 };
 // Portada: cada diapositiva usa una foto de la carpeta "fotos/". Mientras falte, se ve un fondo ilustrado.
 const SL=[
+ {logo:'logo-grande.png',t:'Bienvenidos a Mercería La Reina',d:'Tres sucursales con todo para coser, bordar, tejer y crear. Te esperamos.',b:'Ver sucursales',h:'#contacto',g:['#b5127a','#6e0a49']},
  {f:'tienda.jpg',t:'Todo para coser, bordar y crear',d:'Hilos, botones, cintas, encajes, cierres y herramientas en un solo lugar.',b:'Ver productos',h:'#productos',i:'spool',k:'#fff',g:['#b5127a','#6e0a49']},
  {f:'cintas.jpg',t:'Cintas de todos los colores',d:'Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.',b:'Ver cintas',h:'#productos',c:'Cintas y encajes',i:'ribbon',k:'#fff',g:['#8a0d5c','#b5127a']},
  {f:'cuentas.jpg',t:'Cuentas para bisutería',d:'Hileras de cuentas en cristal y colores para collares, pulseras y aretes.',b:'Consultar por WhatsApp',wa:1,i:'button',k:'#fff',g:['#3f8f27','#2f6d1c']},
@@ -286,8 +290,8 @@ const SL=[
  {t:'Precios especiales al por mayor',d:'Para talleres, fábricas, escuelas y revendedores.',b:'Ver servicios',h:'#servicios',i:'tape',k:'#e0a526',g:['#6e0a49','#8a0d5c']}
 ];
 $('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
- <div class="bg" style="background:linear-gradient(120deg,${s.g[0]},${s.g[1]})">${s.f?`<img class="blur" src="fotos/${esc(s.f)}" alt="">`:`<svg class="art" viewBox="0 0 100 100" aria-hidden="true">${ICON[s.i](s.k)}</svg>`}</div>
- ${s.f?`<div class="frame"><img src="fotos/${esc(s.f)}" alt="${esc(s.t)}"></div>`:''}
+ <div class="bg" style="background:linear-gradient(120deg,${s.g[0]},${s.g[1]})">${s.f?`<img class="blur" src="fotos/${esc(s.f)}" alt="">`:s.i?`<svg class="art" viewBox="0 0 100 100" aria-hidden="true">${ICON[s.i](s.k)}</svg>`:''}</div>
+ ${s.logo?`<div class="frame lg"><img src="${esc(s.logo)}" alt="La Reina Mercería"></div>`:s.f?`<div class="frame"><img src="fotos/${esc(s.f)}" alt="${esc(s.t)}"></div>`:''}
  <div class="shade"></div>
  <div class="copy"><h${j?2:1}>${esc(s.t)}</h${j?2:1}><p>${esc(s.d)}</p><a class="btn" ${s.wa?'data-wa="1" target="_blank" rel="noopener" href="#"':`href="${s.h}"`} ${s.c?`data-go="${esc(s.c)}"`:''}>${esc(s.b)}</a></div></div>`).join('');
 for(const im of document.querySelectorAll('#slides img')){const gone=()=>{(im.closest('.frame')||im).remove()};im.addEventListener('error',gone);if(im.complete&&!im.naturalWidth)gone()}
