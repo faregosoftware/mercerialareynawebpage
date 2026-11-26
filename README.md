@@ -13,3 +13,6 @@ En `index.html`, al inicio del `<script>`:
 
 ## Publicar con GitHub Pages
 Settings → Pages → Branch: `main` / root. El sitio queda en `https://<usuario>.github.io/mercerialareynawebpage/`.
+
+## Collage de fotos
+Las fotos van en la carpeta `fotos/` con los nombres indicados en `fotos/LEEME.md`. Para cambiar textos o nombres, edita la lista `GAL` en `index.html`.
