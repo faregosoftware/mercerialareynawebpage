@@ -106,13 +106,19 @@ nav a:hover{background:var(--blush)}
 .svc p{color:var(--soft);margin:8px 0 0}
 /* contacto */
 .contact{background:#2f6d1c;color:#fff}
-.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:20px}
-.cgrid dl{margin:0;display:grid;gap:14px}
-.cgrid dt{font-weight:800}.cgrid dd{margin:0;color:#e4f5dc}
-.hours{width:100%;border-collapse:collapse}
-.hours td{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.lead{color:#e4f5dc;margin:10px 0 0}.lead.small{font-size:15px;margin-top:18px}
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin-top:24px}
+.br{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.br h3{color:#fff}
+.br .ph{font-weight:800;font-size:19px;white-space:nowrap;color:#fff;text-decoration:none}
+.st{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.16)}
+.st.open{background:#e0a526;color:#2a1017}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.2);color:#e4f5dc}
 .hours td:last-child{text-align:right;white-space:nowrap}
-@media(max-width:700px){.cgrid{grid-template-columns:1fr}}
+.br .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.br .btn{background:#fff;color:#2f6d1c;border-color:#fff;flex:1}
+.br .btn.ghost{background:transparent;color:#fff}
 footer{background:var(--red2);color:#ffe0f0;text-align:center;font-size:15px}
 /* carrito */
 .veil{position:fixed;inset:0;background:rgba(20,5,10,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
@@ -180,7 +186,7 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
       <label class="toggle"><input type="checkbox" id="onlySale"> Solo venta en línea</label>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="note">Productos, precios y datos de contacto son de ejemplo: se reemplazan con el inventario real de la tienda.</p>
+    <p class="note">Productos y precios de ejemplo: se reemplazan con el inventario real de la tienda.</p>
   </div>
 </section>
 
@@ -197,20 +203,10 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 
 <section class="band contact" id="contacto">
   <div class="wrap">
-    <h2>Visítanos o escríbenos</h2>
-    <div class="cgrid">
-      <dl>
-        <div><dt>Dirección</dt><dd id="cAddr"></dd></div>
-        <div><dt>Teléfono y WhatsApp</dt><dd id="cPhone"></dd></div>
-        <div><dt>Correo</dt><dd id="cMail"></dd></div>
-        <div><a class="btn wa" id="contactWa" href="#">Abrir WhatsApp</a></div>
-      </dl>
-      <table class="hours" aria-label="Horario">
-        <tr><td>Lunes a viernes</td><td>8:30 a. m. – 6:00 p. m.</td></tr>
-        <tr><td>Sábado</td><td>8:30 a. m. – 4:00 p. m.</td></tr>
-        <tr><td>Domingo y feriados</td><td>Cerrado</td></tr>
-      </table>
-    </div>
+    <h2>Nuestras sucursales</h2>
+    <p class="lead">Visítanos en cualquiera de nuestras tres tiendas o llámanos.</p>
+    <div class="branches" id="branches"></div>
+    <p class="lead small">Domingos: cerrado.</p>
   </div>
 </section>
 
@@ -226,7 +222,17 @@ form.co input,form.co select,form.co textarea{padding:10px 12px;border-radius:12
 
 <script>
 {
-const CFG={wa:'18095550123',phone:'809-555-0123',mail:'ventas@merceriaLaReina.do',addr:'Calle Duarte #45, Zona Colonial, Santo Domingo'};
+// WhatsApp para pedidos (por ahora, el de la sucursal Restauración). Formato: 1 + número sin guiones.
+const CFG={wa:'18097248283'};
+// Sucursales. Horario: [día 0=domingo..6=sábado] -> [abre, cierra] en horas (8.5 = 8:30).
+const SUC=[
+ {n:'Calle Restauración',a:'Calle Restauración #39',m:'Calle Restauración 39, República Dominicana',t:'809-724-8283',
+  h:[['Lunes a viernes','8:30 a. m. – 6:00 p. m.'],['Sábado','8:30 a. m. – 5:00 p. m.']],o:{1:[8.5,18],2:[8.5,18],3:[8.5,18],4:[8.5,18],5:[8.5,18],6:[8.5,17]}},
+ {n:'Av. Rafael Vidal',a:'Av. Rafael Vidal esq. Calle #7',m:'Avenida Rafael Vidal esquina Calle 7, República Dominicana',t:'809-382-3277',
+  h:[['Lunes a viernes','8:30 a. m. – 6:00 p. m.'],['Sábado','9:00 a. m. – 6:00 p. m.']],o:{1:[8.5,18],2:[8.5,18],3:[8.5,18],4:[8.5,18],5:[8.5,18],6:[9,18]}},
+ {n:'Calle Beller',a:'Calle Beller #110',m:'C. Beller 73, República Dominicana',t:'809-241-5077',
+  h:[['Lunes a sábado','9:00 a. m. – 6:00 p. m.']],o:{1:[9,18],2:[9,18],3:[9,18],4:[9,18],5:[9,18],6:[9,18]}}
+];
 const CATS=['Todos','Hilos y estambres','Botones','Cintas y encajes','Cierres','Herramientas','Telas'];
 const P=[
  {id:'h1',n:'Hilo de coser poliéster 500 yd',c:'Hilos y estambres',p:65,v:1,i:'spool',k:'#b5127a',d:'Resistente, para máquina y a mano. Varios colores.'},
@@ -320,7 +326,7 @@ function renderCart(){
    `<form class="co" id="co"><h3>Datos para el pedido</h3>
     <label>Nombre<input id="fn" required autocomplete="name"></label>
     <label>Teléfono<input id="fp" required type="tel" autocomplete="tel" placeholder="809-000-0000"></label>
-    <label>Entrega<select id="fd"><option>Retiro en tienda</option><option>Envío a domicilio (costo según zona)</option></select></label>
+    <label>Entrega<select id="fd">${SUC.map(s=>`<option>Retiro en ${esc(s.n)}</option>`).join('')}<option>Envío a domicilio (costo según zona)</option></select></label>
     <label>Dirección o sector (si es envío)<input id="fa"></label>
     <label>Nota<textarea id="fx" rows="2" placeholder="Colores, tallas o detalles"></textarea></label>
     <button class="btn" type="submit">Preparar pedido</button><div id="out"></div></form>`;
@@ -354,10 +360,15 @@ $('#veil').addEventListener('click',()=>setOpen(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
 
 const hello=waLink('Hola, Mercería La Reina. Quisiera información.');
-$('#contactWa').href=hello;$('#contactWa').target='_blank';$('#contactWa').rel='noopener';
 for(const a of document.querySelectorAll('[data-wa]'))a.href=hello;
 for(const a of document.querySelectorAll('[data-go]'))a.addEventListener('click',()=>{cat=a.dataset.go;renderChips();renderGrid()});
-$('#cAddr').textContent=CFG.addr;$('#cPhone').textContent=CFG.phone;$('#cMail').textContent=CFG.mail;
+const nowDR=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Santo_Domingo'}));return {w:d.getDay(),h:d.getHours()+d.getMinutes()/60}};
+const renderSuc=()=>{const {w,h:hr}=nowDR();$('#branches').innerHTML=SUC.map(s=>{const r=s.o[w],op=r&&hr>=r[0]&&hr<r[1];
+ return `<article class="br"><span class="st ${op?'open':''}">${op?'Abierto ahora':'Cerrado ahora'}</span><h3>${esc(s.n)}</h3><div>${esc(s.a)}</div>
+ <a class="ph" href="tel:+1${s.t.replace(/-/g,'')}">${esc(s.t)}</a>
+ <table class="hours">${s.h.map(x=>`<tr><td>${esc(x[0])}</td><td>${esc(x[1])}</td></tr>`).join('')}</table>
+ <div class="acts"><a class="btn" href="tel:+1${s.t.replace(/-/g,'')}">Llamar</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.m)}">Cómo llegar</a></div></article>`}).join('')};
+renderSuc();setInterval(renderSuc,60000);
 $('#yr').textContent=new Date().getFullYear();
 renderChips();renderGrid();renderCart();
 }
