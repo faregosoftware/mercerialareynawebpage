@@ -1,8 +1,15 @@
 # Panel de contenido de Mercería La Reina (Pages CMS: https://app.pagescms.org)
 media:
-  input: fotos
-  output: fotos
-  extensions: [jpg, jpeg, png, webp, svg]
+  - name: fotos
+    label: Fotos
+    input: fotos
+    output: fotos
+    extensions: [jpg, jpeg, png, webp, svg]
+  - name: videos
+    label: Videos
+    input: videos
+    output: videos
+    extensions: [mp4, webm]
 
 content:
   # ---------------------------------------------------------------- PRODUCTOS
@@ -110,6 +117,9 @@ content:
           - name: foto
             label: Foto de fondo (mejor horizontal, 1600 px de ancho o más)
             type: image
+          - name: marco
+            label: Mostrar la foto completa en un marco (para fotos verticales)
+            type: boolean
           - name: titulo
             label: Título
             type: string
@@ -146,6 +156,13 @@ content:
             options:
               multiple:
                 max: 8
+          - name: videos
+            label: Videos (se intercalan con las fotos; MP4, idealmente menos de 20 MB)
+            type: file
+            options:
+              media: videos
+              multiple:
+                max: 4
           - name: parrafos
             label: Párrafos
             type: text

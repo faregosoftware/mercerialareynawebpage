@@ -66,6 +66,12 @@ nav a.on{background:var(--red);color:#fff}
 .slide.on .bg{animation:zoom 7s ease-out both}
 @keyframes zoom{from{transform:scale(1)}to{transform:scale(1.18)}}
 .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide.framed .bg img{filter:blur(22px) brightness(.7);transform:scale(1.1)}
+.pframe{position:absolute;z-index:2;right:max(6vw,84px);top:55%;height:76%;aspect-ratio:3/4;transform:translateY(-50%) rotate(2deg);border:8px solid #fff;border-radius:12px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.45);background:#fff}
+.pframe img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.slide.on .pframe{animation:pop .9s both}
+@keyframes pop{from{opacity:0;transform:translateY(-44%) rotate(6deg)}}
+@media(max-width:1000px){.pframe{display:none}.slide.framed .bg img{filter:none;transform:none}}
 .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,6,16,.78) 0%,rgba(20,6,16,.55) 50%,rgba(20,6,16,.35) 100%)}
 .copy{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:140px max(5vw,64px) 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .copy h1,.copy h2{font-size:clamp(30px,4.6vw,58px);color:#fff;text-transform:uppercase;max-width:15em;letter-spacing:.005em}
@@ -88,8 +94,9 @@ nav a.on{background:var(--red);color:#fff}
 .story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .story .pic{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:560px;box-shadow:0 20px 40px rgba(80,0,50,.18)}
 .story .pic{position:relative;background:var(--blush)}
-.story .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.1s}
+.story .pic img,.story .pic video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.1s}
 .story .pic img.on{opacity:1;animation:zoom 6s ease-out both}
+.story .pic video.on{opacity:1}
 .pdots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px;z-index:2}
 .pdots i{width:9px;height:9px;border-radius:999px;background:rgba(255,255,255,.55);transition:width .3s}
 .pdots i.on{width:24px;background:#fff}
@@ -346,8 +353,8 @@ function start(S,PR){
 
   // portada
   const SL=S.portada||[];
-  $('#slides').innerHTML=SL.map((s,j)=>`<div class="slide" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
-   <div class="bg"><img src="${src(s.foto)}" alt="" style="object-position:${/equipo/.test(s.foto)?'right 35%':'center'}"></div><div class="shade"></div>
+  $('#slides').innerHTML=SL.map((s,j)=>`<div class="slide${s.marco?' framed':''}" role="group" aria-roledescription="diapositiva" aria-label="${j+1} de ${SL.length}">
+   <div class="bg"><img src="${src(s.foto)}" alt="" style="object-position:${/equipo-(ancho|cintas)/.test(s.foto)?'right 35%':s.marco?'center 40%':'center'}"></div><div class="shade"></div>${s.marco?`<div class="pframe"><img src="${src(s.foto)}" alt="${esc(s.titulo)}"></div>`:''}
    <div class="copy"><h${j?2:1}>${esc(s.titulo)}</h${j?2:1}><p>${esc(s.texto)}</p>${s.boton?`<a ${action(s,'btn')}>${esc(s.boton)}</a>`:''}</div></div>`).join('');
   $('#dots').innerHTML=SL.map((s,j)=>`<button data-dot="${j}" aria-label="Ir a la diapositiva ${j+1}"></button>`).join('');
   const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('#dots button')];
@@ -365,11 +372,20 @@ function start(S,PR){
 
   // historia, misión, visión, valores
   const H=S.historia||{};
-  const HF=[].concat(H.fotos||H.foto||[]).filter(Boolean);
-  $('#story').innerHTML=`<div class="pic">${HF.map((f,k)=>`<img src="${src(f)}" alt="Foto de Mercería La Reina" class="${k?'':'on'}">`).join('')}${HF.length>1?`<div class="pdots">${HF.map((f,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div><div><h2>${esc(H.titulo)}</h2><p class="sub">${esc(H.subtitulo)}</p>${(H.parrafos||[]).map(t=>`<p>${esc(t)}</p>`).join('')}${H.nota?`<p class="note">${esc(H.nota)}</p>`:''}</div>`;
-  {const ims=[...document.querySelectorAll('#story .pic img')],ds=[...document.querySelectorAll('#story .pdots i')];let k=0,t=null;
-   const step=()=>{ims[k].classList.remove('on');ds[k]?.classList.remove('on');k=(k+1)%ims.length;ims[k].classList.add('on');ds[k]?.classList.add('on')};
-   if(ims.length>1&&!still){const io=new IntersectionObserver(([e])=>{clearInterval(t);if(e.isIntersecting)t=setInterval(step,4000)},{threshold:.4});io.observe($('#story .pic'))}}
+  const HF=[].concat(H.fotos||H.foto||[]).filter(Boolean),HV=[].concat(H.videos||[]).filter(Boolean),HM=[];
+  // los videos se intercalan: uno al inicio y luego uno cada 3 fotos
+  {let v=0;HF.forEach((f,k)=>{if(k%3===0&&v<HV.length)HM.push(HV[v++]);HM.push(f)});while(v<HV.length)HM.push(HV[v++])}
+  const isVid=f=>/\.(mp4|webm)$/i.test(f);
+  $('#story').innerHTML=`<div class="pic">${HM.map((f,k)=>isVid(f)?`<video src="${src(f)}" poster="${src(f.replace(/\.(mp4|webm)$/i,'.jpg'))}" muted playsinline preload="none" class="${k?'':'on'}" aria-label="Video de Mercería La Reina"></video>`:`<img src="${src(f)}" alt="Foto de Mercería La Reina" class="${k?'':'on'}">`).join('')}${HM.length>1?`<div class="pdots">${HM.map((f,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div><div><h2>${esc(H.titulo)}</h2><p class="sub">${esc(H.subtitulo)}</p>${(H.parrafos||[]).map(t=>`<p>${esc(t)}</p>`).join('')}${H.nota?`<p class="note">${esc(H.nota)}</p>`:''}</div>`;
+  {const ims=[...document.querySelectorAll('#story .pic>img,#story .pic>video')],ds=[...document.querySelectorAll('#story .pdots i')];let k=0,t=null,vis=false;
+   const isV=el=>el.tagName==='VIDEO';
+   const arm=()=>{clearTimeout(t);if(!vis)return;const el=ims[k];
+     if(isV(el)){el.play().catch(()=>{});const left=isFinite(el.duration)?(el.duration-el.currentTime)*1000:20000;t=setTimeout(step,Math.min(20000,Math.max(3000,left)))}
+     else if(ims.length>1&&!still)t=setTimeout(step,4000)};
+   const step=()=>{const el=ims[k];if(isV(el)){el.pause();if(el.ended||el.duration-el.currentTime<2)el.currentTime=0}
+     el.classList.remove('on');ds[k]?.classList.remove('on');k=(k+1)%ims.length;ims[k].classList.add('on');ds[k]?.classList.add('on');arm()};
+   ims.filter(isV).forEach(v=>v.addEventListener('ended',()=>{if(ims[k]===v)step()}));
+   if(ims.length){const io=new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(!vis){clearTimeout(t);ims.filter(isV).forEach(v=>v.pause())}else arm()},{threshold:.4});io.observe($('#story .pic'))}}
   $('#mvv').innerHTML=`<article class="mv"><div class="ic" style="background:var(--red)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Misión</h3><p>${esc(S.mision)}</p></article>
    <article class="mv"><div class="ic" style="background:var(--green)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Visión</h3><p>${esc(S.vision)}</p></article>
    <article class="mv"><div class="ic" style="background:var(--gold)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M3 19l2-11 5 5 2-8 2 8 5-5 2 11z"/></svg></div><h3>Valores</h3><ul>${(S.valores||[]).map(v=>`<li><b>${esc(v.nombre)}:</b> ${esc(v.texto)}</li>`).join('')}</ul></article>`;

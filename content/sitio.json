@@ -8,7 +8,8 @@
       "texto": "Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.",
       "boton": "Contáctanos",
       "destino": "Contacto",
-      "categoria": "Todos"
+      "categoria": "Todos",
+      "marco": false
     },
     {
       "foto": "fotos/cintas-carretes.jpg",
@@ -16,7 +17,8 @@
       "texto": "Satín, grosgrain, lunares, rayas y zigzag para lazos, regalos, decoración y manualidades.",
       "boton": "Ver cintas",
       "destino": "Productos",
-      "categoria": "Cintas y encajes"
+      "categoria": "Cintas y encajes",
+      "marco": false
     },
     {
       "foto": "fotos/collares.jpg",
@@ -24,7 +26,8 @@
       "texto": "Collares, pulseras, aretes y cuentas para crear tus propias piezas o regalar.",
       "boton": "Ver bisutería",
       "destino": "Productos",
-      "categoria": "Cuentas y bisutería"
+      "categoria": "Cuentas y bisutería",
+      "marco": false
     },
     {
       "foto": "fotos/papel-foami.jpg",
@@ -32,7 +35,8 @@
       "texto": "Foami, papel de colores, pinceles, letras de MDF y todo para tus proyectos escolares y creativos.",
       "boton": "Ver productos",
       "destino": "Productos",
-      "categoria": "Todos"
+      "categoria": "Todos",
+      "marco": false
     },
     {
       "foto": "fotos/cajas-regalo.jpg",
@@ -40,15 +44,17 @@
       "texto": "Cajas, envolturas, tazas y detalles para cada ocasión.",
       "boton": "Escríbenos por WhatsApp",
       "destino": "WhatsApp",
-      "categoria": "Todos"
+      "categoria": "Todos",
+      "marco": false
     },
     {
-      "foto": "fotos/equipo-cintas.jpg",
+      "foto": "fotos/nuestro-equipo.jpg",
       "titulo": "Te atiende nuestro equipo",
       "texto": "Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.",
       "boton": "Escríbenos por WhatsApp",
       "destino": "WhatsApp",
-      "categoria": "Todos"
+      "categoria": "Todos",
+      "marco": true
     }
   ],
   "historia": {
@@ -57,6 +63,8 @@
     "fotos": [
       "fotos/encajes.jpg",
       "fotos/estambres.jpg",
+      "fotos/letras-escarcha.jpg",
+      "fotos/bolsas-regalo.jpg",
       "fotos/letras-mdf.jpg",
       "fotos/pinceles.jpg",
       "fotos/bisuteria-pared.jpg",
@@ -67,7 +75,11 @@
       "Con el tiempo fuimos ampliando el surtido con cintas, encajes, cuentas para bisutería y materiales para manualidades, y hoy te atendemos en tres sucursales.",
       "Nuestro compromiso sigue siendo el mismo: variedad, buenos precios y una atención cercana, para que cada proyecto quede como lo imaginaste."
     ],
-    "nota": "Texto de ejemplo: con el año de fundación y la historia real de la tienda lo dejamos exacto."
+    "nota": "Texto de ejemplo: con el año de fundación y la historia real de la tienda lo dejamos exacto.",
+    "videos": [
+      "videos/recorrido-tienda-1.mp4",
+      "videos/recorrido-tienda-2.mp4"
+    ]
   },
   "mision": "Ofrecer a nuestros clientes los artículos de mercería, cintas, cuentas y manualidades que necesitan, con variedad, calidad y buen precio, ayudándoles a convertir cada idea en un trabajo bien hecho.",
   "vision": "Ser la mercería preferida de nuestra comunidad, reconocida por su surtido, su servicio cercano y por estar siempre al día con lo que buscan quienes cosen y crean.",
