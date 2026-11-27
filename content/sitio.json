@@ -3,7 +3,7 @@
   "whatsapp_visible": "809-724-8283",
   "portada": [
     {
-      "foto": "fotos/tienda.jpg",
+      "foto": "fotos/cuentas-sombreros.jpg",
       "titulo": "Explora todo lo que Mercería La Reina puede ofrecerte para tu emprendimiento personal",
       "texto": "Descubre hilos, botones, cintas, encajes, cuentas y todo lo que necesitas para coser, bordar, tejer y crear en nuestras tres sucursales.",
       "boton": "Contáctanos",
@@ -11,23 +11,39 @@
       "categoria": "Todos"
     },
     {
-      "foto": "fotos/cintas.jpg",
+      "foto": "fotos/cintas-carretes.jpg",
       "titulo": "Cintas de todos los colores",
-      "texto": "Lunares, rayas, zigzag y lisas, para lazos, regalos, decoración y manualidades.",
+      "texto": "Satín, grosgrain, lunares, rayas y zigzag para lazos, regalos, decoración y manualidades.",
       "boton": "Ver cintas",
       "destino": "Productos",
       "categoria": "Cintas y encajes"
     },
     {
-      "foto": "fotos/cuentas.jpg",
-      "titulo": "Cuentas para bisutería",
-      "texto": "Hileras de cuentas en cristal y colores para collares, pulseras y aretes.",
-      "boton": "Ver cuentas",
+      "foto": "fotos/collares.jpg",
+      "titulo": "Bisutería y accesorios",
+      "texto": "Collares, pulseras, aretes y cuentas para crear tus propias piezas o regalar.",
+      "boton": "Ver bisutería",
       "destino": "Productos",
       "categoria": "Cuentas y bisutería"
     },
     {
-      "foto": "fotos/equipo-ancho.svg",
+      "foto": "fotos/papel-foami.jpg",
+      "titulo": "Papelería y manualidades",
+      "texto": "Foami, papel de colores, pinceles, letras de MDF y todo para tus proyectos escolares y creativos.",
+      "boton": "Ver productos",
+      "destino": "Productos",
+      "categoria": "Todos"
+    },
+    {
+      "foto": "fotos/cajas-regalo.jpg",
+      "titulo": "Regalos y decoración",
+      "texto": "Cajas, envolturas, tazas y detalles para cada ocasión.",
+      "boton": "Escríbenos por WhatsApp",
+      "destino": "WhatsApp",
+      "categoria": "Todos"
+    },
+    {
+      "foto": "fotos/equipo-cintas.jpg",
       "titulo": "Te atiende nuestro equipo",
       "texto": "Te ayudamos a encontrar el color exacto y lo que necesitas para tu trabajo.",
       "boton": "Escríbenos por WhatsApp",
@@ -39,9 +55,12 @@
     "titulo": "Nuestra Historia",
     "subtitulo": "Una mercería de confianza para ayudarte",
     "fotos": [
-      "fotos/tienda.jpg",
-      "fotos/cintas.jpg",
-      "fotos/cuentas.jpg"
+      "fotos/encajes.jpg",
+      "fotos/estambres.jpg",
+      "fotos/letras-mdf.jpg",
+      "fotos/pinceles.jpg",
+      "fotos/bisuteria-pared.jpg",
+      "fotos/tirantes-corbatines.jpg"
     ],
     "parrafos": [
       "Mercería La Reina nació con una idea sencilla: que costureras, modistas, artesanos, estudiantes y familias encuentren en un solo lugar todo lo que necesitan para coser, bordar, tejer y crear.",
